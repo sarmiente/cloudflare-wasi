@@ -1,0 +1,32 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+import type { RouteKey } from '../../i18n/utils';
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+---
+
+<section class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl p-8 py-48 lg:items-center">
+      <div class="mx-auto max-w-xl text-center">
+        <span class="text-sm font-pattern uppercase">
+          Texto
+        </span>
+        
+        <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-3xl">
+          Texto
+        </h2>
+  
+        <div class="mt-8 flex flex-wrap justify-center gap-2">
+          <!-- Usar rutas validadas mediante el tipo RouteKey -->
+          <a 
+  href={translatePath(`/${'about' as RouteKey}/`)}
+  class="hover:text-primary-500 transition-colors"
+>
+  {t('nav.about')}
+</a>
+        </div>
+      </div>
+    </div>
+</section>

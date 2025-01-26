@@ -1,0 +1,18 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+
+---
+<Layout title="About EN">
+    <a
+    class="block uppercase font-hero w-full rounded bg-[#60C11C] px-12 py-3 text-sm font-medium text-white shadow hover:bg-[#000080] focus:outline-none focus:ring active:bg-[#000080] sm:w-auto hover:scale-105 transition"
+    href={translatePath('/')}
+  >
+  {t('nav.home')}
+  </a>
+</Layout>
