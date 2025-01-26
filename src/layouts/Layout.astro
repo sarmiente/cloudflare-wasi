@@ -7,6 +7,7 @@ const { title } = Astro.props;
 
 import "../../src/styles/global.css"
 import Basehead from "../components/layout/BaseHead.astro";
+import Navbar from "../components/ui/Navbar.astro";
 
 
 const currentLang = Astro.currentLocale || "es";
@@ -20,9 +21,38 @@ const currentLang = Astro.currentLocale || "es";
 		
 	</head>
 	<body>
-		
+		<Navbar />
 		<slot />
 		
 	</body>
 </html>
+
+
+<style is:global>
+    /* Estilo para el scrollbar global */
+    html {
+      scroll-behavior: smooth;
+      scrollbar-width: thin; /* Firefox */
+      scrollbar-color: #60C11C #F3F4F6; /* Colores en Firefox */
+    }
+  
+    html::-webkit-scrollbar {
+      width: 8px; /* Ancho de la barra */
+      height: 8px; /* Alto para barras horizontales */
+    }
+  
+    html::-webkit-scrollbar-track {
+      background: #F3F4F6; /* Fondo del track */
+    }
+  
+    html::-webkit-scrollbar-thumb {
+      background-color: #60C11C; /* Color del thumb */
+      border-radius: 4px; /* Bordes redondeados */
+      border: 2px solid #F3F4F6; /* Margen interno para que el thumb no ocupe todo */
+    }
+  
+    html::-webkit-scrollbar-thumb:hover {
+      background-color: #60C11C; /* Cambia el color al pasar el cursor */
+    }
+</style>
 

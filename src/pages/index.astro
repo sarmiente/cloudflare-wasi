@@ -1,16 +1,15 @@
 ---
-
-import LanguagePicker from "../components/LanguagePicker.astro";
-import CenteredHero from "../components/sections/CenteredHero.astro";
 import Layout from "../layouts/Layout.astro";
+import PropertyList from "../components/PropertyList.astro";
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 ---
 
-<Layout title="BR Solutions">
-    <LanguagePicker />
-    <CenteredHero />
+<Layout title=`${t("layout.title")} - BR Solutions`>
+      
+    <PropertyList />
     
-    
-  
 </Layout>

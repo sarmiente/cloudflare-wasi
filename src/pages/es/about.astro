@@ -1,0 +1,13 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+
+---
+<Layout title="About">
+
+</Layout>

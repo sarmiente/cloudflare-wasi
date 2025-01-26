@@ -1,0 +1,218 @@
+---
+// @ts-nocheck
+import { Icon } from "astro-icon/components";
+import Mobile from "./Mobile.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const navItems = {
+  links: [
+    { href: translatePath("/comprar"), text: t("nav.buy") },
+    { href: translatePath("/alquiler"), text: t("nav.rent") },
+    { href: translatePath("/blog"), text: "Blog" },
+  ],
+  dropmenu: [
+    {
+      title: t("nav.services"),
+      dropdown: [
+        { href: translatePath("/gestion-de-propiedades"), text: t("nav.manage") },
+       ]
+    },
+    {
+      title: t("nav.about"),
+      dropdown: [
+        {href: translatePath("/quienes-somos") , text: t("nav.who") },
+        {href: translatePath("/nuestro-equipo") , text: t("nav.team") },
+      ]
+    },
+    {
+      title: t("nav.concierge"),
+      dropdown: [
+        {href: translatePath("/asistencia-diaria"), text: t("nav.daily") },
+        {href: translatePath("/planes-turisticos"), text: t("nav.tourist")},
+        {href: translatePath("/experiencias"), text: t("nav.experiences")},
+      ]
+    },
+    {
+      title: t("nav.transport"),
+      dropdown: [
+          {href: translatePath("/transporte-terrestre") , text: t("nav.land")},
+          {href: translatePath("/transporte-nautico") , text: t("nav.nautical")},
+      ]
+    },
+  ]
+};
+
+const links = navItems.links;
+const dropdowns = navItems.dropmenu[0].dropdown;
+const dropabout = navItems.dropmenu[1].dropdown;
+const dropluxury = navItems.dropmenu[2].dropdown;
+const transportation = navItems.dropmenu[3].dropdown;
+
+---
+
+<nav class="w-full bg-white dark:bg-slate-800 fixed shadow-md p-5 z-10">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between">
+
+      <!-- Logo - Izquierda en Desktop y Mobile -->
+      <a href={translatePath("/")} class="flex-shrink-0">
+        <img width="70" src="/favicon.svg" alt="Logo BR Solutions" />
+      </a>
+
+      <!-- Menú de navegación - Centro en Desktop -->
+      <div class="hidden md:flex md:flex-1 justify-center space-x-4">
+        {links.map((item) => (
+          <a            
+            href={item.href}
+            class="hover:text-main font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
+          >
+            {item.text}
+          </a>
+        ))}
+
+        <!-- Botón de Servicios con Dropdown -->
+        <div class="relative group ">
+          <!-- Botón principal con el título del dropdown -->
+          <button
+            type="button"
+            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+          >
+          {navItems.dropmenu[0].title}
+            <Icon name="arrow" />
+          </button>
+        
+          <!-- Menú desplegable -->
+          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transition-all duration-300 ease-in-out">
+            {dropdowns.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+              >
+                {item.text}
+              </a>
+             
+            ))}
+
+
+        <!-- Boton Dropdown de Conserjeria -->
+
+        <div x-data="dropdown" class="relative" @click.away="open = false" @mouseleave="open = false">
+        
+          <!-- Botón principal con el título del dropdown -->
+        <button
+            @click="toggle"
+            type="button"
+            class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+              {navItems.dropmenu[2].title}
+              <Icon name="arrow" />
+        </button>
+        
+          <!-- Menú desplegable -->
+          <div 
+            x-show="open" x-transition.duration.400ms
+            class="relative">
+                {dropluxury.map((item) => (
+                  <a
+                    href={item.href}
+                    class="px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                  >
+                    {item.text}
+                  </a>
+                ))}
+          </div>
+        </div>
+
+
+            <!-- Botón de Transportes con Dropdown -->
+
+          <div x-data="dropdown" class="relative" @click.away="open = false" @mouseleave="open = false">
+        
+            <!-- Botón principal con el título del dropdown -->
+          <button
+              @click="toggle"
+              type="button"
+              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+                {navItems.dropmenu[3].title}
+                <Icon name="arrow" />
+          </button>
+          
+            <!-- Menú desplegable -->
+            <div 
+              x-show="open" x-transition.duration.400ms
+              class="relative">
+                  {transportation.map((item) => (
+                    <a
+                      href={item.href}
+                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                    >
+                      {item.text}
+                    </a>
+                  ))}
+            </div>
+          </div>
+
+
+        </div>
+        </div>
+
+         <!-- Botón de About con Dropdown -->
+         <div class="relative group">
+          <!-- Botón principal con el título del dropdown -->
+          <button
+            type="button"
+            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+          >
+            {navItems.dropmenu[1].title}
+            <Icon name="arrow" />
+          </button>
+        
+          <!-- Menú desplegable -->
+          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transition-all duration-300 ease-in-out">
+            {dropabout.map((item) => (
+              <a
+                href={item.href}
+                class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+              >
+                {item.text}
+              </a>
+            ))}
+            
+          </div>
+         </div>
+
+        <!-- Botón de Contact Us -->
+         <a
+            href={translatePath("/contacto")}
+            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+          >
+              {t("nav.contact")}
+        </a>
+       
+      </div>
+
+      
+      <!-- Mobile Menu en Mobile -->
+      <div class="md:hidden flex items-center">
+          <Mobile />
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+
+<script is:inline>
+  document.addEventListener('alpine:init', () => {
+      Alpine.data('dropdown', () => ({
+          open: false,
+
+          toggle() {
+              this.open = ! this.open
+          },
+      }))
+  })
+</script>
