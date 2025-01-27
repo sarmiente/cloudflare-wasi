@@ -32,10 +32,10 @@ const properties = Object.keys(data)
 ---
 
 
-<section id="properties" class="py-12">
+<section id="properties" class="py-5">
   <!-- Título del portafolio -->
-  <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
-    {t("proplist.title")}
+  <h2 class="text-center text-xl md:text-3xl font-heading uppercase pb-10">
+    {t("list.title")}
   </h2>
 
   <!-- Filtros y búsqueda -->
@@ -44,7 +44,7 @@ const properties = Object.keys(data)
     <input
       type="search"
       class="search w-full  border border-gray-300 rounded-lg p-2 text-xs focus:outline-none focus:ring focus:ring-green-500 font-pattern"
-      placeholder={t("proplist.search")} />
+      placeholder={t("list.search")} />
 
   </div>
 
@@ -100,7 +100,7 @@ const properties = Object.keys(data)
                   href={translatePath(`/property/${property.id_property}`)}
                   class="bg-[#60C11C] font-pattern uppercase p-1.5 text-xs rounded-md"
                 >
-                  {t("proplist.btn")}
+                  {t("list.btn")}
                 </a>
             </div>
           </div>        
@@ -132,10 +132,10 @@ const properties = Object.keys(data)
 
 
 <!-- Script para habilitar List.js -->
-<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-<script is:inline>
-  // @ts-nocheck
-  // Configuración de List.js
+<script is:inline defer src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+<script>
+  
+  
   var options = {
     valueNames: ['titulo', 'property-id', 'price'], // Clases a buscar
     listClass: 'list', // Clase que contiene los elementos
@@ -144,6 +144,6 @@ const properties = Object.keys(data)
     pagination: true
   };
 
-  
+  // @ts-ignore
   var listProperties = new List('properties', options);
 </script>

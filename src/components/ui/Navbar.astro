@@ -1,7 +1,8 @@
 ---
-// @ts-nocheck
+
 import { Icon } from "astro-icon/components";
 import Mobile from "./Mobile.astro";
+import { languages } from '../../i18n/ui';
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -54,17 +55,17 @@ const transportation = navItems.dropmenu[3].dropdown;
 
 ---
 
-<nav class="w-full bg-white dark:bg-slate-800 fixed shadow-md p-5 z-10">
+<nav class="w-full bg-white fixed shadow-md p-5 z-10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between">
 
       <!-- Logo - Izquierda en Desktop y Mobile -->
       <a href={translatePath("/")} class="flex-shrink-0">
-        <img width="70" src="/favicon.svg" alt="Logo BR Solutions" />
+        <img width="60"  src="/favicon.svg" alt="Logo BR Solutions" />
       </a>
 
       <!-- Menú de navegación - Centro en Desktop -->
-      <div class="hidden md:flex md:flex-1 justify-center space-x-4">
+      <div class="hidden md:flex md:flex-1 justify-center ">
         {links.map((item) => (
           <a            
             href={item.href}
@@ -135,7 +136,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           <button
               @click="toggle"
               type="button"
-              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+              class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
                 {navItems.dropmenu[3].title}
                 <Icon name="arrow" />
           </button>
@@ -164,7 +165,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           <!-- Botón principal con el título del dropdown -->
           <button
             type="button"
-            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+            class="dark:text-white hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
             {navItems.dropmenu[1].title}
             <Icon name="arrow" />
@@ -187,7 +188,7 @@ const transportation = navItems.dropmenu[3].dropdown;
         <!-- Botón de Contact Us -->
          <a
             href={translatePath("/contacto")}
-            class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+            class=" hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
               {t("nav.contact")}
         </a>
@@ -198,6 +199,16 @@ const transportation = navItems.dropmenu[3].dropdown;
       <!-- Mobile Menu en Mobile -->
       <div class="md:hidden flex items-center">
           <Mobile />
+      </div>
+
+      <div class="gap-2 hidden md:flex items-center ">
+        {Object.entries(languages).map(([lang, label]) => (
+           
+              <a href={translatePath('/', lang)}
+              class="hover:text-main text-sm font-pattern font-light uppercase focus:outline-none inline-flex  transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+              >{label}</a>
+           
+          ))}
       </div>
 
     </div>

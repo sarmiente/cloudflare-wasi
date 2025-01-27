@@ -1,6 +1,6 @@
 export const languages = {
-    en: 'English',
-    es: 'Español',
+    en: 'EN',
+    es: 'ES',
   };
   
   export const defaultLang = 'en';
@@ -40,8 +40,26 @@ export const languages = {
         'nav.pqrs': 'Q&A',
         'nav.support': 'Support',
         'nav.rights': 'All rights reserved',
-        'nav.more': 'Learn More'
-      
+        'nav.more': 'Learn More',
+        'list.title' : 'Explore our property portfolio',
+        'list.sale-price': 'Selling price',
+        'list.rent-price': 'Rental price',
+        'list.btn': 'View Property',
+        'list.search': 'Search by title, property ID, or price.',
+        'centered.title': 'Who We Are',
+        'centered.desc': 'Building a visionary legacy in the future of property excellence.',
+        'cta.title': 'Be the first to know',
+        'cta.title-01': 'about our updates!',
+        'cta.desc': 'Subscribe to receive news, offers, and exclusive content directly in your inbox.',
+        'cta.desc-01': 'Sign up to receive updates',
+        'cta.btn': 'Sign up',
+        'cta.name': 'First Name',
+        'cta.lastname': 'Last Name',
+        'cta.phone': 'Cellphone',
+        'cta.msg-label': 'Message',
+        'cta.mail': 'Email Address',
+        'cta.msg': 'We respect your privacy. You can unsubscribe at any time.',
+        'cta.privacy': 'I accept the terms and conditions.'      
     },
     es: {
       'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
@@ -75,7 +93,26 @@ export const languages = {
         'nav.pqrs': 'PQRS',
         'nav.support': 'Soporte',
         'nav.rights': 'Todos los derechos reservados',
-        'nav.more': 'Saber más'
+        'nav.more': 'Saber más',
+        'list.title' : 'Explora nuestro portafolio de propiedades',
+        'list.sale-price': 'Precio de venta',
+        'list.rent-price': 'Precio de alquiler',
+        'list.btn': 'Ver propiedad',
+        'list.search': 'Busca por titulo, ID de propiedad o precio',
+        'centered.title': 'Quiénes somos',
+        'centered.desc': 'Construyendo un legado visionario en el futuro de la excelencia en propiedad.',
+        'cta.title': 'Sé el primero en enterarte',
+        'cta.title-01': 'de nuestras actualizaciones!',
+        'cta.desc': 'Suscríbete para recibir noticias, ofertas y contenido exclusivo directamente en tu bandeja de entrada.',
+        'cta.desc-01': 'Regístrate para recibir actualizaciones',
+        'cta.btn': 'Regístrar',
+        'cta.name': 'Nombre',
+        'cta.lastname': 'Apellido',
+        'cta.phone': 'Teléfono',
+        'cta.msg-label': 'Mensaje',
+        'cta.mail': 'Correo electrónico',
+        'cta.msg': 'Respetamos tu privacidad. Puedes darte de baja en cualquier momento.',
+        'cta.privacy': 'Acepto los términos y condiciones.'
     
     },
   } as const;

@@ -1,9 +1,7 @@
 ---
-
-
 import Layout from "../../layouts/Layout.astro";
-
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import PropertyList from "../../components/PropertyList.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -11,6 +9,5 @@ const t = useTranslations(lang);
 ---
 
 <Layout title=`${t("layout.title")} - BR Solutions`>
- 
-  
+  <PropertyList />  
 </Layout>

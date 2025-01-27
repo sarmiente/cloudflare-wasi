@@ -1,0 +1,32 @@
+---
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+---
+<section class="bg-gray-50">
+    <div class="mx-auto max-w-screen-xl p-8 py-48 lg:items-center">
+      <div class="mx-auto max-w-xl text-center">
+        <span class="text-sm font-pattern uppercase">
+          {t("centered.title")}
+        </span>
+        
+                <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-3xl">
+                  {t("centered.desc")}
+                </h2>
+  
+        <div class="mt-8 flex flex-wrap justify-center ">
+          <a
+            class="block uppercase font-hero w-full rounded bg-main px-12 py-3 text-sm font-medium text-white shadow hover:bg-second focus:outline-none focus:ring active:bg-second sm:w-auto hover:scale-105 transition"
+            href={translatePath("/about")}
+          >
+           {t("nav.more")}
+          </a>
+  
+          
+        </div>
+      </div>
+    </div>
+  </section>

@@ -4,8 +4,10 @@
 
 @theme {
 
-  --color-main: #60C11C;
+  
 
+  --color-main: #60C11C;
+  --color-second: #000080;
 
   --font-display: "Oswald", "sans-serif";
   --font-body: "Roboto Slab";

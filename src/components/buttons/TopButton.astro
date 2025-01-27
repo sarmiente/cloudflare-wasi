@@ -1,0 +1,19 @@
+---
+import Top from "../../icons/top.svg"
+---
+
+
+
+<button type="button" class="z-10 to-top text-main text-3xl fixed bottom-5 left-5 cursor-pointer">
+    <Top size={50}  />    
+</button>
+
+<script is:inline>
+    const btn = document.querySelector(".to-top");
+    btn.addEventListener("click", () => {
+        document.documentElement.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        })
+    });
+</script>
