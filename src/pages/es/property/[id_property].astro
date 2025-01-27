@@ -1,15 +1,15 @@
 ---
 // @ts-nocheck
 
-import Layout from "../../layouts/Layout.astro";
+import Layout from "../../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
-import PropertySwiper from "../../components/sections/PropertySwiper.astro";
-import FeaturesListEng from "../../components/sections/FeaturesListEng.astro"
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../../i18n/utils';
+import PropertySwiper from "../../../components/sections/PropertySwiper.astro";
+import FeaturesList from "../../../components/sections/FeaturesList.astro"
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
+
 
 
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
@@ -126,7 +126,7 @@ await fetchProperty(Astro.params);
       </section>
       
          
-      <FeaturesListEng />
+      <FeaturesList />
 
 
       

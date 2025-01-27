@@ -59,7 +59,12 @@ export const languages = {
         'cta.msg-label': 'Message',
         'cta.mail': 'Email Address',
         'cta.msg': 'We respect your privacy. You can unsubscribe at any time.',
-        'cta.privacy': 'I accept the terms and conditions.'      
+        'cta.privacy': 'I accept the terms and conditions.',
+        
+        "prop.sale": "Selling price",
+        "prop.rent": "Rental price",
+        "prop.btn": "View Property",
+        
     },
     es: {
       'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
@@ -112,7 +117,11 @@ export const languages = {
         'cta.msg-label': 'Mensaje',
         'cta.mail': 'Correo electrónico',
         'cta.msg': 'Respetamos tu privacidad. Puedes darte de baja en cualquier momento.',
-        'cta.privacy': 'Acepto los términos y condiciones.'
+        'cta.privacy': 'Acepto los términos y condiciones.',
+        
+        "prop.sale": 'Precio de venta',
+        "prop.rent": 'Precio de alquiler',
+        "prop.btn": 'Ver propiedad',      
     
     },
   } as const;
