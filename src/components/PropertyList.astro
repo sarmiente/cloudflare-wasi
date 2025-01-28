@@ -54,7 +54,7 @@ const properties = Object.keys(data)
   <!-- Cada propiedad -->
   {properties.map((property: The0) => (
     <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-      <a href={`/property/${property.id_property}`} class="block">
+      <a href={translatePath(`/property/${property.id_property}`)} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
           <img
@@ -130,12 +130,10 @@ const properties = Object.keys(data)
 </section>
 
 
+  
+<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
-<!-- Script para habilitar List.js -->
-<script is:inline defer src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 <script>
-  
-  
   var options = {
     valueNames: ['titulo', 'property-id', 'price'], // Clases a buscar
     listClass: 'list', // Clase que contiene los elementos

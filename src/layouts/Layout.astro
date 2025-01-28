@@ -12,12 +12,14 @@ import Footer from "../components/ui/Footer.astro";
 import WhatsappButton from "../components/buttons/WhatsappButton.astro";
 import TopButton from "../components/buttons/TopButton.astro";
 
-const currentLang = Astro.currentLocale || "es";
+import { getLangFromUrl } from "../i18n/utils"
+
+const lang = getLangFromUrl(Astro.url);
 
 ---
 
 <!doctype html>
-<html lang={currentLang}>
+<html lang={lang}>
 	<head>
 		<Basehead title={title} />
 		

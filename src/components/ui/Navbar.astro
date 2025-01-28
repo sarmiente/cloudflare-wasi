@@ -2,7 +2,8 @@
 
 import { Icon } from "astro-icon/components";
 import Mobile from "./Mobile.astro";
-import { languages } from '../../i18n/ui';
+import LanguagePicker from "../LanguagePicker.astro";
+
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -11,37 +12,37 @@ const translatePath = useTranslatedPath(lang);
 
 const navItems = {
   links: [
-    { href: translatePath("/comprar"), text: t("nav.buy") },
-    { href: translatePath("/alquiler"), text: t("nav.rent") },
-    { href: translatePath("/blog"), text: "Blog" },
+    { href: translatePath("/buy/"), text: t("nav.buy") },
+    { href: translatePath("/rent/"), text: t("nav.rent") },
+    { href: translatePath("/blog/"), text: "Blog" },
   ],
   dropmenu: [
     {
       title: t("nav.services"),
       dropdown: [
-        { href: translatePath("/gestion-de-propiedades"), text: t("nav.manage") },
+        { href: translatePath("/property-management/"), text: t("nav.manage") },
        ]
     },
     {
       title: t("nav.about"),
       dropdown: [
-        {href: translatePath("/quienes-somos") , text: t("nav.who") },
-        {href: translatePath("/nuestro-equipo") , text: t("nav.team") },
+        {href: translatePath("/who-we-are/") , text: t("nav.who") },
+        {href: translatePath("/our-team/") , text: t("nav.team") },
       ]
     },
     {
       title: t("nav.concierge"),
       dropdown: [
-        {href: translatePath("/asistencia-diaria"), text: t("nav.daily") },
-        {href: translatePath("/planes-turisticos"), text: t("nav.tourist")},
-        {href: translatePath("/experiencias"), text: t("nav.experiences")},
+        {href: translatePath("/daily-assistance/"), text: t("nav.daily") },
+        {href: translatePath("/touristic-plans/"), text: t("nav.tourist")},
+        {href: translatePath("/experiences/"), text: t("nav.experiences")},
       ]
     },
     {
       title: t("nav.transport"),
       dropdown: [
-          {href: translatePath("/transporte-terrestre") , text: t("nav.land")},
-          {href: translatePath("/transporte-nautico") , text: t("nav.nautical")},
+          {href: translatePath("/land-transport/") , text: t("nav.land")},
+          {href: translatePath("/nautical-transport/") , text: t("nav.nautical")},
       ]
     },
   ]
@@ -187,7 +188,7 @@ const transportation = navItems.dropmenu[3].dropdown;
 
         <!-- Botón de Contact Us -->
          <a
-            href={translatePath("/contacto")}
+            href={translatePath("/contact/")}
             class=" hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
               {t("nav.contact")}
@@ -202,13 +203,7 @@ const transportation = navItems.dropmenu[3].dropdown;
       </div>
 
       <div class="gap-2 hidden md:flex items-center ">
-        {Object.entries(languages).map(([lang, label]) => (
-           
-              <a href={translatePath('/', lang)}
-              class="hover:text-main text-sm font-pattern font-light uppercase focus:outline-none inline-flex  transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
-              >{label}</a>
-           
-          ))}
+          <LanguagePicker />
       </div>
 
     </div>

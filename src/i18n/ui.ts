@@ -1,11 +1,48 @@
-export const languages = {
-    en: 'EN',
-    es: 'ES',
+import SpainFlag from '../icons/spain.svg';
+import UnitedStatesFlag from '../icons/united.svg';
+
+export const languages: Record<
+string,
+{ code: string; name: string; flag: typeof UnitedStatesFlag }
+> = {
+    en: {
+      code: 'en',
+      name: 'English',
+      flag: UnitedStatesFlag,
+    },
+    es: {
+      code: 'es',
+      name: 'Español',
+      flag: SpainFlag,
+    },
   };
   
   export const defaultLang = 'en';
 
   export const showDefaultLang = false;
+
+  export const routes = {
+    es: {
+      'who-we-are': 'quienes-somos',
+      'our-team': 'nuestro-equipo',
+      'buy': 'comprar',
+      'rent': 'alquiler',
+      'contact': 'contacto',
+      'blog': 'blog',
+      property: 'property'
+      
+    },
+    en: {
+      'who-we-are': 'who-we-are',
+      'our-team': 'our-team',
+      'buy': 'buy',
+      'rent': 'rent',
+      'contact': 'contact',
+      'blog': 'blog',
+      property: 'property'
+    }
+  }
+
   
   export const ui = {
     en: {
@@ -64,11 +101,32 @@ export const languages = {
         "prop.sale": "Selling price",
         "prop.rent": "Rental price",
         "prop.btn": "View Property",
+
+        "team.title": "Our Team",
+        "team.desc": "Meet the people who make your experience unique.",
+        "team.rep": "Sales Representative",
+
+        "contact.title": "Leave us a message",
+        "contact.desc": "Let's do something great together. Contact us today.",
+        "contact.btn": "Submit",
+        "contact.cancel": "Cancel",
+        "contact.book": "Book",
+
+        "nautical.title": "Nautical Transport Services",
+        "nautical.title-1": "Special offers",
+        "nautical.subtitle-1": "Catamaran",
+        "nautical.content-1": "Sail with stability and space in our state-of-the-art catamarans, perfect for unforgettable celebrations and events.",
+        "nautical.title-2": "More reserved",
+        "nautical.subtitle-2": "Yatchs",
+        "nautical.content-2": "Immerse yourself in luxury and sophistication aboard our yachts, ideal for private getaways and VIP experiences.",
+        "nautical.title-3": "Economical",
+        "nautical.subtitle-3": "Boats",
+        "nautical.content-3": "Enjoy versatility and access to hidden corners of the sea in our boats, designed for adventure and comfort.",
         
     },
     es: {
-      'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
-      'layout.description': 'Descubre exclusivos Apartamentos, Casas, Yates y Barcos. Vive experiencias únicas y convierte cada viaje en algo realmente inolvidable.',
+        'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
+        'layout.description': 'Descubre exclusivos Apartamentos, Casas, Yates y Barcos. Vive experiencias únicas y convierte cada viaje en algo realmente inolvidable.',
         'nav.home': 'Inicio',
         'nav.about': 'Nosotros',
         'nav.buy': 'Comprar',
@@ -122,8 +180,30 @@ export const languages = {
         "prop.sale": 'Precio de venta',
         "prop.rent": 'Precio de alquiler',
         "prop.btn": 'Ver propiedad',      
+
+        "team.title": "Nuestro Equipo",
+        "team.desc": "Conoce a las personas que hacen posible que tu experiencia sea única.",
+        "team.rep": "Representante de ventas",
+
+        "contact.title": "Déjanos un mensaje",
+        "contact.desc": "Hagamos algo grandioso juntos. Contáctanos hoy.",
+        "contact.btn": "Enviar",
+        "contact.cancel": "Cancelar",
+        "contact.book": "Reservar",
+
+        "nautical.title": "Servicios de Transporte Nautico",
+        "nautical.title-1": "Ofertas Especiales",
+        "nautical.subtitle-1": "Catamarán",
+        "nautical.content-1": "Navega con estabilidad y espacio en nuestros catamaranes de última generación, ideales para celebraciones y eventos inolvidables.",
+        "nautical.title-2": "Más reservados",
+        "nautical.subtitle-2": "Yates",
+        "nautical.content-2": "Sumérgete en el lujo y la sofisticación a bordo de nuestros yates, perfectos para escapadas privadas y experiencias VIP.",
+        "nautical.title-3": "Económicos",
+        "nautical.subtitle-3": "Botes",
+        "nautical.content-3": "Disfruta de la versatilidad y el acceso a rincones escondidos del mar en nuestros botes, diseñados para la aventura y el confort.",
     
+
     },
   } as const;
 
-  
+ 

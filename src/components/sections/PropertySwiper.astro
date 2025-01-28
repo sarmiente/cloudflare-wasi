@@ -70,7 +70,8 @@ const images = Object.values(property?.galleries?.[0] || {});
 <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-  // @ts-ignore
+  document.addEventListener('astro:page-load', () => {
+    // @ts-ignore
   var swiper = new Swiper(".mySwiper", {
     loop: true,
     spaceBetween: 5,
@@ -90,4 +91,5 @@ const images = Object.values(property?.galleries?.[0] || {});
       swiper: swiper,
     },
   });
+  })
 </script>
