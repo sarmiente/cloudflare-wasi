@@ -1,8 +1,10 @@
 ---
-
+import WhatsappSVG from "../../icons/whatsapp.svg"
+import LocationIcon from "../../icons/location.svg"
 import Logo from "../../icons/br_logo.svg"
-import Image from "astro/components/Image.astro";
+
 import { Icon } from "astro-icon/components";
+import EnvelopSVG from "../../icons/envelop_vector.svg"
 
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
@@ -17,15 +19,15 @@ const footerData = [
   {
     title: t("nav.about"),
     items: [
-      { text: t("nav.who"), href : translatePath("/quienes-somos") },
-      { text: t("nav.team"), href : translatePath("/nuestro-equipo") },
+      { text: t("nav.who"), href : translatePath("/who-we-are/") },
+      { text: t("nav.team"), href : translatePath("/our-team/") },
     ],
   },
   {
     title: "Servicios",
     items: [
-      { text: t("nav.manage"), href : translatePath("/gestion-de-propiedades") },
-      { text: t("nav.concierge"), href : translatePath("/conserjeria-de-lujo") },
+      { text: t("nav.manage"), href : translatePath("/property-management/") },
+      { text: t("nav.concierge"), href : translatePath("/luxury-concierge/") },
     ],
   },
   {
@@ -44,7 +46,7 @@ const footerData = [
       <div>
         <div class="flex justify-center text-teal-600 sm:justify-start">
           <a href={translatePath("/")}>
-            <Image src={Logo}  width={80} height={80} alt="Logo de BR Solutions" />
+            <Logo size={100} />
           </a>
         </div>
 
@@ -52,7 +54,7 @@ const footerData = [
          {t("nav.msg")}
         </p>
 
-        <ul class="mt-8 flex justify-center gap-3 sm:justify-start md:gap-5">
+        <ul class="mt-8 flex justify-center items-center gap-3 sm:justify-start md:gap-5">
           <li>
             <a
               href="https://www.facebook.com/profile.php?id=61555851065583"
@@ -61,7 +63,7 @@ const footerData = [
               class=" transition hover:text-teal-700/75"
             >
               <span class="sr-only">Facebook</span>
-              <Icon class="h-6 w-6 hover:scale-110" name="facebook" />
+              <Icon size={25} class="hover:scale-110" name="facebook" />
             </a>
           </li>
 
@@ -73,7 +75,7 @@ const footerData = [
               class=" transition hover:text-teal-700/75 "
             >
               <span class="sr-only">Instagram</span>
-              <Icon class="h-6 w-6 hover:scale-110" name="instagram" />
+              <Icon size={25} class="hover:scale-110" name="instagram" />
             </a>
           </li>
 
@@ -85,7 +87,7 @@ const footerData = [
               class=" transition hover:text-teal-700/75"
             >
               <span class="sr-only">LinkedIn</span>
-              <Icon class="h-6 w-6 hover:scale-110" name="linkedin" />
+              <Icon size={30} class=" hover:scale-110" name="linkedin" />
             </a>
           </li>
 
@@ -97,7 +99,7 @@ const footerData = [
               class=" transition hover:text-teal-700/75"
             >
               <span class="sr-only">Youtube</span>
-              <Icon class="h-6 w-6 hover:scale-110" name="youtube" />
+              <Icon size={25} class="hover:scale-110 items-center" name="youtube" />
             </a>
           </li>
 
@@ -109,7 +111,7 @@ const footerData = [
               class=" transition hover:text-teal-700/75"
             >
               <span class="sr-only">Tiktok</span>
-              <Icon class="h-6 w-6 hover:scale-110" name="tiktok" />
+              <Icon size={25} class="hover:scale-110" name="tiktok" />
             </a>
           </li>
 
@@ -174,42 +176,30 @@ const footerData = [
           <ul class="mt-8 space-y-4 text-sm">
            
 
-            <li
-              class="flex sm:justify-start items-center justify-center  gap-1.5"
-            >
-            <Icon class="h-4 w-4 text-green-500" name="whatsapp" />
-
+           <li class="flex sm:justify-start items-center justify-center  gap-1.5">
+             <WhatsappSVG size={20} />
               <a href="https://api.whatsapp.com/send/?phone=573242016401&text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios">
                 <span class=" p-1 font-pattern text-xs">+57 324 201 6401</span>
               </a>
             </li>
 
           
-            <li
-              class="flex sm:justify-start items-center justify-center gap-1.5"
-            >
-              <Icon class="h4 w-4 " name="envelop_vector" />
-
-              <a href="mailto:info@brsolution.com.co">
-                <span class="text-white p-1 font-pattern text-xs bg-second rounded-2xl">info@brsolution.com.co</span>
+            <li class="flex sm:justify-start items-center justify-center gap-1.5">
+              <EnvelopSVG size={20} />
+                <a href="mailto:info@brsolution.com.co">
+                <span class="text-white p-1 font-pattern text-xs bg-second rounded-2xl">
+                  info@brsolution.com.co
+                </span>
               </a>
             </li>
 
-
-
-            <li
-              class="flex sm:justify-start items-center justify-center gap-1.5"
-            >
-              <Icon class="h4 w-4 text-red-600" name="location" />
+            <li class="flex sm:justify-start items-center justify-center gap-1.5">
+              <LocationIcon size={20} />
 
               <address class="-mt-0.5 not-italic text-gray-700 font-pattern uppercase">
                 Cartagena de Indias, Colombia
               </address>
             </li>
-
-            
-
-
 
           </ul>
         </div>
@@ -218,14 +208,14 @@ const footerData = [
 
     <div class="mt-12 border-t border-gray-100 pt-6">
       <div class="text-center sm:flex sm:justify-between sm:text-left">
-        <a href="http://devs.sarpin.agency/" target="_blank"><span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-[#60C11C] pb-5 md:p-0">sarpin.agency</span></a>
+        <a href="http://devs.sarpin.agency/" target="_blank">
+          <span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-[#60C11C] pb-5 md:p-0">sarpin.agency</span>
+        </a>
         <p class="text-sm text-gray-500">
           
-
           <a
             class="inline-block font-pattern text-main transition hover:text-second"
-            href="/terms-and-conditions"
-          >
+            href={translatePath("/terms-and-conditions")}>
               {t("nav.terms")}
           </a>
 
@@ -233,8 +223,7 @@ const footerData = [
 
           <a
             class="inline-block font-pattern text-main transition hover:text-second"
-            href="/privacy-policy"
-          >
+            href={translatePath("/privacy-policy")}>
               {t("nav.privacy")}
           </a>
         </p>

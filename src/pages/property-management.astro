@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+
+
+---
+
+<Layout title={t("nav.manage")}>
+    <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
+        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+          
+          <div class="mb-8">
+            <img
+              src="/br_front_3.jpg"
+              alt=""
+              class="rounded-lg w-full object-cover h-64 md:h-96"
+            />
+          </div>
+         
+             
+          
+          <div class="text-center mb-12">
+            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">{t("nav.manage")} Services</h1>
+            
+          </div>
+    
+          <!-- Contenido del post -->
+          <article class=" max-w-none mx-auto leading-7 font-hero">
+            
+            <p >
+              Focus on building your empire, we'll handle the day-to-day. Our meticulous property management ensures your investment thrives while you conquer your goals. 
+              Property management has evolved significantly in recent years, and 2025 is no exception. 
+            </p>
+            <br>
+            <p>
+              With the integration of innovative technologies, a focus on sustainability, and a constantly changing real estate market, this service has become a fundamental pillar for property owners looking to maximize their investments and maintain efficient management.
+            </p>
+            <br>
+            <p > 
+              It involves comprehensive property management, from tenant search to property maintenance and compliance with legal regulations. This service is designed to free property owners from the operational burden of managing their properties, delegating tasks to experts in the field.
+            </p>
+          </article>
+          
+        </div>
+      </section>
+</Layout>

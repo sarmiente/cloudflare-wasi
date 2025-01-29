@@ -2,7 +2,6 @@
 // @ts-nocheck
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
@@ -34,15 +33,15 @@ const properties = Object.keys(data)
 
 <script type="module" is:inline astro:page-load>
   // @ts-ignore
-  var monkeyList = new List('property-list', {
-  valueNames: ['title'],
-  listClass: 'list-list',
+  var monkeyListSpanish = new List('property-list-spanish', {
+  valueNames: ['titulo'],
+  listClass: 'list-spanish',
   page: 6,
   pagination: true
 });
 </script>
 
-<section id="property-list" class="py-5">
+<section id="property-list-spanish" class="py-5">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pb-10">
     {t("list.title")}
@@ -60,10 +59,10 @@ const properties = Object.keys(data)
 
   
     <!-- Contenedor de propiedades -->
-<div class="list-list grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-5 sm:p-8">
+<div class="list-spanish grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-5 sm:p-8">
   <!-- Cada propiedad -->
   {properties.map((property: The0) => (
-    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-3 border-main/70">
+    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-2 border-main/70">
       <a href={translatePath(`/property/${property.id_property}`)} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
@@ -82,7 +81,7 @@ const properties = Object.keys(data)
         <div class="p-4 bg-white">
                                               <!-- Título y precio -->
           <div class="mb-4">
-            <h2 class="title text-lg font-medium font-heading text-gray-800 uppercase truncate">
+            <h2 class="titulo text-lg font-medium font-heading text-gray-800 uppercase truncate">
               {property.title}
             </h2>
             <p class="text-sm text-gray-600 font-light font-display price uppercase ">
@@ -122,7 +121,7 @@ const properties = Object.keys(data)
 <div class="flex items-center justify-center gap-3">
       
     
-  <ul class="pagination flex gap-4 font-display font-light ">
+  <ul class="pagination flex gap-4 font-display font-light">
 
     </ul>
   

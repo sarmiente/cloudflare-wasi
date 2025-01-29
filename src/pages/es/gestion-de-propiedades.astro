@@ -1,0 +1,59 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+---
+
+<Layout title={t("nav.manage")}>
+    <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
+        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+          
+          <div class="mb-8">
+            <img
+              src="/br_front_3.jpg"
+              alt=""
+              class="rounded-lg w-full object-cover h-64 md:h-96"
+            />
+          </div>
+          
+          <div class="text-center mb-12">
+            <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">
+              Servicios de {t("nav.manage")}</h1>
+            
+          </div>
+    
+          <!-- Contenido del post -->
+          <article class=" max-w-none mx-auto leading-7 font-hero">
+            
+            <p>
+              Enfócate en construir, nosotros nos encargamos del día a
+              día. Nuestra meticulosa gestión de propiedades garantiza que tu
+              inversión prospere mientras conquistas tus metas.
+            </p>
+            <br>
+            <p >
+              La administración de propiedades ha evolucionado considerablemente en
+              los últimos años, y en 2025 no es la excepción. Con la integración de
+              tecnologías innovadoras, un enfoque en la sostenibilidad y un mercado
+              inmobiliario en constante cambio, este servicio se ha convertido en un
+              pilar fundamental para propietarios de bienes inmuebles que buscan
+              maximizar sus inversiones y mantener una gestión eficiente.
+            </p>
+            <br>
+            <p>
+              Implica la gestión integral de bienes inmuebles, desde la búsqueda de
+              inquilinos hasta el mantenimiento de la propiedad y el cumplimiento de
+              las normativas legales. Este servicio está diseñado para liberar a los
+              propietarios de la carga operativa de manejar sus propiedades,
+              delegando las tareas a expertos en el área.
+            </p>
+          </article>
+          
+        </div>
+      </section>
+</Layout>

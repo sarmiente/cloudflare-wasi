@@ -29,7 +29,8 @@ string,
       'rent': 'alquiler',
       'contact': 'contacto',
       'blog': 'blog',
-      property: 'property'
+      'property': 'property',
+      'property-management': 'gestion-de-propiedades'
       
     },
     en: {
@@ -39,7 +40,8 @@ string,
       'rent': 'rent',
       'contact': 'contact',
       'blog': 'blog',
-      property: 'property'
+      'property': 'property',
+      'property-management': 'property-management'
     }
   }
 

@@ -1,6 +1,7 @@
 ---
 // @ts-nocheck
 import Layout from "../layouts/Layout.astro";
+
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -16,16 +17,33 @@ const options = {
     }
 };
 const res = await fetch(`${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=100&for_sale=true`, options);
+
 const data = await res.json();
+
 const properties = Object.keys(data)
     .filter(key => key !== "total" && key !== "status")
     .map(key => data[key]);
 ---
 
+<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+<script type="module" is:inline astro:page-load>
+  // @ts-ignore
+  var monkeyBuy = new List('property-list-buy', {
+  valueNames: ['title-buy'],
+  listClass: 'list-buy',
+  searchClass: 'search-buy',
+  page: 6,
+  pagination: true
+});
+</script>
+
+
+
 <Layout title="Properties for Sale">
     
 
-<section id="propertyBuy" class="py-12 pt-32">
+<section id="property-list-buy" class="p-12 pt-32 bg-gray-100">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
     Our Properties for Sale
@@ -47,7 +65,7 @@ const properties = Object.keys(data)
       <!-- Cada propiedad -->
       {properties.map((property: The0) => (
         <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl">
-          <a href={`/property/${property.id_property}`} class="block">
+          <a href={translatePath(`/property/${property.id_property}`)} class="block">
             <!-- Imagen de la propiedad -->
             <div class="relative">
               <img
@@ -65,11 +83,11 @@ const properties = Object.keys(data)
             <div class="p-4 bg-white">
                                                   <!-- Título y precio -->
               <div class="mb-4">
-                <h2 class="titulo-buy text-lg font-medium font-heading text-gray-800 uppercase truncate">
+                <h2 class="title-buy text-lg font-medium font-heading text-gray-800 uppercase truncate">
                   {property.title}
                 </h2>
-                <p class="text-sm text-gray-600 font-light font-display price-buy">
-                  {property.sale_price_label}
+                <p class="text-sm text-gray-600 font-light font-display uppercase">
+                    Selling price {property.sale_price_label}
                 </p>
               </div>
                                                   <!-- Botón "View Property" -->
@@ -81,8 +99,8 @@ const properties = Object.keys(data)
                                                   <!-- Botón "View Property" -->
                 <div class="w-1/2 flex justify-end">
                     <a
-                      href={`/property/${property.id_property}`}
-                      class="bg-main font-pattern uppercase p-1.5 text-xs rounded-md"
+                      href={translatePath(`/property/${property.id_property}`)}
+                      class="bg-main font-pattern uppercase p-2 text-xs rounded-md"
                     >
                       View Property
                     </a>
@@ -112,6 +130,4 @@ const properties = Object.keys(data)
 
 
 
-<script>
 
-</script>
