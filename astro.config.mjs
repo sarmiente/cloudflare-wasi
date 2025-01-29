@@ -14,7 +14,7 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
   },
   output: 'server',
-
+  site: "https://www.brsolution.com.co",
   adapter: cloudflare({
     platformProxy: {
       enabled: true

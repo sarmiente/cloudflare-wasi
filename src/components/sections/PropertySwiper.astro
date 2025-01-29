@@ -34,6 +34,31 @@ const images = Object.values(property?.galleries?.[0] || {});
 
 ---
 
+<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script type="module" is:inline astro:page-load>
+  var swiper = new Swiper(".mySwiper", {
+    loop: true,
+    spaceBetween: 5,
+    slidesPerView: 4,
+    
+    watchSlidesProgress: true,
+  });
+// @ts-ignore
+  var swiper2 = new Swiper(".mySwiper2", {
+    loop: true,
+    spaceBetween: 15,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    thumbs: {
+      swiper: swiper,
+    },
+  });
+</script>
+
+
 <section class="relative py-10">
   <div class="swiper mySwiper2 mx-auto max-w-screen-xl md:rounded-xl  py-8 sm:px-6 ">
     <div class="swiper-wrapper rounded-xl">
@@ -67,29 +92,3 @@ const images = Object.values(property?.galleries?.[0] || {});
 </section>
 
 
-<script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-<script>
-  document.addEventListener('astro:page-load', () => {
-    // @ts-ignore
-  var swiper = new Swiper(".mySwiper", {
-    loop: true,
-    spaceBetween: 5,
-    slidesPerView: 4,
-    
-    watchSlidesProgress: true,
-  });
-// @ts-ignore
-  var swiper2 = new Swiper(".mySwiper2", {
-    loop: true,
-    spaceBetween: 15,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-    thumbs: {
-      swiper: swiper,
-    },
-  });
-  })
-</script>

@@ -30,7 +30,14 @@ string,
       'contact': 'contacto',
       'blog': 'blog',
       'property': 'property',
-      'property-management': 'gestion-de-propiedades'
+      'property-management': 'gestion-de-propiedades',
+      'daily-assistance': 'asistencia-diaria',
+      'experiences': 'experiencias',
+      'tourist-plans': 'planes-turisticos',
+      'land-transport': 'transporte-terrestre',
+      'nautical-transport': 'transporte-nautico',
+      '404': '404',
+      '500':'500'
       
     },
     en: {
@@ -41,7 +48,14 @@ string,
       'contact': 'contact',
       'blog': 'blog',
       'property': 'property',
-      'property-management': 'property-management'
+      'property-management': 'property-management',
+      'daily-assistance': 'daily-assistance',
+      'experiences': 'experiences',
+      'tourist-plans': 'tourist-plans',
+      'land-transport': 'land-transport',
+      'nautical-transport': 'nautical-transport',
+      '404': '404',
+      '500':'500'
     }
   }
 
@@ -124,6 +138,9 @@ string,
         "nautical.title-3": "Economical",
         "nautical.subtitle-3": "Boats",
         "nautical.content-3": "Enjoy versatility and access to hidden corners of the sea in our boats, designed for adventure and comfort.",
+
+        "land.title": "Land Transport Services",
+        "land.car":"Automobile"
         
     },
     es: {
@@ -203,6 +220,9 @@ string,
         "nautical.title-3": "Económicos",
         "nautical.subtitle-3": "Botes",
         "nautical.content-3": "Disfruta de la versatilidad y el acceso a rincones escondidos del mar en nuestros botes, diseñados para la aventura y el confort.",
+
+        "land.title": "Servicios de Transporte Terrestre",
+        "land.car":"Automóvil"
     
 
     },

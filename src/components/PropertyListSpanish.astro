@@ -62,7 +62,7 @@ const properties = Object.keys(data)
 <div class="list-spanish grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-5 sm:p-8">
   <!-- Cada propiedad -->
   {properties.map((property: The0) => (
-    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-2 border-main/70">
+    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-3 border-main/70">
       <a href={translatePath(`/property/${property.id_property}`)} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
