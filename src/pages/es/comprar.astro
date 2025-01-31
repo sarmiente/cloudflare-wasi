@@ -40,7 +40,7 @@ const properties = Object.keys(data)
 <Layout title="Propiedades en Venta">
     
 
-<section id="property-list-comprar" class="md:p-12 pt-32 md:pt-48 bg-gray-100">
+<section id="property-list-comprar" class="md:p-12 py-32 md:pt-48 bg-gray-100">
   <!-- Título del portafolio -->
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
     Nuestras Propiedades en Venta
@@ -63,22 +63,26 @@ const properties = Object.keys(data)
       {properties.map((property: The0) => (
         <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-3 border-main/70">
           <a href={translatePath(`/property/${property.id_property}`)} class="block">
-            <!-- Imagen de la propiedad -->
+                    <!-- Imagen de la propiedad -->
             <div class="relative">
-              <img
+              <picture>
+                <source type="image/webp" src={property.main_image.url_original} />
+                <img
+                loading="lazy"
                 alt="Property Image"
                 src={property.main_image.url_original}
                 class="h-56 w-full object-cover"
               />
-              <!-- Etiqueta de ubicación -->
+              </picture>
+                     <!-- Etiqueta de ubicación -->
               <div class="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs px-3 py-1 rounded">
                 <p class="font-display uppercase">{property.city_label}</p>
               </div>
             </div>
     
-                                                  <!-- Detalles de la propiedad -->
+                     <!-- Detalles de la propiedad -->
             <div class="p-4 bg-white">
-                                                  <!-- Título y precio -->
+                      <!-- Título y precio -->
               <div class="mb-4">
                 <h2 class="title-comprar text-lg font-medium font-heading text-gray-800 uppercase truncate">
                   {property.title}

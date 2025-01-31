@@ -4,11 +4,11 @@ import Top from "../../icons/top.svg"
 
 
 
-<button type="button" class="z-10 to-top text-main text-3xl fixed bottom-5 left-5 cursor-pointer">
-    <Top size={50}  />    
+<button type="button" class="to-top ">
+    <Top size={45} class="z-50 text-main text-3xl fixed bottom-5 left-5 cursor-pointer" />    
 </button>
 
-<script is:inline>
+<script is:inline type="module">
     const btn = document.querySelector(".to-top");
     btn.addEventListener("click", () => {
         document.documentElement.scrollTo({

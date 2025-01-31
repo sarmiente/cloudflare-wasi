@@ -9,6 +9,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   experimental: {
     svg: true,
+    responsiveImages: true,
   },
   image: {
     remotePatterns: [{ protocol: "https" }],

@@ -72,7 +72,7 @@ const transportation = navItems.dropmenu[3].dropdown;
       <LanguagePicker />
         {links.map(({ href, text}) => (
             <a
-                class="dark:text-white hover:text-[#60C11C] font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
+                class="dark:text-white hover:text-main font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
                 href={href} 
             >
                 {text}
@@ -80,10 +80,10 @@ const transportation = navItems.dropmenu[3].dropdown;
         ))}
 
         <!-- Dropdown para Móvil -->
-        <div x-data="dropdown" class="w-full text-center">
+        <div x-data="dropdown" x-init="dropdown = false" class="w-full text-center">
 
             <button
-                class="dark:text-white hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                class="dark:text-white hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
                 @click="toggle"
             >
                                 {navItems.dropmenu[0].title}<Icon name="arrow" />
@@ -108,7 +108,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           <button
                 @click="toggle"
                 type="button"
-                class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+                class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
                                         {navItems.dropmenu[2].title} <Icon name="arrow" />
           </button>
           
@@ -118,7 +118,7 @@ const transportation = navItems.dropmenu[3].dropdown;
                   {dropluxury.map((item) => (
                     <a
                       href={item.href}
-                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                      class="block px-4 py-2 hover:text-main text-sm font-pattern font-light uppercase"
                     >
                       {item.text}
                     </a>
@@ -135,7 +135,7 @@ const transportation = navItems.dropmenu[3].dropdown;
           <button
               @click="toggle"
               type="button"
-              class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+              class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
                 {navItems.dropmenu[3].title}
                 <Icon name="arrow" />
           </button>
@@ -147,7 +147,7 @@ const transportation = navItems.dropmenu[3].dropdown;
                   {transportation.map((item) => (
                     <a
                       href={item.href}
-                      class="block px-4 py-2 hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+                      class="block px-4 py-2 hover:text-main text-sm font-pattern font-light uppercase"
                     >
                       {item.text}
                     </a>
@@ -161,12 +161,12 @@ const transportation = navItems.dropmenu[3].dropdown;
 
 
             <!-- Botón de About con Dropdown -->
-            <div x-data="dropdown" class="text-center">
+            <div x-data="dropdown"  class="text-center">
                            
           <button
             @click="toggle"
             type="button"
-            class="relative hover:text-[#60C11C] px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-center">
+            class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-center">
                       {navItems.dropmenu[1].title}
             <Icon name="arrow" />
           </button>
@@ -177,7 +177,7 @@ const transportation = navItems.dropmenu[3].dropdown;
            {dropabout.map((item) => (
             <a
               href={item.href}
-              class="block px-4 py-2 dark:text-white hover:text-[#60C11C] text-sm font-pattern font-light uppercase"
+              class="block px-4 py-2 dark:text-white hover:text-main text-sm font-pattern font-light uppercase"
             >
               {item.text}
             </a>
@@ -190,7 +190,7 @@ const transportation = navItems.dropmenu[3].dropdown;
               <!-- Botón de Contact Us -->
                <a
                   href={translatePath("/contact/")}
-                  class="hover:text-[#60C11C] px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                  class="hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
                 >
                 {t("nav.contact")}
               </a>

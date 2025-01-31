@@ -1,9 +1,16 @@
 ---
+// Imports images
+import { Image } from "astro:assets";
+import FrontOne from "../assets/br_front_1.jpg"
+import FrontTwo from "../assets/br_front_2.jpg"
+import FrontThree from "../assets/br_front_3.jpg"
+
+// import components
 import Layout from "../layouts/Layout.astro";
 import Team from "../components/sections/Team.astro"
+
+// language import
 import { getLangFromUrl, useTranslations } from '../i18n/utils';
-
-
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
@@ -21,25 +28,27 @@ const t = useTranslations(lang);
        
          <div class="grid grid-cols-1 gap-12 mt-16 lg:grid-cols-3 lg:gap-8">
            <div class="text-center">
-             <div class="h-40 w-40 mx-auto rounded-full bg-[url('/br_front_1.jpg')] bg-cover flex items-center justify-center shadow-lg">
-               <!-- Icon/Content -->
-             </div>
+           
+            <Image alt="" src={FrontOne} 
+            class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+            />
+             
              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Variety of Properties</h3>
              <p class="text-sm text-gray-700 mt-2">We offer diverse options tailored to your needs.</p>
            </div>
        
            <div class="text-center">
-             <div class="h-40 w-40 mx-auto rounded-full bg-[url('/br_front_2.jpg')] bg-cover flex items-center justify-center shadow-lg">
-               <!-- Icon/Content -->
-             </div>
+            <Image alt="" src={FrontTwo} 
+            class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+            />
              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Quality Standards</h3>
              <p class="text-sm text-gray-700 mt-2">We guarantee excellence in every service.</p>
            </div>
        
            <div class="text-center">
-             <div class="h-40 w-40 mx-auto rounded-full bg-[url('/br_front_3.jpg')] bg-cover flex items-center justify-center shadow-lg">
-               <!-- Icon/Content -->
-             </div>
+            <Image alt="" src={FrontThree} 
+            class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+            />
              <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">Personalized Service</h3>
              <p class="text-sm text-gray-700 mt-2">Your satisfaction is our priority.</p>
            </div>

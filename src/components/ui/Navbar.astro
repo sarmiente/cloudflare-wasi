@@ -2,6 +2,7 @@
 
 import { Icon } from "astro-icon/components";
 import Mobile from "./Mobile.astro";
+import Logo from "../../icons/br_logo.svg";
 import LanguagePicker from "../LanguagePicker.astro";
 
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
@@ -62,7 +63,7 @@ const transportation = navItems.dropmenu[3].dropdown;
 
       <!-- Logo - Izquierda en Desktop y Mobile -->
       <a href={translatePath("/")} class="flex-shrink-0">
-        <img width="60"  src="/favicon.svg" alt="Logo BR Solutions" />
+        <Logo size={60} />
       </a>
 
       <!-- Menú de navegación - Centro en Desktop -->

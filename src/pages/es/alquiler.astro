@@ -67,11 +67,15 @@ const properties = Object.keys(data)
       <a href={translatePath(`/property/${property.id_property}`)} class="block">
         <!-- Imagen de la propiedad -->
         <div class="relative">
-          <img
-            alt="Property Image"
-            src={property.main_image.url_original}
-            class="h-56 w-full object-cover"
-          />
+              <picture>
+                <source type="image/webp" src={property.main_image.url_original} />
+                <img
+                loading="lazy"
+                alt="Property Image"
+                src={property.main_image.url_original}
+                class="h-56 w-full object-cover"
+              />
+              </picture>
           <!-- Etiqueta de ubicación -->
           <div class="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs px-3 py-1 rounded">
             <p class="font-display uppercase">{property.city_label}</p>

@@ -37,7 +37,8 @@ string,
       'land-transport': 'transporte-terrestre',
       'nautical-transport': 'transporte-nautico',
       '404': '404',
-      '500':'500'
+      '500':'500',
+
       
     },
     en: {
@@ -55,7 +56,8 @@ string,
       'land-transport': 'land-transport',
       'nautical-transport': 'nautical-transport',
       '404': '404',
-      '500':'500'
+      '500':'500',
+     
     }
   }
 
