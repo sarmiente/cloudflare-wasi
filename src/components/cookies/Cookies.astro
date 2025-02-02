@@ -1,0 +1,101 @@
+---
+import CookieIcon from '../../icons/cookie.svg'
+---
+<!-- banner - start -->
+<div
+  id="cookie-consent"
+  class="z-10 fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white/90 p-6 rounded-lg shadow-lg border opacity-0 transition-opacity duration-500"
+>
+  <div class="flex items-start gap-4">
+    <CookieIcon size={100} />
+    <div class="flex-1 space-y-3">
+      <div class="flex items-start justify-between gap-4">
+        <h3 class="font-semibold leading-none tracking-tight">Cookie Settings</h3>
+        <button
+          class="h-6 w-6 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground"
+          data-action="decline"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
+        </button>
+      </div>
+      <p class="text-sm text-muted-foreground">
+        We use cookies to enhance your browsing experience and analyze our traffic. 
+        Please choose your preference below.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <button
+          class="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-main text-primary-foreground h-10 px-4 py-2 hover:bg-primary/90"
+          data-action="accept"
+        >
+          Accept all
+        </button>
+        <button
+          class="flex-1 inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors border border-input bg-background hover:bg-accent hover:text-accent-foreground h-10 px-4 py-2"
+          data-action="decline"
+        >
+          Decline
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- banner - end -->
+  <script>
+    const cookieConsent = document.getElementById('cookie-consent');
+    
+    // Check if cookie consent already exists
+    function checkCookieConsent(): boolean {
+      const cookies = document.cookie.split(';');
+      for (let cookie of cookies) {
+        const [name] = cookie.trim().split('=');
+        if (name === 'cookie-consent') {
+          return true;
+        }
+      }
+      return false;
+    }
+    
+    // Show the consent banner only if consent hasn't been given
+    if (cookieConsent && !checkCookieConsent()) {
+      cookieConsent.classList.remove('hidden');
+      // Small delay to ensure the transition works
+      setTimeout(() => {
+        cookieConsent.style.opacity = '1';
+      }, 100);
+    }
+  
+    function handleAction(action: 'accept' | 'decline') {
+      if (cookieConsent) {
+        // Fade out
+        cookieConsent.style.opacity = '0';
+        
+        // Remove element after animation
+        setTimeout(() => {
+          cookieConsent.remove();
+        }, 500);
+  
+        // Handle the action
+        if (action === 'accept') {
+          // Set cookie acceptance with 1 year expiration
+          document.cookie = 'cookie-consent=accepted; path=/; max-age=31536000';
+          console.log('Cookies accepted');
+        } else {
+          // Set cookie rejection with 1 year expiration
+          document.cookie = 'cookie-consent=declined; path=/; max-age=31536000';
+          console.log('Cookies declined');
+        }
+      }
+    }
+  
+    // Add click event listeners
+    cookieConsent?.querySelectorAll('button[data-action]').forEach(button => {
+      button.addEventListener('click', (e) => {
+        const action = (e.currentTarget as HTMLButtonElement).dataset.action as 'accept' | 'decline';
+        handleAction(action);
+      });
+    });
+  </script>

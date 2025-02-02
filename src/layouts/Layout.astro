@@ -13,6 +13,7 @@ import WhatsappButton from "../components/buttons/WhatsappButton.astro";
 import TopButton from "../components/buttons/TopButton.astro";
 
 import { getLangFromUrl } from "../i18n/utils"
+import Cookies from "../components/cookies/Cookies.astro";
 
 const lang = getLangFromUrl(Astro.url);
 
@@ -29,9 +30,44 @@ const lang = getLangFromUrl(Astro.url);
 		<slot />
     <WhatsappButton />
     <TopButton />
+    <Cookies />
 		<Footer />
 	</body>
 </html>
+
+<script is:inline>
+  // Disable right click
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+
+  // Disable keyboard shortcuts
+  document.addEventListener('keydown', (e) => {
+    // Prevent Ctrl+S, Ctrl+U, Ctrl+P, Ctrl+C, Ctrl+Shift+I
+    if (
+      (e.ctrlKey && e.key === 's') || 
+      (e.ctrlKey && e.key === 'u') ||
+      (e.ctrlKey && e.key === 'p') ||
+      (e.ctrlKey && e.key === 'c') ||
+      (e.ctrlKey && e.shiftKey && e.key === 'i')
+    ) {
+      e.preventDefault();
+    }
+  });
+
+  // Disable text selection
+  document.addEventListener('selectstart', (e) => e.preventDefault());
+
+  // Disable drag and drop for images
+  document.addEventListener('dragstart', (e) => e.preventDefault());
+
+  // Disable copy
+  document.addEventListener('copy', (e) => e.preventDefault());
+
+  // Disable cut
+  document.addEventListener('cut', (e) => e.preventDefault());
+
+  // Disable paste
+  document.addEventListener('paste', (e) => e.preventDefault());
+</script>
 
 
 <style is:global>
