@@ -2,7 +2,7 @@
 // @ts-nocheck
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
-import LanguagePicker from "../LanguagePicker.astro";
+import LanguagePickerMobile from "../../components/sections/LanguagePickerMobile.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -58,7 +58,8 @@ const transportation = navItems.dropmenu[3].dropdown;
 <div x-data="{ openToggle: false }">
     <!-- Botón de menú -->
     <div class="md:hidden" @click="openToggle = ! openToggle">
-        <button type="button" class="text-black dark:text-white focus:outline-none" aria-label="Main menu mobile" :aria-expanded="openToggle.toString()">
+      
+        <button type="button" class="text-black focus:outline-none" aria-label="Main menu mobile" :aria-expanded="openToggle.toString()">
             <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white mb-1"></div>
             <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white mb-1"></div>
             <div class="w-5 h-0.5 rounded-full bg-black dark:bg-white"></div>
@@ -68,22 +69,22 @@ const transportation = navItems.dropmenu[3].dropdown;
     
 
     <!-- Menú móvil -->
-    <div x-show="openToggle"  class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white dark:bg-slate-800 z-50 w-full items-center gap-10 py-15 pb-10" @click.away="openToggle = false">
-      <LanguagePicker />
+    <div x-show="openToggle" x-cloak  class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white  w-full items-center gap-10 py-12 pb-10" @click.away="openToggle = false">
+      <LanguagePickerMobile />
         {links.map(({ href, text}) => (
             <a
-                class="dark:text-white hover:text-main font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
+                class="hover:text-main font-pattern px-3 py-2 rounded-md text-sm font-light uppercase"
                 href={href} 
             >
                 {text}
             </a>
         ))}
 
-        <!-- Dropdown para Móvil -->
-        <div x-data="dropdown" x-init="dropdown = false" class="w-full text-center">
+        <!-- Dropdown para Services Móvil -->
+        <div x-data="dropdown"  class="w-full text-center">
 
             <button
-                class="dark:text-white hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+                class="hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
                 @click="toggle"
             >
                                 {navItems.dropmenu[0].title}<Icon name="arrow" />
@@ -140,7 +141,7 @@ const transportation = navItems.dropmenu[3].dropdown;
                 <Icon name="arrow" />
           </button>
           
-            <!-- Menú desplegable -->
+            <!-- Menú desplegable Servicios de Transporte Terrestre -->
             <div 
               x-show="open" x-transition.duration.400ms
               class="relative">
@@ -177,7 +178,7 @@ const transportation = navItems.dropmenu[3].dropdown;
            {dropabout.map((item) => (
             <a
               href={item.href}
-              class="block px-4 py-2 dark:text-white hover:text-main text-sm font-pattern font-light uppercase"
+              class="block px-4 py-2 hover:text-main text-sm font-pattern font-light uppercase"
             >
               {item.text}
             </a>
@@ -196,7 +197,7 @@ const transportation = navItems.dropmenu[3].dropdown;
               </a>
                 <!-- Redes Sociales -->
               <div class="text-center">
-                <ul class="mt-8 flex justify-center items-center gap-3 sm:justify-start md:gap-5">
+                <ul class="mt-4 flex justify-center items-center gap-3 sm:justify-start md:gap-5">
                   <li>
                     <a
                       href="https://www.facebook.com/profile.php?id=61555851065583"
@@ -258,10 +259,9 @@ const transportation = navItems.dropmenu[3].dropdown;
                   </li>
         
                 </ul>
-              </div>
+          </div>
     </div>
 </div>
-
 
 
 

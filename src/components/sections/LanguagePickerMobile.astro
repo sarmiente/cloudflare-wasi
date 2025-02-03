@@ -1,0 +1,73 @@
+---
+import ChevronIcon from "../../icons/Chevron.astro";
+import { languages } from '../../i18n/ui';
+import { getRouteFromUrl, useTranslatedPath, getLangFromUrl } from '../../i18n/utils';
+
+const route = getRouteFromUrl(Astro.url);
+const lang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(lang);
+const currentLocaleData = languages[lang];
+const otherLocales = Object.values(languages).filter(
+  (locale) => locale.code !== lang
+);
+---
+
+<div x-data="dropdown" class="relative inline-block text-left">
+  <!-- Language Selector Button -->
+  <div class="text-white rounded-md text-xs font-semibold bg-main hover:bg-second/70 transition-all">
+    <button
+      @click="toggle"
+      type="button"
+      class="inline-flex justify-start items-center w-full gap-x-2 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
+      <currentLocaleData.flag />
+      {currentLocaleData.name}
+      <ChevronIcon />
+    </button>
+
+    <!-- Dropdown Menu -->
+    <ul
+      x-show="open"
+      x-cloak
+      x-transition.duration.400ms
+      @click.away="close"
+      class="absolute z-10 mt-2 w-full bg-black/90 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 divide-y divide-gray-700"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="language-selector-button"
+    >
+      {
+        otherLocales.map((locale) => (
+          <li class="py-[2px]" role="none">
+            <a
+              class="rounded-md bg-black/30 hover:bg-black/70 whitespace-nowrap inline-flex justify-start items-center w-full gap-x-2 px-3 py-2 text-white"
+              href={translatePath(`/${route ? route : ''}`, locale.code)}
+              role="menuitem"
+              onclick="close"
+            >
+              <locale.flag />
+              {locale.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>
+
+<!-- Alpine.js Logic -->
+<script is:inline>
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('dropdown', () => ({
+      open: false,
+      toggle() {
+        this.open = !this.open;
+      },
+      close() {
+        this.open = false;
+      },
+    }));
+  });
+</script>
