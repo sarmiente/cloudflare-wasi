@@ -31,14 +31,16 @@ const properties = Object.keys(data)
 ---
 <script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
 
-<script type="module" is:inline astro:page-load>
-  // @ts-ignore
+<script>
+  document.addEventListener('astro:page-load', () => {
+      // @ts-ignore
   var monkeyListSpanish = new List('property-list-spanish', {
   valueNames: ['titulo'],
   listClass: 'list-spanish',
   page: 3,
   pagination: true
 });
+  })
 </script>
 
 <section id="property-list-spanish" class="py-5">

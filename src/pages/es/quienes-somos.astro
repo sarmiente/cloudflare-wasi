@@ -1,5 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import TeamPhoto from "../../assets/team.jpg"
 
 
 ---
@@ -28,11 +30,8 @@ import Layout from "../../layouts/Layout.astro";
             </div>
           </div>
           <div>
-            <img
-              src="https://brsolution.com.co/wp-content/uploads/2024/04/Team_Photo.jpg"
-              class="rounded-2xl w-full object-cover"
-              alt="Team Photo"
-            />
+            <Image src={TeamPhoto} class="rounded-2xl w-full object-cover"
+            alt="Team Photo" />
           </div>
         </div>
       </div>

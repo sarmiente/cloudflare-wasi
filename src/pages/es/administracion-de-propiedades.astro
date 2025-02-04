@@ -1,0 +1,109 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const features = [
+  {
+    title: t("admin.pro"),
+    text: t("admin.pro-des"),
+   
+  },
+  {
+    title: t("admin.pro"),
+    text: t("admin.pro-des"),
+   
+  },
+  {
+    title: "",
+    text: "text",
+   
+  },
+  {
+    title: "",
+    text: "text",
+    
+  },
+];
+---
+
+<Layout title={t("nav.manage")}>
+  <section class="bg-gray-50 lg:pt-24">
+    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+      <div class="text-center">
+        <p
+          class="inline-block px-3 py-1 mb-4 text-xs font-semibold tracking-wider text-gray-50 uppercase font-pattern rounded-full bg-main"
+        >
+          Servicio
+        </p>
+      </div>
+
+      <div class="text-center">
+        <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900">
+          {t("nav.manage")} para rentas cortas
+        </h1>
+
+        <p class="text-base text-gray-700 md:text-lg">
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          accusantium doloremque rem aperiam, eaque ipsa quae.
+        </p>
+      </div>
+
+      <div
+        class="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+      >
+        <div class="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
+          <h2
+            class="max-w-lg mb-5 font-sans text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group"
+          >
+            <span class="inline-block mb-1 sm:mb-4 font-heading">
+              Llevamos tu propiedad y <br class="hidden md:block" />
+
+              tu inversión a otro nivel.
+            </span>
+            <div
+              class="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100"
+            >
+            </div>
+          </h2>
+          <p class="text-gray-800 font-pattern lg:max-w-md">
+            Somos líderes en la gestión administrativa y operativa de
+            propiedades, asegurando que su inversión esté en las mejores manos.
+            <br />
+            Nuestro enfoque integral y personalizado garantiza la eficiencia y el
+            cuidado de cada detalle, desde el mantenimiento hasta la supervisión
+            de servicios.
+          </p>
+        </div>
+
+          
+          <div class="grid gap-8 row-gap-5 mb-8 md:row-gap-8 lg:grid-cols-4 sm:grid-cols-2">
+           {
+            features.map((item) => (
+
+            <div class="duration-300 transform bg-white border-l-4 border-main hover:-translate-y-2">
+      <div class="h-full p-5 border border-l-0 rounded-r shadow-sm">
+        <h6 class="mb-2 font-semibold leading-5">{item.title}</h6>
+        <p class="text-sm text-gray-900">
+          {item.text}
+        </p>
+      </div>
+    </div>
+
+            ))
+           }
+          </div>
+      
+
+        
+      </div>
+    </div>
+  </section>
+</Layout>

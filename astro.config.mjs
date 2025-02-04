@@ -7,6 +7,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 
 export default defineConfig({
+  redirects: {
+    '/hidden-treasures-in-cartagena-de-indias': '/blog/hidden-treasures-in-cartagena-de-indias'
+  },
   experimental: {
     svg: true,
     responsiveImages: true,

@@ -30,7 +30,8 @@ string,
       'contact': 'contacto',
       'blog': 'blog',
       'property': 'property',
-      'property-management': 'gestion-de-propiedades',
+      'property-management': 'administracion-de-propiedades',
+      'maintenance-management': 'gestion-de-mantenimiento',
       'daily-assistance': 'asistencia-diaria',
       'experiences': 'experiencias',
       'tourist-plans': 'planes-turisticos',
@@ -50,6 +51,7 @@ string,
       'blog': 'blog',
       'property': 'property',
       'property-management': 'property-management',
+      'maintenance-management': 'maintenance-management',
       'daily-assistance': 'daily-assistance',
       'experiences': 'experiences',
       'tourist-plans': 'tourist-plans',
@@ -71,7 +73,9 @@ string,
         'nav.buy': 'Buy',
         'nav.rent': 'Rent',
         'nav.services': 'Services',
+        'nav.solution': 'Property Solutions',
         'nav.manage': 'Property Management',
+        'nav.main': 'Maintenance management and support',
         'nav.manage-desc': 'Optimize the value of your properties with our comprehensive and personalized management.',
         'nav.concierge' : 'Luxury Concierge',
         'nav.concierge-desc': 'Enjoy exclusive and personalized experiences with our luxury concierge service.',
@@ -142,7 +146,10 @@ string,
         "nautical.content-3": "Enjoy versatility and access to hidden corners of the sea in our boats, designed for adventure and comfort.",
 
         "land.title": "Land Transport Services",
-        "land.car":"Automobile"
+        "land.car":"Automobile",
+
+        'admin.pro': 'Professional Commercialization',
+'admin.pro-des': 'We use a combination of online distribution channels such as Airbnb, Vrbo, Booking, social media, website, and digital marketing strategies to reach a wide audience of travelers.'
         
     },
     es: {
@@ -153,7 +160,9 @@ string,
         'nav.buy': 'Comprar',
         'nav.rent': 'Alquilar',
         'nav.services': 'Servicios',
-        'nav.manage': 'Gestión de Propiedades',
+        'nav.solution': 'Soluciones Inmobiliarias',
+        'nav.manage': 'Administración de propiedades',
+        'nav.main': 'Gestión y soporte de mantenimiento.',
         'nav.manage-desc': 'Optimiza el valor de tus inmuebles con nuestra gestión integral y personalizada.',
         'nav.concierge' : 'Conserjería de Lujo',
         'nav.concierge-desc': 'Disfruta de experiencias exclusivas y personalizadas con nuestro servicio de conserjería de lujo.',
@@ -224,7 +233,11 @@ string,
         "nautical.content-3": "Disfruta de la versatilidad y el acceso a rincones escondidos del mar en nuestros botes, diseñados para la aventura y el confort.",
 
         "land.title": "Servicios de Transporte Terrestre",
-        "land.car":"Automóvil"
+        "land.car":"Automóvil",
+
+        'admin.pro': 'Comercializacion Profesional',
+        'admin.pro-des': 'Utilizamos una combinación de canales de distribución en línea como Airbnb,Vrbo, booking, redes sociales, página web y estrategias de marketing digital para llegar a una amplia audiencia de viajeros.',
+
     
 
     },
