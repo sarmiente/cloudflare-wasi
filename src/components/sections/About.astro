@@ -1,0 +1,98 @@
+---
+import { Image } from "astro:assets";
+import TeamPhoto from "../../assets/team.jpg"
+
+import {
+  getLangFromUrl,
+  useTranslations,
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<section class="relative pt-24 lg:pt-32 pb-20">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <!-- Sección "Quiénes somos" -->
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-translate-y-in-[-30%] motion-ease-spring-smooth ">
+        <div>
+          <div class="max-w-lg md:max-w-none text-center md:text-left">
+            <span class="text-sm font-pattern uppercase block text-gray-600">{t("nav.who")}</span>
+            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-5xl">
+              {t("about.sub")}
+            </h2>
+            <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+              {t("about.side")}                
+            </p>
+            <div class="py-5">
+              <a
+                href="#"
+                class="bg-[#60C11C] font-hero uppercase px-6 py-3 text-sm rounded-md text-white hover:bg-[#4ea015] transition">
+                {t("nav.more")}
+              </a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <Image src={TeamPhoto} class="rounded-2xl w-full object-cover"
+          alt="Team Photo" />
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección Misión -->
+  <section class="relative pb-20">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-right ">
+        <!-- Imagen lado izquierdo -->
+        <div class="order-2 md:order-1 place-items-center">
+          <img
+            src="/pattern-02.jpg"
+            class="rounded-2xl w-[70%] h-96 object-cover"
+            alt="Mission Image"
+          />
+        </div>
+        <!-- Texto lado derecho -->
+        <div class="order-1 md:order-2">
+          <div class="max-w-lg text-center md:text-left">
+            <span class="text-sm font-pattern uppercase block text-gray-600">              {t("mission")}    </span>
+            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+              {t("mission.title")} 
+            </h2>
+            <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+              {t("mission.sub")} 
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Sección Visión -->
+  <section class="relative pb-20">
+    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-left ">
+        <!-- Texto lado izquierdo -->
+        <div>
+          <div class="max-w-lg text-center md:text-left">
+            <span class="text-sm font-pattern uppercase block text-gray-600">{t("vision")} </span>
+            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+              {t("vision.title")} 
+            </h2>
+            <p class="mt-4 text-gray-700 font-hero text-sm sm:text-base lg:text-md">
+              {t("vision.sub")} 
+            </p>
+          </div>
+        </div>
+        <!-- Imagen lado derecho -->
+        <div class="place-items-center">
+          <img
+          src="/pattern-03.jpg"
+         class="rounded-2xl w-[70%] h-96 object-cover"
+         alt="Vision Image"
+       />
+        </div>
+      </div>
+    </div>
+  </section>

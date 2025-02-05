@@ -1,16 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import About from "../components/sections/About.astro";
+
 
 import {
   getLangFromUrl,
   useTranslations,
 } from "../i18n/utils";
+import Maintenance from "../components/sections/Maintenance.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
 ---
 
-<Layout title={t("nav.who")}>
-  <About /> 
+
+<Layout title={t("nav.main")}>
+  <Maintenance />
 </Layout>

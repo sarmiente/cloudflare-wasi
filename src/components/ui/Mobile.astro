@@ -17,8 +17,10 @@ const navItems = {
   dropmenu: [
     {
       title: t("nav.services"),
+      sub: t("nav.solution"),
       dropdown: [
         { href: translatePath("/property-management/"), text: t("nav.manage") },
+        { href: translatePath("/maintenance-management/"), text: t("nav.main") },
        ]
     },
     {
@@ -90,17 +92,36 @@ const transportation = navItems.dropmenu[3].dropdown;
                                 {navItems.dropmenu[0].title}<Icon name="arrow" />
             </button>
 
-            <div x-show="open" x-transition.duration.400ms class="flex flex-col items-center mt-2" >
-                {dropdowns.map(({ href, text }) => (
-                    <a
-                    
-                        href={href}
-                        class="dark:text-white font-pattern font-light uppercase lg:text-base text-sm leading-6 py-1 hover:text-orange-500"
-                       
-                    >
-                        {text}
-                    </a>
+      <div x-show="open" x-transition.duration.400ms class="flex flex-col items-center mt-2" >
+                
+
+        <div x-data="dropdown" class="relative" @click.away="open = false">
+        
+          <!-- Botón principal con el título del dropdown -->
+        <button
+            @click="toggle"
+            type="button"
+            class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+              {navItems.dropmenu[0].sub}
+              <Icon name="arrow" />
+        </button>
+        
+          <!-- Menú desplegable Servicios de Transporte Terrestre -->
+          <div 
+            x-show="open" x-transition.duration.400ms
+            class="relative">
+                {dropdowns.map((item) => (
+                  <a
+                    href={item.href}
+                    class="block px-4 py-2 hover:text-main text-sm font-pattern font-light uppercase"
+                  >
+                    {item.text}
+                  </a>
                 ))}
+          </div>
+        </div>
+
+
                   <!-- Botón de LUXURY con Dropdown -->
 
         <div x-data="dropdown" class="relative" @click.away="open = false">

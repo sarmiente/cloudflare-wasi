@@ -12,8 +12,29 @@ const t = useTranslations(lang);
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
-<meta name="robots" content="nofollow, noindex" />
+
+
 <title>{title}</title>
+
+<!-- Open Graph tags -->
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://www.brsolution.com.co" />
+<meta property="og:description" content={t('layout.description')} />
+<meta property="og:image" content="/br_front_1.jpg" />
+<meta property="og:image:alt" content="Your home away home." />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+<!-- Google tag (gtag.js) -->
+<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ST46D5DPG3"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-ST46D5DPG3');
+</script>
 
 <!-- Transition View -->
 <ClientRouter />

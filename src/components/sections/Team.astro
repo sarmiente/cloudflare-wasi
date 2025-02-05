@@ -4,6 +4,11 @@ import { Image } from 'astro:assets';
 import PicOne from "../../assets/milagros.png"
 import PicTwo from "../../assets/beny.png"
 import PicThree from "../../assets/grace.png"
+
+import FrontOne from "../../assets/br_front_1.jpg"
+import FrontTwo from "../../assets/br_front_2.jpg"
+import FrontThree from "../../assets/br_front_3.jpg"
+
 // Language imports
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
@@ -59,4 +64,42 @@ const t = useTranslations(lang);
       </div>
     </div>
   </section>
+
+
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <span class="text-sm font-pattern uppercase block text-gray-600">{t("team.why")}</span>
+      <h2 class="text-2xl mt-2 font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
+        {t("team.why-des")}
+      </h2>
+    </div>
+  
+    <div class="grid grid-cols-1 gap-12 mt-16 lg:grid-cols-3 lg:gap-8">
+      <div class="text-center">
+      
+       <Image alt="" src={FrontOne} 
+       class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+       />
+        
+        <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">{t("team.var")}</h3>
+        <p class="text-sm text-gray-700 mt-2">{t("team.var-des")}</p>
+      </div>
+  
+      <div class="text-center">
+       <Image alt="" src={FrontTwo} 
+       class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+       />
+        <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">{t("team.qa")}</h3>
+        <p class="text-sm text-gray-700 mt-2">{t("team.qa-des")}</p>
+      </div>
+  
+      <div class="text-center">
+       <Image alt="" src={FrontThree} 
+       class="h-40 w-40 mx-auto rounded-full flex items-center justify-center shadow-lg"
+       />
+        <h3 class="mt-4 text-xl font-heading uppercase text-gray-900 sm:text-2xl">{t("team.ps")}</h3>
+        <p class="text-sm text-gray-700 mt-2">{t("team.ps-des")}</p>
+      </div>
+    </div>
+   </div>
   
