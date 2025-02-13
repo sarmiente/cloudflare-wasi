@@ -71,7 +71,7 @@ const transportation = navItems.dropmenu[3].dropdown;
     
 
     <!-- Menú móvil -->
-    <div x-show="openToggle" x-cloak  class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white  w-full items-center gap-10 py-12 pb-10" @click.away="openToggle = false">
+    <div x-show="openToggle" x-cloak  class="flex flex-col mt-16 lg:hidden absolute top-4 left-0 bg-white  w-full items-center gap-2 py-5 pb-10" @click.away="openToggle = false">
       <LanguagePickerMobile />
         {links.map(({ href, text}) => (
             <a
@@ -101,7 +101,9 @@ const transportation = navItems.dropmenu[3].dropdown;
         <button
             @click="toggle"
             type="button"
-            class="relative hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="hover:text-main px-4 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center text-left">
               {navItems.dropmenu[0].sub}
               <Icon name="arrow" />
         </button>

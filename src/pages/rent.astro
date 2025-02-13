@@ -1,40 +1,16 @@
 ---
-// @ts-nocheck
+
 import Layout from "../layouts/Layout.astro";
 
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
+import PropertyListRent from "../components/PropertyListRent.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-const urlSearch = "https://api.wasi.co/v1/property/search?";
-const options = {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-        Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
-    }
-};
-const res = await fetch(`${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&for_rent=true&take=100`, options);
-const data = await res.json();
-const properties = Object.keys(data)
-    .filter(key => key !== "total" && key !== "status")
-    .map(key => data[key]);
 ---
 
-<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-
-<script type="module" is:inline astro:page-load>
-  // @ts-ignore
-  var monkeyRent = new List('property-list-rent', {
-  valueNames: ['title-rent'],
-  listClass: 'list-rent',
-  searchClass: 'search-rent',
-  page: 6,
-  pagination: true
-});
-</script>
 
 
 
@@ -42,87 +18,9 @@ const properties = Object.keys(data)
 <Layout title="Properties for Rent">
     
     <section id="property-list-rent" class="md:p-12  py-32 md:pt-48 bg-gray-100">
-      <!-- Título del portafolio -->
-      <h2 class="text-center text-xl md:text-3xl font-heading uppercase pt-10 pb-10">
-        Our Properties for Rent
-      </h2>
-    
-          <!-- Filtros y búsqueda -->
-          <div class="mx-auto w-2/3 md:w-1/2 flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
-            <!-- Campo de búsqueda -->
-            <input
-              type="search"
-              class="search-rent w-full  border border-gray-300 rounded-lg p-2 text-xs focus:outline-none focus:ring focus:ring-green-500 font-pattern"
-              placeholder="Search by title, property ID, or price"
-            />
-          </div>
-    
-        
-    <!-- Contenedor de propiedades -->
-<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 p-5 sm:p-8 list-rent">
-  <!-- Cada propiedad -->
-  {properties.map((property: The0) => (
-    <div class="rounded-lg overflow-hidden shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-2xl border-x-3 border-main/70">
-      <a href={translatePath(`/property/${property.id_property}`)}class="block">
-        <!-- Imagen de la propiedad -->
-        <div class="relative">
 
-          <picture>
-                <source type="image/webp" src={property.main_image.url_original} />
-                <img
-                loading="lazy"
-                alt="Property Image"
-                src={property.main_image.url_original}
-                class="h-56 w-full object-cover"
-              />
-              </picture>
+      <PropertyListRent />
 
-
-          <!-- Etiqueta de ubicación -->
-          <div class="absolute top-2 right-2 bg-black bg-opacity-75 text-white text-xs px-3 py-1 rounded">
-            <p class="font-display uppercase">{property.city_label}</p>
-          </div>
-        </div>
-
-                                              <!-- Detalles de la propiedad -->
-        <div class="p-4 bg-white">
-                                              <!-- Título y precio -->
-          <div class="mb-4">
-            <h2 class="title-rent text-lg font-medium font-heading text-gray-800 uppercase truncate">
-              {property.title}
-            </h2>
-            <p class="text-sm text-gray-600 font-light font-display uppercase">
-              Rental price: {property.sale_price_label && property.rent_price_label}
-            </p>
-          </div>
-                                              <!-- "Ver ID propiedad" -->
-          <div class="flex items-center justify-between mt-4">
-            <p class="text-xs text-gray-600 font-light font-display">
-              {property.id_property}
-            </p>
-  
-                                              <!-- Botón "Ver propiedades" -->
-            <div class="w-1/2 flex justify-end">
-                <a
-                  href={translatePath(`/property/${property.id_property}`)}
-                  class="bg-main font-pattern uppercase p-2 text-xs rounded-md"
-                >
-                  View Property
-                </a>
-            </div>
-          </div>        
-        </div>
-      </a>
-    </div>
-  ))}
-</div>
-
-      <!-- Controles de paginación -->
-  <div id="pagination-controls" class="text-center mt-8">
-    <div class="inline-flex items-center justify-center gap-3">
-      <ul class="pagination flex gap-4"></ul>
-     </div>
-  </div>
       
     </section>
     

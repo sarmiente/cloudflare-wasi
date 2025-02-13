@@ -25,15 +25,13 @@ const properties = Object.keys(data)
 ---
 
 
-<script is:inline src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-
 <script type="module" is:inline astro:page-load>
   // @ts-ignore
   var monkeyAlquiler = new List('property-list-alquiler', {
   valueNames: ['title-alquiler'],
   listClass: 'list-alquiler',
   searchClass: 'search-alquiler',
-  page: 6,
+  page: 3,
   pagination: true
 });
 </script>
@@ -68,9 +66,10 @@ const properties = Object.keys(data)
         <!-- Imagen de la propiedad -->
         <div class="relative">
               <picture>
-                <source type="image/webp" src={property.main_image.url_original} />
+                <source type="image/avif" srcset={property.main_image.url_original} />
                 <img
                 loading="lazy"
+                decoding="async"
                 alt="Property Image"
                 src={property.main_image.url_original}
                 class="h-56 w-full object-cover"

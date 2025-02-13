@@ -1,5 +1,6 @@
 ---
-import Filter from "../components/buttons/Filter.astro";
+// componentes
+import Filter from "./buttons/Filter.astro";
 
 // i18n
 import {
@@ -13,7 +14,6 @@ const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
 // API Call
-
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
 
@@ -29,7 +29,7 @@ let data = {};
 
 try {
   const res = await fetch(
-    `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}`,
+    `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&for_rent=true`,
     options
   );
 
@@ -49,7 +49,7 @@ const properties = Object.keys(data || {})
 
 <main class="container mx-auto px-4">
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pb-10">
-    {t("list.title")}
+    {t("list.rent")}
   </h2>
 
   <Filter />

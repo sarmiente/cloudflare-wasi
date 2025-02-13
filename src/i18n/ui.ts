@@ -66,8 +66,9 @@ string,
   
   export const ui = {
     en: {
-      'layout.title': 'Short Term Rental Apartments, Houses, Yachts & Boats',
-      'layout.description' : 'Discover Exclusive Short Term Rental Apartments, Houses and Yachts. Turn every trip into something truly unforgettable.',
+        'layout.title': 'Short Term Rental Apartments, Houses, Yachts & Boats',
+        'layout.description' : 'Discover Exclusive Short Term Rental Apartments, Houses and Yachts. Turn every trip into something truly unforgettable.',
+        
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.buy': 'Buy',
@@ -75,12 +76,6 @@ string,
         'nav.services': 'Services',
         'nav.solution': 'Property Solutions',
         'nav.manage': 'Property Management',
-        'manage.title': 'Property Management for Short-Term Rentals',
-        'manage.sub': 'We are leaders in property management for vacation and long-term rentals.',
-        
-        'manage.span': 'We take your property and',
-        'manage.br' : 'investment to the next level.',
-        'manage.side': 'Our expert team handles everything, from marketing to operational management, so you can maximize your income without worries.',
         'nav.main': 'Maintenance Management and Support',
         'nav.manage-desc': 'Optimize the value of your properties with our comprehensive and personalized management.',
         'nav.concierge' : 'Luxury Concierge',
@@ -107,7 +102,15 @@ string,
         'nav.rights': 'All rights reserved',
         'nav.more': 'Learn More',
 
+        'view.btn': 'View Property',
 
+        'manage.title': 'Property Management for Short-Term Rentals',
+        'manage.sub': 'We are leaders in property management for vacation and long-term rentals.',
+        'manage.span': 'We take your property and',
+        'manage.br' : 'investment to the next level.',
+        'manage.side': 'Our expert team handles everything, from marketing to operational management, so you can maximize your income without worries.',
+
+     
         
         'about.sub': 'Building a visionary legacy in the future of property excellence.',
         'about.side' : 'At BR Solutions, we believe that every journey is a unique experience and that where you stay can make that journey truly unforgettable. As providers of tourist accommodations, property sales, and boat rentals, we take pride in offering homes away from home and exceptional experiences.',
@@ -119,11 +122,16 @@ string,
         'vision.sub': 'Becoming the leading company in providing real state services focused on the rental of tourist accomodations, local property sales, and maritime boat rentals, offering access to the most exclusive properties and boats in dream destinations, where each stay transform into a unique and unforgettable adventure.',
 
 
-        'list.title' : 'Explore our property portfolio',
-        'list.sale-price': 'Selling price',
-        'list.rent-price': 'Rental price',
+        'list.title' : 'Explore our featured properties',
+        'list.bedrooms' : 'Bedrooms',
+        'list.bathrooms': 'Bathrooms',
+        'list.sale-price': 'Sell',
+        'list.rent-price': 'Rent',
         'list.btn': 'View Property',
         'list.search': 'Search by title, property ID, or price.',
+        'list.apply-filters': 'Apply filter',
+        'list.buy': 'Explore our properties in sale',
+        'list.rent': 'Explore our properties for rent',
 
 
         'centered.title': 'Who We Are',
@@ -198,13 +206,23 @@ string,
         'main.six': 'Professionals in Comprehensive Services.',
         'main.span': 'We simplify your management',
         'main.br': 'and maximize your peace of mind.',
-        'main.side': 'Our comprehensive and personalized approach ensures efficiency and attention to every detail, from maintenance to service supervision.'
+        'main.side': 'Our comprehensive and personalized approach ensures efficiency and attention to every detail, from maintenance to service supervision.',
+
+        'filter.title' : 'Advanced Search',
+        'filter.type' : 'Property Type',
+        'filter.all-type' : 'All types',
+        'filter.price' : 'Price Range',
+        'filter.bed' : 'Bedrooms',
+        'filter.bath' : 'Bathrooms',
+        'filter.any' : 'Any',
+
 
         
     },
     es: {
         'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
         'layout.description': 'Descubre exclusivos Apartamentos, Casas, Yates y Barcos. Vive experiencias únicas y convierte cada viaje en algo realmente inolvidable.',
+
         'nav.home': 'Inicio',
         'nav.about': 'Nosotros',
         'nav.buy': 'Comprar',
@@ -212,11 +230,6 @@ string,
         'nav.services': 'Servicios',
         'nav.solution': 'Soluciones Inmobiliarias',
         'nav.manage': 'Administración de propiedades',
-        'manage.title': 'Administración de propiedades para rentas cortas',
-        'manage.sub': 'Somos líderes en la administración de propiedades para rentas vacacionales y a largo plazo',
-        'manage.span': 'Llevamos tu propiedad y',
-        'manage.br' : 'tu inversión a otro nivel.',
-        'manage.side': 'Nuestro equipo experto se encarga de todo, desde la comercialización hasta la gestión operativa, para que puedas maximizar tus ingresos sin preocupaciones.',
         'nav.main': 'Gestión y Soporte de Mantenimiento.',
         'nav.manage-desc': 'Optimiza el valor de tus inmuebles con nuestra gestión integral y personalizada.',
         'nav.concierge' : 'Conserjería de Lujo',
@@ -243,6 +256,14 @@ string,
         'nav.rights': 'Todos los derechos reservados',
         'nav.more': 'Saber más',
 
+        'view.btn': 'Ver Propiedad',
+
+        'manage.title': 'Administración de propiedades para rentas cortas',
+        'manage.sub': 'Somos líderes en la administración de propiedades para rentas vacacionales y a largo plazo',
+        'manage.span': 'Llevamos tu propiedad y',
+        'manage.br' : 'tu inversión a otro nivel.',
+        'manage.side': 'Nuestro equipo experto se encarga de todo, desde la comercialización hasta la gestión operativa, para que puedas maximizar tus ingresos sin preocupaciones.',
+
         'about.sub': 'Construyendo un legado visionario en el futuro de la excelencia en propiedad.',
         'about.side' : 'En BR Solutions, creemos que cada viaje es una experiencia única y que el lugar donde te hospedas puede convertir ese viaje en algo verdaderamente inolvidable. Como proveedores de alojamientos turísticos, ventas de propiedades y renta de botes, nos enorgullece ofrecer hogares lejos de casa y experiencias excepcionales.',
         'mission' : 'Nuestra Misión',
@@ -252,11 +273,16 @@ string,
         'vision.title': 'Transformando estancias en aventuras eternas.',
         'vision.sub': ' Convertirnos en la empresa líder en la prestación de servicios inmobiliarios enfocados en Alquiler de alojamientos turísticos, venta de propiedades locales y renta de embarcaciones marítimas, proporcionando acceso a las propiedades y botes más exclusivos en destinos de ensueño, donde cada estancia se transforma en una aventura única e inolvidable',
 
-        'list.title' : 'Explora nuestro portafolio de propiedades',
-        'list.sale-price': 'Precio de venta',
-        'list.rent-price': 'Precio de alquiler',
+        'list.title' : 'Explora nuestras propiedades destacadas',
+        'list.buy': 'Explora nuestras propiedades en venta',
+        'list.rent': 'Explora nuestras propiedades en renta',
+        'list.sale-price': 'Venta',
+        'list.rent-price': 'Renta',
         'list.btn': 'Ver propiedad',
-        'list.search': 'Busca por titulo, ID de propiedad o precio',
+        'list.search': 'Busca por Zona, ID de propiedad o Ubicacion',
+        'list.bedrooms' : 'Habitaciones',
+        'list.bathrooms': 'Baños',
+        'list.apply-filters': 'Aplicar filtro',
 
         'centered.title': 'Quiénes somos',
         'centered.desc': 'Construyendo un legado visionario en el futuro de la excelencia en propiedad.',
@@ -329,7 +355,15 @@ string,
         'main.six': 'Profesionales en Servicios Integrales.',
         'main.span': 'Simplificamos su gestión',
         'main.br': 'maximizamos su tranquilidad',
-        'main.side': 'Nuestro enfoque integral y personalizado garantiza la eficiencia y el cuidado de cada detalle, desde el mantenimiento hasta la supervisión de servicios.'
+        'main.side': 'Nuestro enfoque integral y personalizado garantiza la eficiencia y el cuidado de cada detalle, desde el mantenimiento hasta la supervisión de servicios.',
+
+        'filter.title' : 'Busqueda avanzada',
+        'filter.type' : 'Tipo de propiedad',
+        'filter.all-type' : 'Todos',
+        'filter.price' : 'Rango de precio',
+        'filter.bed' : 'Habitaciones',
+        'filter.bath' : 'Baños',
+        'filter.any' : 'Cualquier',
     
 
     },

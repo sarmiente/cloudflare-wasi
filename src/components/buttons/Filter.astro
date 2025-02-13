@@ -1,0 +1,128 @@
+---
+import {
+  getLangFromUrl,
+  useTranslations,
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<div class="bg-gray-100 p-4 rounded-lg shadow-md mb-6">
+    <h2 class="text-xl font-heading mb-4">{t("filter.title")}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <!-- Property Type -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 font-pattern">{t("filter.type")}</label>
+            <select id="propertyType" class="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm font-pattern">
+                <option value="all">{t("filter.all-type")}</option>
+                <option value="for_rent">Rent</option>
+                <option value="for_sale">Sale</option>
+            </select>
+        </div>
+
+        <!-- Price Range -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 font-pattern">{t("filter.price")}</label>
+            <div class="flex items-center space-x-2">
+                <input type="number" id="minPrice" placeholder="Min" class="w-1/2 rounded-md border border-gray-300 py-2 px-3 text-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500">
+                <span class="text-gray-500">-</span>
+                <input type="number" id="maxPrice" placeholder="Max" class="w-1/2 rounded-md border border-gray-300 py-2 px-3 text-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500">
+            </div>
+        </div>
+
+        <!-- Bedrooms -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 font-pattern">{t("filter.bed")}</label>
+            <select id="bedrooms" class="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm font-pattern">
+                <option value="all">{t("filter.any")}</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4+">4+</option>
+            </select>
+        </div>
+
+        <!-- Bathrooms -->
+        <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1 font-pattern">{t("filter.bath")}</label>
+            <select id="bathrooms" class="block w-full rounded-md border border-gray-300 py-2 pl-3 pr-10 text-base focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm font-pattern">
+                <option value="all">{t("filter.any")}</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4+">4+</option>
+            </select>
+        </div>
+    </div>
+</div>
+
+
+<script is:inline>
+    document.addEventListener('astro:page-load', () => {
+        localStorage.clear();
+
+    const filters = ['propertyType', 'minPrice', 'maxPrice', 'bedrooms', 'bathrooms'];
+
+    // Cargar filtros guardados desde localStorage al cargar la página
+    filters.forEach(filterId => {
+        const filterElement = document.getElementById(filterId);
+        if (filterElement) {
+            const savedValue = localStorage.getItem(filterId);
+            if (savedValue !== null) {
+                filterElement.value = savedValue;
+            }
+
+            // Agregar event listener para guardar en localStorage y filtrar propiedades
+            filterElement.addEventListener('input', () => {
+                localStorage.setItem(filterId, filterElement.value);
+                filterProperties();
+            });
+        }
+    });
+
+    // Aplicar el filtrado al cargar la página para mostrar resultados correctos
+    filterProperties();
+
+    function filterProperties() {
+        const propertyType = document.getElementById('propertyType').value;
+        const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+        const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+        const bedrooms = document.getElementById('bedrooms').value;
+        const bathrooms = document.getElementById('bathrooms').value;
+
+        const properties = document.querySelectorAll('.property-card');
+
+        properties.forEach(property => {
+            const price = parseInt(property.dataset.price) || 0;
+            const beds = property.dataset.bedrooms;
+            const baths = property.dataset.bathrooms;
+            const type = property.dataset.type;
+
+            let show = true;
+
+            // Property Type Filter
+            if (propertyType !== 'all') {
+                show = show && type === propertyType;
+            }
+
+            // Price Range Filter
+            show = show && price >= minPrice && price <= maxPrice;
+
+            // Bedrooms Filter
+            if (bedrooms !== 'all') {
+                const minBeds = parseInt(bedrooms);
+                show = show && (beds === bedrooms || (bedrooms === '4+' && parseInt(beds) >= 4));
+            }
+
+            // Bathrooms Filter
+            if (bathrooms !== 'all') {
+                const minBaths = parseInt(bathrooms);
+                show = show && (baths === bathrooms || (bathrooms === '4+' && parseInt(baths) >= 4));
+            }
+
+            property.style.display = show ? 'block' : 'none';
+        });
+    }
+    })
+</script>
