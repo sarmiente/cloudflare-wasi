@@ -1,30 +1,12 @@
 ---
-
 import Layout from "../layouts/Layout.astro";
-
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import PropertyListRent from "../components/PropertyListRent.astro";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-
 ---
-
-
-
-
-
 <Layout title="Properties for Rent">
-    
-    <section id="property-list-rent" class="md:p-12  py-32 md:pt-48 bg-gray-100">
-
+   <section id="property-list-rent" class="md:p-12  py-32 md:pt-48 bg-gray-100">
       <PropertyListRent />
-
-      
-    </section>
-    
-    </Layout>
+   </section>
+</Layout>
     
     
     

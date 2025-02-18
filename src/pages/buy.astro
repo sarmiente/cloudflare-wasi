@@ -1,21 +1,11 @@
 ---
-// components
 import Layout from "../layouts/Layout.astro";
 import PropertyListBuy from "../components/PropertyListBuy.astro";
-// i18n
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const translatePath = useTranslatedPath(lang);
-
 ---
 
 <Layout title="Properties for Sale">
-   
   <section id="property-list-buy" class="md:p-12  py-32 md:pt-48 bg-gray-100">
-    
-      <PropertyListBuy />
-   
+    <PropertyListBuy />
   </section>
 </Layout>
 

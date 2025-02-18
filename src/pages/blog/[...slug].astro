@@ -1,15 +1,15 @@
 ---
-
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogPost from "../../layouts/BlogPost.astro";
 
 export async function getStaticPaths() {
-    const posts = await getCollection("blog");
-    return posts.map((post) => ({
-        params: { slug: post.slug },
-        props: post,
-    }));
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { lang: post.data.lang, slug: post.slug }, // 🔹 Ahora incluimos el idioma en la ruta
+    props: post,
+  }));
 }
+
 type Props = CollectionEntry<"blog">;
 const post = Astro.props;
 const { Content } = await post.render();
@@ -17,8 +17,5 @@ export const prerender = true;
 ---
 
 <BlogPost {...post.data}>
-    
-    <Content />
+  <Content />
 </BlogPost>
-
-
