@@ -1,14 +1,12 @@
 ---
 // @ts-nocheck
 
-import Filter from "../components/buttons/Filter.astro";
-
 // i18n
 import {
   getLangFromUrl,
   useTranslations,
   useTranslatedPath,
-} from "../i18n/utils";
+} from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -16,7 +14,7 @@ const translatePath = useTranslatedPath(lang);
 
 // API Call
 const urlSearch = "https://api.wasi.co/v1/property/search?";
-const take = 100;
+const take = 3;
 const options = {
   method: "POST",
   headers: {
@@ -30,7 +28,7 @@ let data = {};
 try {
   data = await (async () => {
     const response = await fetch(
-      `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&for_sale=true`,
+      `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&skip=1&for_rent=true`,
       options
     );
 
@@ -49,12 +47,40 @@ const properties = Object.keys(data || {})
   .map((key) => data[key]);
 ---
 
-<main class="container mx-auto px-4">
-  <h2 class="text-center text-xl md:text-3xl font-heading uppercase pb-10">
-    {t("list.buy")}
-  </h2>
-  <Filter />
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<main class="container mx-auto px-4 pb-12">
+  <div class="grid lg:grid-cols-3 gap-8 py-10">
+    <div>
+      <h2 class="text-3xl font-light font-heading text-black">
+        {t("rent.title")}
+      </h2>
+      <p class="text-pretty font-pattern mt-4 text-gray-500">
+        {t("rent.desc")}
+      </p>
+    </div>
+    <div class="flex flex-col lg:col-start-3">
+      <a
+        title="Your title"
+        aria-label="Your title"
+        href={translatePath("/buy")}
+        class="text-black font-pattern hover:text-main mt-auto flex gap-3 items-center justify-between"
+        >{t("rent.btn")}
+        <svg
+          width="71"
+          height="16"
+          viewBox="0 0 71 15"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0.996338 6.5C0.444053 6.5 -0.00366211 6.94772 -0.00366211 7.5C-0.00366211 8.05228 0.444053 8.5 0.996338 8.5V6.5ZM69.7739 8.20711C70.1645 7.81658 70.1645 7.18342 69.7739 6.79289L63.41 0.428932C63.0194 0.0384079 62.3863 0.0384079 61.9958 0.428932C61.6052 0.819456 61.6052 1.45262 61.9958 1.84315L67.6526 7.5L61.9958 13.1569C61.6052 13.5474 61.6052 14.1805 61.9958 14.5711C62.3863 14.9616 63.0194 14.9616 63.41 14.5711L69.7739 8.20711ZM0.996338 8.5H69.0668V6.5H0.996338V8.5Z"
+            fill="currentColor"></path>
+        </svg>
+        </a
+      >
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 border-t-1 pt-5">
     {
       properties.length > 0 ? (
         properties.map((property) => (
@@ -93,7 +119,9 @@ const properties = Object.keys(data || {})
                       <div class="font-pattern">
                         <dt class="text-black">Area</dt>
                         <dd class="text-gray-500">
-                          {property.built_area ? `${property.built_area} m²` : ''}
+                          {property.built_area
+                            ? `${property.built_area} m²`
+                            : ""}
                         </dd>
                       </div>
                       <div class="font-pattern">

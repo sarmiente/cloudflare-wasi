@@ -36,8 +36,9 @@ const images = Object.values(property?.galleries?.[0] || {});
 
 <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script type="module" is:inline astro:page-load>
-  var swiper = new Swiper(".mySwiper", {
+<script is:inline >
+  document.addEventListener('astro:page-load', () => {
+    var swiper = new Swiper(".mySwiper", {
     loop: true,
     spaceBetween: 5,
     slidesPerView: 4,
@@ -56,6 +57,7 @@ const images = Object.values(property?.galleries?.[0] || {});
       swiper: swiper,
     },
   });
+  })
 </script>
 
 

@@ -8,12 +8,14 @@ import Top from "../../icons/top.svg"
     <Top size={45} class="z-50 text-main text-3xl fixed bottom-5 left-5 cursor-pointer" />    
 </button>
 
-<script is:inline type="module">
-    const btn = document.querySelector(".to-top");
+<script is:inline>
+    document.addEventListener('astro:page-load', () => {
+        const btn = document.querySelector(".to-top");
     btn.addEventListener("click", () => {
         document.documentElement.scrollTo({
             top: 0,
             behavior: "smooth",
         })
     });
+    })
 </script>

@@ -8,7 +8,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<div class="bg-gray-100 p-4 rounded-lg shadow-md mb-6">
+<div class="bg-slate-300 p-4 rounded-lg shadow-md mb-6">
     <h2 class="text-xl font-heading mb-4">{t("filter.title")}</h2>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
         <!-- Property Type -->
@@ -57,72 +57,120 @@ const t = useTranslations(lang);
     </div>
 </div>
 
-
 <script is:inline>
+    let db;
+    
     document.addEventListener('astro:page-load', () => {
-        localStorage.clear();
-
-    const filters = ['propertyType', 'minPrice', 'maxPrice', 'bedrooms', 'bathrooms'];
-
-    // Cargar filtros guardados desde localStorage al cargar la página
-    filters.forEach(filterId => {
-        const filterElement = document.getElementById(filterId);
-        if (filterElement) {
-            const savedValue = localStorage.getItem(filterId);
-            if (savedValue !== null) {
-                filterElement.value = savedValue;
-            }
-
-            // Agregar event listener para guardar en localStorage y filtrar propiedades
-            filterElement.addEventListener('input', () => {
-                localStorage.setItem(filterId, filterElement.value);
-                filterProperties();
-            });
-        }
+        initializeIndexedDB();
     });
-
-    // Aplicar el filtrado al cargar la página para mostrar resultados correctos
-    filterProperties();
-
+    
+    document.addEventListener('astro:after-swap', () => {
+        console.log('Page loaded via Astro routing');
+        initializeIndexedDB();
+    });
+    
+    function initializeIndexedDB() {
+        const DB_NAME = 'FiltersDB';
+        const DB_VERSION = 1;
+        const STORE_NAME = 'filters';
+    
+        const request = indexedDB.open(DB_NAME, DB_VERSION);
+    
+        request.onupgradeneeded = function(event) {
+            const db = event.target.result;
+            if (!db.objectStoreNames.contains(STORE_NAME)) {
+                db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+            }
+        };
+    
+        request.onsuccess = function(event) {
+            db = event.target.result;
+            loadFiltersFromIndexedDB();
+        };
+    
+        request.onerror = function(event) {
+            console.error("Error opening IndexedDB:", event.target.errorCode);
+        };
+    }
+    
+    function loadFiltersFromIndexedDB() {
+        const transaction = db.transaction(['filters'], 'readonly');
+        const store = transaction.objectStore('filters');
+    
+        const filters = ['propertyType', 'minPrice', 'maxPrice', 'bedrooms', 'bathrooms'];
+        filters.forEach(filterId => {
+            const getRequest = store.get(filterId);
+            getRequest.onsuccess = function() {
+                const filterElement = document.getElementById(filterId);
+                if (filterElement && getRequest.result) {
+                    filterElement.value = getRequest.result.value;
+                }
+            };
+        });
+    
+        attachEventListeners();
+        setTimeout(filterProperties, 300);
+    }
+    
+    function attachEventListeners() {
+        const filters = ['propertyType', 'minPrice', 'maxPrice', 'bedrooms', 'bathrooms'];
+        filters.forEach(filterId => {
+            const filterElement = document.getElementById(filterId);
+            if (filterElement) {
+                filterElement.addEventListener('input', () => {
+                    saveFilterToIndexedDB(filterId, filterElement.value);
+                    filterProperties();
+                });
+            }
+        });
+    }
+    
+    function saveFilterToIndexedDB(filterId, value) {
+        const transaction = db.transaction(['filters'], 'readwrite');
+        const store = transaction.objectStore('filters');
+        store.put({ id: filterId, value });
+    
+        transaction.oncomplete = function() {
+            console.log(`Filter ${filterId} saved successfully.`);
+        };
+    
+        transaction.onerror = function(event) {
+            console.error(`Error saving filter ${filterId}:`, event.target.error);
+        };
+    }
+    
     function filterProperties() {
         const propertyType = document.getElementById('propertyType').value;
         const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
         const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
         const bedrooms = document.getElementById('bedrooms').value;
         const bathrooms = document.getElementById('bathrooms').value;
-
         const properties = document.querySelectorAll('.property-card');
-
+    
         properties.forEach(property => {
             const price = parseInt(property.dataset.price) || 0;
             const beds = property.dataset.bedrooms;
             const baths = property.dataset.bathrooms;
             const type = property.dataset.type;
-
             let show = true;
-
-            // Property Type Filter
+    
             if (propertyType !== 'all') {
                 show = show && type === propertyType;
             }
-
-            // Price Range Filter
+    
             show = show && price >= minPrice && price <= maxPrice;
-
-            // Bedrooms Filter
+    
             if (bedrooms !== 'all') {
                 const minBeds = parseInt(bedrooms);
                 show = show && (beds === bedrooms || (bedrooms === '4+' && parseInt(beds) >= 4));
             }
-
-            // Bathrooms Filter
+    
             if (bathrooms !== 'all') {
                 const minBaths = parseInt(bathrooms);
                 show = show && (baths === bathrooms || (bathrooms === '4+' && parseInt(baths) >= 4));
             }
-
+    
             property.style.display = show ? 'block' : 'none';
         });
     }
-    })
-</script>
+    </script>

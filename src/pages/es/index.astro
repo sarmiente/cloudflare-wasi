@@ -1,13 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-
 import CenteredHero from "../../components/sections/CenteredHero.astro"
 import CTA from "../../components/sections/CTA.astro"
-
-
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 import Hero from "../../components/sections/Hero.astro";
-import PropertyList from "../../components/PropertyList.astro";
+import ForSale from "../../components/sections/ForSale.astro";
+import ForRent from "../../components/sections/ForRent.astro";
+
 
 
 
@@ -18,7 +17,8 @@ const t = useTranslations(lang);
 
 <Layout title=`${t("layout.title")} - BR Solutions`>
     <Hero />
-    <PropertyList />
+    <ForSale />
+    <ForRent />
     <CenteredHero />
     <CTA />
     

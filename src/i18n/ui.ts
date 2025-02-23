@@ -127,7 +127,7 @@ string,
         'list.bathrooms': 'Bathrooms',
         'list.sale-price': 'Sell',
         'list.rent-price': 'Rent',
-        'list.btn': 'View Property',
+        'list.btn': 'Load more',
         'list.search': 'Search by title, property ID, or price.',
         'list.apply-filters': 'Apply filter',
         'list.buy': 'Explore our properties in sale',
@@ -216,6 +216,14 @@ string,
         'filter.bath' : 'Bathrooms',
         'filter.any' : 'Any',
 
+        'sale.title': 'Available properties for sale',
+        'sale.desc': 'Explore our stunning array of homes, ranging from charming apartments to luxurious estates, and find the perfect place to create your own story.',
+        'sale.btn' : 'See all properties for sale',
+
+        'rent.title': 'Available properties for rent',
+        'rent.desc': 'Dive into our global collection of rental properties, scattered across every corner of the world, and uncover a home that feels just right—even if it’s temporary.',
+        'rent.btn': 'See all properties for rent'
+
 
         
     },
@@ -278,7 +286,7 @@ string,
         'list.rent': 'Explora nuestras propiedades en renta',
         'list.sale-price': 'Venta',
         'list.rent-price': 'Renta',
-        'list.btn': 'Ver propiedad',
+        'list.btn': 'Cargar más',
         'list.search': 'Busca por Zona, ID de propiedad o Ubicacion',
         'list.bedrooms' : 'Habitaciones',
         'list.bathrooms': 'Baños',
@@ -364,6 +372,14 @@ string,
         'filter.bed' : 'Habitaciones',
         'filter.bath' : 'Baños',
         'filter.any' : 'Cualquier',
+
+        'sale.title': 'Propiedades en venta disponibles',
+        'sale.desc': 'Explora nuestra impresionante variedad de hogares, desde acogedores apartamentos hasta lujosas mansiones, y encuentra el lugar perfecto para escribir tu propia historia.',
+        'sale.btn' : 'Ver todas las propiedades en venta',
+
+        'rent.title': 'Propiedades en renta disponibles',
+        'rent.desc': 'Sumérgete en nuestra colección global de propiedades en alquiler, esparcidas por cada rincón del mundo, y descubre un hogar que se sienta perfecto, aunque sea temporal.',
+        'rent.btn': 'Ver todas las propiedades en alquiler'
     
 
     },

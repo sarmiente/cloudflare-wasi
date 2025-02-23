@@ -1,6 +1,7 @@
 ---
-// componentes
-import Filter from "./buttons/Filter.astro";
+// @ts-nocheck
+
+import Filter from "../components/buttons/Filter.astro";
 
 // i18n
 import {
@@ -16,7 +17,6 @@ const translatePath = useTranslatedPath(lang);
 // API Call
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
-
 const options = {
   method: "POST",
   headers: {
@@ -26,24 +26,25 @@ const options = {
 };
 
 let data = {};
-
 try {
-  const res = await fetch(
-    `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&for_rent=true`,
-    options
-  );
+  data = await (async () => {
+    const response = await fetch(
+      `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&for_rent=true`,
+      options
+    );
 
-  if (!res.ok) {
-    throw new Error(`HTTP error! status: ${res.status}`);
-  }
+    if (!response.ok) {
+      throw new Error(`Error HTTP: ${response.status}`);
+    }
 
-  data = await res.json();
+    return await response.json();
+  })();
 } catch (error) {
   console.error("Error fetching properties:", error);
 }
+
 const properties = Object.keys(data || {})
   .filter((key) => key !== "total" && key !== "status")
-  // @ts-ignore
   .map((key) => data[key]);
 ---
 
@@ -51,74 +52,61 @@ const properties = Object.keys(data || {})
   <h2 class="text-center text-xl md:text-3xl font-heading uppercase pb-10">
     {t("list.rent")}
   </h2>
-
   <Filter />
-
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
     {
-      properties.map((property) => (
-        <div
-          class="property-card"
-          data-type={
-            property.for_rent === "true"
-              ? "for_rent"
-              : property.for_sale === "true"
+      properties.length > 0 ? (
+        properties.map((property) => (
+          <div
+            class="property-card"
+            data-type={
+              property.for_sale === "true"
                 ? "for_sale"
-                : "unknown"
-          }
-          data-price={property.sale_price || property.rent_price}
-          data-bedrooms={property.bedrooms || "0"}
-          data-bathrooms={property.bathrooms || "0"}
-        >
-           <a
+                : property.for_rent === "true"
+                  ? "for_rent"
+                  : "unknown"
+            }
+            data-price={property.sale_price || property.rent_price}
+            data-bedrooms={property.bedrooms || "0"}
+            data-bathrooms={property.bathrooms || "0"}
+          >
+            <a
               href={translatePath(`/property/${property.id_property}`)}
               class="block"
             >
-          <div class="bg-gray-50 overflow-hidden">
-           
-              <img
-                loading="lazy"
-                src={property.main_image.url_original}
-                alt="Property Image"
-                class="w-full rounded-t-lg h-60 object-cover"
-              />
-        
-         <div class="p-4">
-                   
-
-              <dl class="w-full divide-y border-b border-gray-200 divide-gray-200">
-                {" "}
-                <div class="gap-2 py-2">
-                  {" "}
-                  <dt class="text-black font-pattern font-medium uppercase"> {property.title}</dt>{" "}
-                  
-                </div>{" "}
-                {" "}
-                <div class="gap-2 py-2 grid grid-cols-2 md:grid-cols-3 justify-between">
-                  {" "}
-                  
-                  <div class="font-pattern">
-                    {" "}
-                    <dt class="text-black">Area</dt>{" "}
-                    <dd class="text-gray-500">{property.built_area ? `${property.built_area} m²` : ''}</dd>{" "}
-                  </div>{" "}
-                  <div class="font-pattern">
-                    {" "}
-                    <dt class="text-black">{t("filter.bed")}</dt>{" "}
-                    <dd class="text-gray-500">  {property.bedrooms}{" "}
-                     </dd>{" "}
-                  </div>{" "}
-                  <div class="font-pattern">
-                    {" "}
-                    <dt class="text-black">{t("filter.bath")}</dt>{" "}
-                    <dd class="text-gray-500">  {property.bathrooms}{" "}
-                     </dd>{" "}
-                  </div>{" "}
-                </div>{" "}
-                <div class="gap-2 py-2 font-pattern">
-                  {" "}
-                  <dt class="text-black">Price</dt>{" "}
-                  <dd class="text-gray-500"> 
+              <div class="bg-gray-50 overflow-hidden">
+                <img
+                  loading="lazy"
+                  src={property.main_image.url_original}
+                  alt="Property Image"
+                  class="w-full rounded-t-lg h-60 object-cover"
+                />
+                <div class="p-4">
+                  <dl class="w-full divide-y border-b border-gray-200 divide-gray-200">
+                    <div class="gap-2 py-2">
+                      <dt class="text-black font-pattern font-medium uppercase">
+                        {property.title}
+                      </dt>
+                    </div>
+                    <div class="gap-2 py-2 grid grid-cols-2 md:grid-cols-3 justify-between">
+                      <div class="font-pattern">
+                        <dt class="text-black">Area</dt>
+                        <dd class="text-gray-500">
+                          {property.built_area ? `${property.built_area} m²` : ''}
+                        </dd>
+                      </div>
+                      <div class="font-pattern">
+                        <dt class="text-black">{t("filter.bed")}</dt>
+                        <dd class="text-gray-500">{property.bedrooms}</dd>
+                      </div>
+                      <div class="font-pattern">
+                        <dt class="text-black">{t("filter.bath")}</dt>
+                        <dd class="text-gray-500">{property.bathrooms}</dd>
+                      </div>
+                    </div>
+                    <div class="gap-2 py-2 font-pattern">
+                      <dt class="text-black">Price</dt>
+                      <dd class="text-gray-500">
                         {property.for_sale === "true" &&
                         property.sale_price &&
                         property.sale_price !== 0 ? (
@@ -126,7 +114,6 @@ const properties = Object.keys(data || {})
                             {t("list.sale-price")} {property.sale_price_label}
                           </span>
                         ) : null}
-                        
                         {property.for_rent === "true" &&
                         property.rent_price &&
                         property.rent_price !== 0 ? (
@@ -134,15 +121,17 @@ const properties = Object.keys(data || {})
                             {t("list.rent-price")} {property.rent_price_label}
                           </span>
                         ) : null}
-                </dd>{" "}
-                </div>{" "}
-              </dl>
-              
-            </div>
-          </a>
+                      </dd>
+                    </div>
+                  </dl>
+                </div>
+              </div>
+            </a>
           </div>
-        </div>
-      ))
+        ))
+      ) : (
+        <p>No hay propiedades disponibles.</p>
+      )
     }
   </div>
 </main>
