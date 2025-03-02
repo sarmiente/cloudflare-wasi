@@ -1,0 +1,248 @@
+---
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+const silverCards = [
+  {
+    title: "ÉTEKA BEACH",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    features: [
+        t('feat.transport'),
+        t('feat.cocktail'),
+        t('feat.lunch'),
+        'DJ',
+        t('feat.facilities'),
+        
+    ],
+  },
+  {
+    title: "BORA BORA CLUB",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    features: [
+        t('feat.transport'),
+        t('feat.cocktail'),
+        t('feat.lunch'),
+        t('feat.sunbed'),
+        t('feat.facilities'),
+    ],
+  },
+  {
+    title: "ISLABELA",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+    features: [
+        t('feat.transport'),
+        t('feat.cocktail'),
+        t('feat.lunch'),
+        'Kayak',
+        t('feat.facilities'),
+    ],
+  },
+];
+
+const goldCards = [
+  {
+    title: "MAKANI BEACH",
+    image: "https://images.unsplash.com/photo-1519681393784-d120267933ba",
+    features: [
+        t('feat.transport'),
+        t('feat.sunbed'),
+        t('feat.pool'),
+        t('feat.amenities'),
+        
+    ],
+  },
+  {
+    title: "MANGATA BEACH",
+    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e",
+    features: [
+        t('feat.transport'),
+        t('feat.champ'),
+        t('feat.lunch'),
+        'Kayak',
+        t('feat.facilities'),
+    ],
+  },
+  {
+    title: "PA'UE BEACH LOUNGE",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000",
+    features: [
+        t('feat.transport'),
+        t('feat.champ'),
+        t('feat.lunch'),
+        'Paddleboard - Kayak',
+        t('feat.facilities'),
+    ],
+  },
+];
+
+
+---
+
+<div class="px-4 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24
+lg:px-8">
+<div class="mx-auto max-w-screen-xl px-4 py-20 lg:py-16">
+  <div class="text-center">
+    <p
+      class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
+    >
+      {t("nav.tourist")}
+    </p>
+  </div>
+
+  <div class="text-center">
+    <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900">
+      {t("plans.title")}
+    </h1>
+
+    <p class="text-base text-gray-700 md:text-lg">
+      {t("plans.desc")}
+    </p>
+  </div>
+</div>
+
+<div class="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
+    <h2
+      class="max-w-lg mb-5 font-sans text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group"
+    >
+      <span class="inline-block mb-1 sm:mb-4 font-heading">
+        {t('silver')}          
+      </span>
+      <div
+        class="h-1 ml-auto duration-300 origin-left transform bg-second scale-x-30 group-hover:scale-x-100"
+      >
+      </div>
+    </h2>
+    
+    <p class="text-gray-800 font-pattern lg:max-w-lg place-content-center">
+     
+        <span class="text-red-500">* </span>{t('plans.price')}         
+    </p>
+    
+  </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    silverCards.map((card) => (
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img
+                        src={card.image}
+                        alt={card.title}
+                        class="w-full h-48 object-cover"
+                        />
+                        <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            {card.title}
+                        </h3>
+                        <ul class="space-y-2">
+                            {card.features.map((feature) => (
+                            <li class="flex items-center text-gray-600">
+                                <svg
+                                class="w-4 h-4 mr-2 text-green-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                                </svg>
+                                {feature}
+                            </li>
+                            ))}
+                </ul>
+                </div>
+            </div>
+            ))
+        }
+        
+        </div>
+        <div class="py-5 text-center mb-6 ">
+            <a href={translatePath("/contact/")} 
+                 class="inline-block bg-main hover:bg-second hover:text-white transition-colors uppercase px-8 py-3 text-sm rounded-md font-pattern">
+                {t("nav.contact")}
+              </a>
+          </div>
+
+
+
+<div class="py-10">
+                
+    <div class="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
+        <h2
+        class="max-w-lg mb-5 font-sans text-3xl tracking-tight text-gray-900 sm:text-4xl sm:leading-none md:mb-6 group"
+        >
+        <span class="inline-block mb-1 sm:mb-4 font-heading">
+            {t('gold')}          
+        </span>
+        <div
+            class="h-1 ml-auto duration-300 origin-left transform bg-second scale-x-30 group-hover:scale-x-100"
+        >
+        </div>
+        </h2>
+        
+        <p class="text-gray-800 font-pattern lg:max-w-lg place-content-center">
+        
+            <span class="text-red-500">* </span>{t('plans.price')}        
+        </p>
+        
+    </div>
+
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {
+                    goldCards.map((card) => (
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                        <img
+                        src={card.image}
+                        alt={card.title}
+                        class="w-full h-48 object-cover"
+                        />
+                        <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-4">
+                            {card.title}
+                        </h3>
+                        <ul class="space-y-2">
+                            {card.features.map((feature) => (
+                            <li class="flex items-center text-gray-600">
+                                <svg
+                                class="w-4 h-4 mr-2 text-green-500"
+                                fill="currentColor"
+                                viewBox="0 0 20 20"
+                                >
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                    clip-rule="evenodd"
+                                />
+                                </svg>
+                                {feature}
+                            </li>
+                            ))}
+                </ul>
+                </div>
+            </div>
+            ))
+        }
+        </div>
+        <div class="py-5 text-center mb-6 ">
+            <a href={translatePath("/contact/")} 
+                 class="inline-block bg-main hover:bg-second hover:text-white transition-colors uppercase px-8 py-3 text-sm rounded-md font-pattern">
+                {t("nav.contact")}
+              </a>
+          </div>
+            </div>
+    
+
+
+
+
+</div>

@@ -1,8 +1,7 @@
 ---
-
 import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, useTranslatedPath } from '../../i18n/utils';
+import Layout from "../../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslatedPath } from '../../../i18n/utils';
 
 // Get language and translation path utility
 const lang = getLangFromUrl(Astro.url);
@@ -10,7 +9,7 @@ const translatePath = useTranslatedPath(lang);
 
 // Fetch all blog posts
 const posts = await getCollection("blog", ({id}) => {
-  return id.startsWith('en/')
+  return id.startsWith('es/')
 });
 
 // Pagination settings
@@ -29,10 +28,10 @@ const paginatedPosts = posts.slice(startIndex, startIndex + POSTS_PER_PAGE);
   <main class="bg-gray-50 dark:bg-slate-800 pt-36">
     <section class="pb-16 py-10">
       <h1 class="text-center font-pattern uppercase dark:text-white">
-        Explore
+        Explora
       </h1>
       <p class="text-3xl font-heading text-center uppercase sm:text-4xl">
-        Our Latest Articles
+        Nuestros ultimos articulos
       </p>
 
       {/* Display paginated posts */}

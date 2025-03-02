@@ -8,6 +8,8 @@ import {
   useTranslatedPath,
 } from "../../i18n/utils";
 
+
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
@@ -50,7 +52,7 @@ const properties = Object.keys(data || {})
 <main class="container mx-auto px-4 pb-12">
   <div class="grid lg:grid-cols-3 gap-8 py-10">
     <div>
-      <h2 class="text-3xl font-light font-heading text-black">
+      <h2 class="text-3xl font-light font-heading text-black intersect:animate-fade-right animate-delay-200">
         {t("sale.title")}
       </h2>
       <p class="text-pretty font-pattern mt-4 text-gray-500">
@@ -83,7 +85,7 @@ const properties = Object.keys(data || {})
       properties.length > 0 ? (
         properties.map((property) => (
           <div
-            class="property-card"
+            class="property-card hover:scale-102 transition-transform"
             data-type={
               property.for_rent === "true"
                 ? "for_rent"
@@ -99,7 +101,7 @@ const properties = Object.keys(data || {})
               href={translatePath(`/property/${property.id_property}`)}
               class="block"
             >
-              <div class="bg-gray-50 overflow-hidden">
+              <div class="bg-gray-100 overflow-hidden">
                 <img
                   loading="lazy"
                   src={property.main_image.url_original}

@@ -12,28 +12,33 @@ const t = useTranslations(lang);
 type Props = CollectionEntry<'blog'>['data'];
 
 
-const { title, heroImage } = Astro.props;
+const { title, heroImage, pubDate } = Astro.props;
 ---
 
-<Layout title={t(title)}>
-  <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
-    <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
+<Layout title={title}>
+  <section class="bg-gray-50 py-24">
+    <div class="mx-auto max-w-screen-lg px-4 py-16">
+
+      <div class="space-y-6 text-center">
+        <p class="font-pattern font-medium capitalizr">{pubDate.toDateString()}</p>
+        <h1 class="text-3xl lg:text-5xl font-heading mb-4 text-gray-900">{title}</h1>
+        <a href="http://devs.sarpin.agency/" target="_blank">
+          <div class="flex justify-center space-x-2.5 items-center">
+            <img alt="Sarpin Agency" title="Sarpin Agency Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" class="rounded-full" src="/logofavicon_.svg">
+            <span class="font-pattern text-sm">Sarpin Agency</span></div>
+        </a>
+      </div>
       <!-- Imagen destacada -->
       {heroImage && (
-        <div class="mb-8">
+        <div class="py-5 flex justify-center items-center">
           <img
             src={heroImage}
             alt={title}
-            class="rounded-lg w-full object-cover h-64 md:h-96"
+            class="rounded-lg w-2/3 max-w-full h-80 object-cover"
           />
         </div>
       )}
 
-      <!-- Título y detalles del post -->
-      <div class="text-center mb-12">
-        <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900 dark:text-white">{t(title)}</h1>
-        
-      </div>
 
       <!-- Contenido del post -->
       <article class="prose prose-lg dark:prose-invert max-w-none mx-auto">
@@ -41,6 +46,7 @@ const { title, heroImage } = Astro.props;
       </article>
     </div>
   </section>
+  
 </Layout>
 
 			

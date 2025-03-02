@@ -100,7 +100,7 @@ string,
         'nav.pqrs': 'Q&A',
         'nav.support': 'Support',
         'nav.rights': 'All rights reserved',
-        'nav.more': 'Learn More',
+        'nav.more': 'View Available Properties',
 
         'view.btn': 'View Property',
 
@@ -222,7 +222,26 @@ string,
 
         'rent.title': 'Available properties for rent',
         'rent.desc': 'Dive into our global collection of rental properties, scattered across every corner of the world, and uncover a home that feels just right—even if it’s temporary.',
-        'rent.btn': 'See all properties for rent'
+        'rent.btn': 'See all properties for rent',
+
+        'silver': 'Silver Plan',
+        'gold': 'Gold Plan',
+        'plans.price': 'Prices may vary depending on the season.',
+        'plans.title': 'Discover the Best Tourist Packages in Cartagena',
+        'plans.desc': 'Explore the best tourist packages in Cartagena and enjoy exclusive beaches with boat transportation, welcome cocktails, lunch, and premium facility access. Choose from Éteka Beach, Bora Bora Club, or Islabela for a unique experience with live music, water activities, and total relaxation.',
+
+        'feat.transport': 'Maritime transport',
+        'feat.cocktail': 'Welcome cocktail',
+        'feat.facilities': 'Use of facilities',
+        'feat.amenities': 'Amenities',
+        'feat.pool':'Pool',
+        'feat.lunch': 'Lunch',
+        'feat.sunbed': 'Sun lounger or beach bed',
+        'feat.champ': 'Champagne glass',
+
+        
+        
+        
 
 
         
@@ -262,7 +281,7 @@ string,
         'nav.pqrs': 'PQRS',
         'nav.support': 'Soporte',
         'nav.rights': 'Todos los derechos reservados',
-        'nav.more': 'Saber más',
+        'nav.more': 'Ver propiedades disponibles',
 
         'view.btn': 'Ver Propiedad',
 
@@ -379,8 +398,27 @@ string,
 
         'rent.title': 'Propiedades en renta disponibles',
         'rent.desc': 'Sumérgete en nuestra colección global de propiedades en alquiler, esparcidas por cada rincón del mundo, y descubre un hogar que se sienta perfecto, aunque sea temporal.',
-        'rent.btn': 'Ver todas las propiedades en alquiler'
-    
+        'rent.btn': 'Ver todas las propiedades en alquiler',
+
+        'silver': 'Plan Plata',
+        'gold': 'Plan Oro',
+        'plans.price': 'Los precios pueden variar según la temporada.',
+        'plans.title': 'Descubre los Mejores Planes Turísticos en Cartagena',
+        'plans.desc' : 'Explora los mejores paquetes turísticos en Cartagena y disfruta de playas exclusivas con transporte marítimo, cócteles de bienvenida, almuerzo y acceso a instalaciones premium. Elige entre Éteka Beach, Bora Bora Club o Islabela para una experiencia única con música en vivo, actividades acuáticas y relajación total',
+
+        'feat.transport': 'Transporte marítimo',
+        'feat.cocktail': 'Cóctel de bienvenida',
+        'feat.facilities': 'Uso de instalaciones',
+        'feat.amenities': 'Comodidades',
+        'feat.pool':'Piscina',
+        'feat.lunch': 'Almuerzo',
+        'feat.sunbed': 'Asoleadora o beachbed',
+        'feat.champ': 'Copa de champaña',
+        
+
+
+      
+       
 
     },
   } as const;

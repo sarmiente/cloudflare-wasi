@@ -2,17 +2,15 @@
 
 @import "tailwindcss";
 
+@import "tailwindcss-animated";
+@import "tailwindcss-intersect"; 
+
 @theme {
-
-  
-
   --color-main: #60C11C;
   --color-second: #000080;
-
   --font-display: "Oswald", "sans-serif";
   --font-heading: "Vidaloka";
   --font-pattern: "Montserrat"
-  
- 
 }
+
 

@@ -50,72 +50,11 @@ const footerData = [
           </a>
         </div>
 
-        <p class="mt-6 max-w-md text-center font-pattern leading-relaxed text-gray-500 sm:max-w-xs sm:text-left">
+        <p class="mt-6 max-w-md text-center font-pattern leading-relaxed sm:max-w-xs sm:text-left">
          {t("nav.msg")}
         </p>
           
-        <ul class="mt-8 flex justify-center items-center gap-3 sm:justify-start md:gap-5">
-          <li>
-            <a
-              href="https://www.facebook.com/profile.php?id=61555851065583"
-              rel="noreferrer"
-              target="_blank"
-              class=" transition hover:text-teal-700/75"
-            >
-              <span class="sr-only">Facebook</span>
-              <Icon size={25} class="hover:scale-110" name="facebook" />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.instagram.com/brsolutions_co"
-              rel="noreferrer"
-              target="_blank"
-              class=" transition hover:text-teal-700/75 "
-            >
-              <span class="sr-only">Instagram</span>
-              <Icon size={25} class="hover:scale-110" name="instagram" />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.linkedin.com/company/br-solutions-co/"
-              rel="noreferrer"
-              target="_blank"
-              class=" transition hover:text-teal-700/75"
-            >
-              <span class="sr-only">LinkedIn</span>
-              <Icon size={30} class=" hover:scale-110" name="linkedin" />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://youtube.com/@brsolutionsco?si=q5_0lmUNHiwfX47c"
-              rel="noreferrer"
-              target="_blank"
-              class=" transition hover:text-teal-700/75"
-            >
-              <span class="sr-only">Youtube</span>
-              <Icon size={25} class="hover:scale-110 items-center" name="youtube" />
-            </a>
-          </li>
-
-          <li>
-            <a
-              href="https://www.tiktok.com/@br.solutions?_t=ZS-8tOmV1Wiozv&_r=1"
-              rel="noreferrer"
-              target="_blank"
-              class=" transition hover:text-teal-700/75"
-            >
-              <span class="sr-only">Tiktok</span>
-              <Icon size={25} class="hover:scale-110" name="tiktok" />
-            </a>
-          </li>
-
-        </ul>
+        
       </div>
 
       <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4 lg:col-span-2">
@@ -177,15 +116,15 @@ const footerData = [
            
 
            <li class="flex sm:justify-start items-center justify-center  gap-1.5">
-             <WhatsappSVG size={20} />
+             <WhatsappSVG size={15} />
               <a href="https://api.whatsapp.com/send/?phone=573242016401&text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios">
-                <span class=" p-1 font-pattern text-xs">+57 324 201 6401</span>
+                <span class=" p-1 font-pattern ">+57 324 201 6401</span>
               </a>
             </li>
 
           
             <li class="flex sm:justify-start items-center justify-center gap-1.5">
-              <EnvelopSVG size={20} />
+              <EnvelopSVG size={15} />
                 <a href="mailto:info@brsolution.com.co">
                 <span class="text-white p-1 font-pattern text-xs bg-second rounded-2xl">
                   info@brsolution.com.co
@@ -194,7 +133,7 @@ const footerData = [
             </li>
 
             <li class="flex sm:justify-start items-center justify-center gap-1.5">
-              <LocationIcon size={20} />
+              <LocationIcon size={10} />
 
               <address class="-mt-0.5 not-italic text-gray-700 font-pattern uppercase">
                 Cartagena de Indias, Colombia
@@ -204,18 +143,84 @@ const footerData = [
           </ul>
         </div>
       </div>
-    </div>
+    </div> 
+
+
+      <ul class="mt-8 flex justify-center items-center gap-3 md:gap-5 w-full">
+        <h3 class="text-sm font-pattern font-medium">Siguenos en Redes Sociales</h3>
+        <li>
+          <a
+            href="https://www.facebook.com/profile.php?id=61555851065583"
+            rel="noreferrer"
+            target="_blank"
+            class=" transition hover:text-teal-700/75"
+          >
+            <span class="sr-only">Facebook</span>
+            <Icon size={20} class="hover:scale-110" name="facebook" />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.instagram.com/brsolutions_co"
+            rel="noreferrer"
+            target="_blank"
+            class=" transition hover:text-teal-700/75 "
+          >
+            <span class="sr-only">Instagram</span>
+            <Icon size={20} class="hover:scale-110" name="instagram" />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.linkedin.com/company/br-solutions-co/"
+            rel="noreferrer"
+            target="_blank"
+            class=" transition hover:text-teal-700/75"
+          >
+            <span class="sr-only">LinkedIn</span>
+            <Icon size={25} class=" hover:scale-110" name="linkedin" />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://youtube.com/@brsolutionsco?si=q5_0lmUNHiwfX47c"
+            rel="noreferrer"
+            target="_blank"
+            class=" transition hover:text-teal-700/75"
+          >
+            <span class="sr-only">Youtube</span>
+            <Icon size={25} class="hover:scale-110 items-center" name="youtube" />
+          </a>
+        </li>
+
+        <li>
+          <a
+            href="https://www.tiktok.com/@br.solutions?_t=ZS-8tOmV1Wiozv&_r=1"
+            rel="noreferrer"
+            target="_blank"
+            class=" transition hover:text-teal-700/75"
+          >
+            <span class="sr-only">Tiktok</span>
+            <Icon size={20} class="hover:scale-110" name="tiktok" />
+          </a>
+        </li>
+
+      </ul>
+
 
     <div class="mt-12 border-t border-gray-100 pt-6">
       <div class="text-center sm:flex sm:justify-between sm:text-left">
         <a href="http://devs.sarpin.agency/" target="_blank">
-          <span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-[#60C11C] pb-5 md:p-0">sarpin.agency</span>
+          <span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-main pb-5 md:p-0">sarpin.agency</span>
         </a>
         <p class="text-sm text-gray-500">
           
           <a
             class="inline-block font-pattern text-main transition hover:text-second"
-            href={translatePath("/terms-and-conditions")}>
+            href="/terms-and-conditions">
               {t("nav.terms")}
           </a>
 
@@ -223,7 +228,7 @@ const footerData = [
 
           <a
             class="inline-block font-pattern text-main transition hover:text-second"
-            href={translatePath("/privacy-policy")}>
+            href="/privacy-policy">
               {t("nav.privacy")}
           </a>
         </p>
