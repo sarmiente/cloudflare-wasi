@@ -5,98 +5,104 @@ import TeamPhoto from "../../assets/team.jpg"
 import {
   getLangFromUrl,
   useTranslations,
+  useTranslatedPath
 } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 ---
 
-<section class="relative pt-24 lg:pt-32 pb-20">
-    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-      <!-- Sección "Quiénes somos" -->
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-translate-y-in-[-30%] motion-ease-spring-smooth ">
-        <div>
-          <div class="max-w-lg md:max-w-none md:text-left space-y-3">
-            <span class="text-sm font-pattern uppercase block text-gray-600">{t("nav.who")}</span>
-            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-5xl">
-              {t("about.sub")}
-            </h2>
-            <p class="mt-4 text-gray-700 font-pattern text-sm sm:text-base lg:text-md">
-              {t("about.side")}                
-            </p>
-            <div class="py-5">
-              <a
-                href="#"
-                class="bg-[#60C11C] font-pattern uppercase px-6 py-3 text-sm rounded-md text-white hover:bg-[#4ea015] transition">
-                {t("nav.more")}
-              </a>
-            </div>
-          </div>
-        </div>
-        <div>
-          <Image src={TeamPhoto} class="rounded-2xl w-full object-cover"
-          alt="Team Photo" />
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <!-- Sección Misión -->
-  <section class="relative pb-20">
-    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-right ">
-        <!-- Imagen lado izquierdo -->
-        <div class="order-2 md:order-1 place-items-center">
-          <img
-            loading="lazy"
-            decoding="async"
-            src="/pattern-02.jpg"
-            class="rounded-2xl w-[70%] h-96 object-cover"
-            alt="Mission Image"
-          />
-        </div>
-        <!-- Texto lado derecho -->
-        <div class="order-1 md:order-2">
-          <div class="max-w-lg text-center md:text-left space-y-3">
-            <span class="text-sm font-pattern uppercase block text-gray-600">              {t("mission")}    </span>
-            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
-              {t("mission.title")} 
-            </h2>
-            <p class="mt-4 text-gray-700 font-pattern text-sm sm:text-base lg:text-md">
-              {t("mission.sub")} 
-            </p>
+<!-- Sección "Quiénes somos"  -->
+<section class="bg-gray-100 pt-36 sm:pt-24 md:pt-32 lg:pt-48 pb-12 sm:pb-16 md:pb-20 lg:pb-24">
+  <div class="mx-auto max-w-screen-xl px-4 py-6 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 md:items-center motion-translate-y-in-[-30%] motion-ease-spring-smooth">
+      <div class="mb-6 md:mb-0">
+        <div class="max-w-full text-center md:text-left space-y-3">
+          <span class="text-sm font-pattern uppercase block text-gray-600">{t("nav.who")}</span>
+          <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-3xl md:text-4xl lg:text-5xl">
+            {t("about.sub")}
+          </h2>
+          <p class="mt-4 text-gray-700 font-pattern text-sm lg:text-lg">
+            {t("about.side")}                
+          </p>
+          <div class="py-4 sm:py-5">
+            <a
+              href={translatePath("/buy/")} 
+              class="inline-block bg-main font-display uppercase p-2  rounded-md text-white hover:bg-second transition">
+              {t("nav.more")}
+            </a>
           </div>
         </div>
       </div>
+      <div class="flex justify-center md:justify-end">
+        <Image
+          decoding="async" 
+          src={TeamPhoto} 
+          class="rounded-2xl w-full max-w-md md:max-w-none object-cover shadow-md"
+          alt="Team Photo" 
+        />
+      </div>
     </div>
-  </section>
-  
-  <!-- Sección Visión -->
-  <section class="relative pb-20">
-    <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 gap-8 md:grid-cols-2 md:items-center motion-preset-slide-left ">
-        <!-- Texto lado izquierdo -->
-        <div>
-          <div class="max-w-lg text-center md:text-left space-y-3">
-            <span class="text-sm font-pattern uppercase block text-gray-600">{t("vision")} </span>
-            <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-4xl lg:text-4xl">
-              {t("vision.title")} 
-            </h2>
-            <p class="mt-4 text-gray-700 font-pattern text-sm sm:text-base lg:text-md">
-              {t("vision.sub")} 
-            </p>
-          </div>
-        </div>
-        <!-- Imagen lado derecho -->
-        <div class="place-items-center">
-          <img
+  </div>
+</section>
+
+<!-- Sección Misión con responsive mejorado -->
+<section class="py-8 sm:py-12 md:py-16">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 items-center">
+      <!-- Imagen lado izquierdo - centrado en móvil -->
+      <div class="order-2 md:order-1 flex justify-center md:justify-start">
+        <img
           loading="lazy"
-            decoding="async"
-          src="/pattern-03.jpg"
-         class="rounded-2xl w-[70%] h-96 object-cover"
-         alt="Vision Image"
-       />
+          decoding="async"
+          src="/bonavida.svg"
+          class="rounded-2xl w-full max-w-xs sm:max-w-sm md:w-[80%] lg:w-[70%] h-64 sm:h-80 md:h-96 object-cover shadow-md"
+          alt="Mission Image"
+        />
+      </div>
+      <!-- Texto lado derecho -->
+      <div class="order-1 md:order-2 mb-6 md:mb-0">
+        <div class="max-w-full text-center md:text-left space-y-3">
+          <span class="text-sm font-pattern uppercase block text-gray-600">{t("mission")}</span>
+          <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-3xl md:text-4xl">
+            {t("mission.title")} 
+          </h2>
+          <p class="mt-4 text-gray-700 font-pattern text-sm sm:text-base lg:text-lg">
+            {t("mission.sub")} 
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Sección Visión con responsive mejorado -->
+<section class="py-8 sm:py-12 md:py-16">
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 items-center">
+      <!-- Texto lado izquierdo -->
+      <div class="mb-6 md:mb-0">
+        <div class="max-w-full text-center md:text-left space-y-3">
+          <span class="text-sm font-pattern uppercase block text-gray-600">{t("vision")}</span>
+          <h2 class="text-2xl font-heading uppercase text-gray-900 sm:text-3xl md:text-4xl">
+            {t("vision.title")} 
+          </h2>
+          <p class="mt-4 text-gray-700 font-pattern text-sm sm:text-base lg:text-lg">
+            {t("vision.sub")} 
+          </p>
+        </div>
+      </div>
+      <!-- Imagen lado derecho - centrado en móvil -->
+      <div class="flex justify-center md:justify-end">
+        <img
+          loading="lazy"
+          decoding="async"
+          src="/aposentos_pic.svg"
+          class="rounded-2xl w-full max-w-xs sm:max-w-sm md:w-[80%] lg:w-[70%] h-64 sm:h-80 md:h-96 object-cover shadow-md"
+          alt="Vision Image"
+        />
+      </div>
+    </div>
+  </div>
+</section>

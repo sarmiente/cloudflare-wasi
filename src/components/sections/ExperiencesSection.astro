@@ -1,0 +1,118 @@
+---
+import LocationIcon from "../../icons/location.svg";
+import {
+  getLangFromUrl,
+  useTranslations
+} from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+
+const experiences = [
+  {
+    address: "Carrera 11, Cl. de la Serrezuela #39-21",
+    img: "/andrescarneres.svg",
+    name: "ANDRÉS CARNE DE RES",
+    description: t("exp.andres"),
+  },
+  {
+    address: "Espíritu Santo, Cra. 10c #29-200, Getsemaní",
+    img: "/celele.svg",
+    name: "CELELÉ",
+    description: t("exp.celele"),
+  },
+  {
+    address: "Cra. 8 #38-47, San Diego",
+    img: "/launica.svg",
+    name: "LA ÚNICA",
+    description: t("exp.unica"),
+  },
+  {
+    address: "San Diego, Cra 10, la Serrezuela #No 39-02",
+    img: "/cande.svg",
+    name: "CANDÉ",
+    description: t("exp.cande"),
+  },
+  {
+    address: "El Centro, Cartagena de Indias",
+    img: "/niku.svg",
+    name: "NIKÚ",
+    description: t("exp.niku"),
+  },
+  {
+    address: "Plaza de San Diego 8-12",
+    img: "/juandelmar.svg",
+    name: "JUAN DEL MAR",
+    description: t("exp.juan"),
+  },
+];
+---
+
+<section class="bg-gray-100 py-20 lg:py-36">
+  <div class="mx-auto max-w-screen-xl px-4 py-20 lg:py-16">
+    <!-- Encabezado de sección -->
+    <div class="text-center mb-6 sm:mb-8">
+      <p
+        class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
+      >
+        {t("nav.services")}
+      </p>
+    </div>
+
+     
+    <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+      <h1 class="text-2xl sm:text-3xl lg:text-4xl font-heading mb-3 sm:mb-4 text-gray-900">
+        {t("nav.experiences")}
+      </h1>
+
+      <p class="font-pattern text-sm sm:text-base md:text-lg px-2">
+        {t("exp.desc")}
+      </p>
+    </div>
+
+    <div
+      class="grid gap-4 md:grid-cols-2 row-gap-5 mb-8 py-10 md:row-gap-8 lg:grid-cols-3"
+    >
+      {
+        experiences.map((item) => (
+          <article class="mx-auto group flex rounded-sm max-w-sm flex-col overflow-hidden border border-neutral-300 bg-neutral-200 text-neutral-600 ">
+            <div class="h-44 md:h-64 overflow-hidden">
+              <img class="w-full h-full object-cover" src={item.img} />
+            </div>
+            <div class="flex flex-col gap-2 p-4">
+              <div class="flex items-center gap-1 font-medium text-sm font-pattern">
+                <LocationIcon class="text-red-500" size={20} />
+                <span>{item.address}</span>
+              </div>
+              <h3
+                class="font-heading text-xl lg:text-2xl text-black"
+                aria-describedby="Restaurant Name"
+              >
+                {item.name}
+              </h3>
+              <p
+                aria-describedby="Restaurant Description"
+                class="font-pattern mb-2"
+              >
+                {item.description}
+              </p>
+
+              <button
+                type="button"
+                 class="uppercase bg-main p-2 text-center tracking-wide text-white font-display transition hover:bg-second focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black active:opacity-100 active:outline-offset-0 rounded-lg cursor-pointer"
+              >
+               <a
+                  href="https://api.whatsapp.com/send/?phone=573242016401&text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios"
+                  target="_blank"
+                >
+                  {t("book.now")}
+                </a>
+              </button>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

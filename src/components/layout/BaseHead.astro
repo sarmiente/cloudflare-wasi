@@ -1,18 +1,36 @@
 ---
-const { title  } = Astro.props;
-import { ClientRouter } from 'astro:transitions';
+const { title } = Astro.props;
+import { ClientRouter } from "astro:transitions";
 
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
+
+
+
+<!-- Google tag (gtag.js) -->
+<script is:inline>
+  (function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+    var f = d.getElementsByTagName(s)[0],
+      j = d.createElement(s),
+      dl = l != "dataLayer" ? "&l=" + l : "";
+    j.async = true;
+    j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+    f.parentNode.insertBefore(j, f);
+  })(window, document, "script", "dataLayer", "GTM-NB5V7HH6");
+</script>
+
+
+
 <meta charset="UTF-8" />
-<meta name="description" content={t('layout.description')} />
+<meta name="description" content={t("layout.description")} />
 <meta name="viewport" content="width=device-width" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <meta name="generator" content={Astro.generator} />
-
 
 <title>{title}</title>
 
@@ -20,34 +38,67 @@ const t = useTranslations(lang);
 <meta property="og:title" content={title} />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://www.brsolution.com.co" />
-<meta property="og:description" content={t('layout.description')} />
+<meta property="og:description" content={t("layout.description")} />
 <meta property="og:image" content="/br_front_1.jpg" />
 <meta property="og:image:alt" content="Your home away home." />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
-<!-- Google tag (gtag.js) -->
-<script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-ST46D5DPG3"></script>
+
+
+<!-- Google Analytics-->
+<script
+  is:inline
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-ST46D5DPG3"></script>
+
 <script is:inline>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag('consent', 'default', {
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'ad_storage': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500,
+  });
+  gtag("js", new Date());
 
-  gtag('config', 'G-ST46D5DPG3');
+  gtag("config", "G-ST46D5DPG3");
 </script>
+
+
 
 <!-- Transition View -->
 <ClientRouter />
 
+<script is:inline src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
+
+
+
 <!-- Swiper CSS -->
-<link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
 
 <!-- Alpine Plugins -->
-<script is:inline defer src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"></script>
+<script
+  is:inline
+  defer
+  src="https://cdn.jsdelivr.net/npm/@alpinejs/focus@3.x.x/dist/cdn.min.js"
+></script>
 
-
-<script is:inline defer src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"></script>
+<script
+  is:inline
+  defer
+  src="https://unpkg.com/tailwindcss-intersect@2.x.x/dist/observer.min.js"
+></script>
 
 <!-- Alpine Core -->
-<script is:inline defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>
-
+<script
+  is:inline
+  defer
+  src="https://cdn.jsdelivr.net/npm/alpinejs@3.14.3/dist/cdn.min.js"></script>

@@ -19,6 +19,7 @@
     "astro": "^5.1.9",
     "astro-icon": "^1.1.5",
     "axios": "^1.7.9",
+    "blendy": "^0.0.1",
     "nouislider": "^15.8.1",
     "tailwindcss": "^4.0.0",
     "tailwindcss-animated": "^2.0.0",

@@ -3,102 +3,191 @@ import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/u
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const services = [
+  {
+    
+    image:
+      "/van_dos.svg",
+    
+  },
+  {
+    
+    image:
+      "/vans_back.svg",
+    
+  },
+  {
+    
+    image:
+      "/vans_interior.svg",
+    
+  },
+  {
+   
+    image:
+      "/vans_interior_dos.svg",
+    
+  },
+  {
+    
+    image:
+      "/suv.svg",
+    
+  },
+  {
+   
+    image:
+      "/suv_dos.svg",
+    
+  },
+  {
+   
+   image:
+     "/automobile_dos.svg",
+   
+ },
+ {
+   
+   image:
+     "/automobile.svg",
+   
+ },
+ {
+   
+   image:
+     "/automobile_interior.svg",
+   
+ },
+ {
+   
+   image:
+     "/automobile_interior_dos.svg",
+   
+ },
+];
 ---
-<div class="p-3">
-    <div class="relative max-w-3xl p-0 h-auto flex flex-wrap gap-4 rounded-tr-3xl border border-gray-100 sm:flex-nowrap"
-    >
-    <div class="w-full p-2 text-center lg:w-1/2 ">
+<div class="p-2">
+  <div class="text-center space-y-2 sm:mb-4">
+    <h1 class="text-xl font-heading text-gray-900">
+      {t("book.now")}
+    </h1>    
+    <p class="font-pattern">
+      {t("land.desc")}
+    </p>
+  </div>
+    <div class="relative max-w-3xl h-auto flex flex-wrap md:flex-nowrap">
       
-      <img
-            alt="Fotos de servicios de transporte nautico"
-            src="https://images.unsplash.com/photo-1560976027-3c09ce1c6da5?q=80&w=1895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            class="relative inset-0 w-full h-96 object-cover rounded-xl hidden sm:flex"
-          />
+      <div class="w-full text-center lg:w-1/2 swiper rounded-xl p-4">
+      
+        <div class="swiper-wrapper w-full rounded-xl hidden md:flex">
+          
+          {
+            services.map((item) => (
+              <div class="swiper-slide p-2 md:h-full rounded-xl">
+                <li class="group relative rounded-xl hidden md:flex">
+                  <img                    
+                    decoding="async"
+                    alt="Fotos de servicios de transporte terrestre / Pictures of land transport services"
+                    src={item.image}
+                    class="absolute w-full h-96 object-cover opacity-75  rounded-xl"
+                  />
+                  
+                  
+                </li>
+              </div>
+            ))
+          }
+        </div>
+      </div>
 
-    </div>
       <!-- Formulario -->
-      <div class="w-full p-4 text-center lg:w-1/2 ">
+
+      <div class="w-full p-4 text-center lg:w-1/2 font-pattern">
         <form id="LandForm"  class="space-y-4">
-          <!-- Input de Nombre -->
-          <div>
-            <label class="sr-only" for="name">{t("cta.name")}</label>
-            <input
-              required
-              class="w-full rounded-lg border-gray-200 p-3 text-sm"
-              placeholder={t("cta.name")}
-              type="text"
-              id="name"
-            />
-          </div>
+          
+
+          <div class="flex w-full flex-col gap-1 text-neutral-600">
+            <label for="name" class="w-fit pl-0.5 text-sm">{t("cta.name")}</label>
+            <input required id="name" type="text" class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2  text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75" name="name" placeholder="Jhon Doe" autocomplete="name"/>
+        </div>
+        
   
           <!-- Inputs de Email y Teléfono -->
+
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label class="sr-only" for="email">{t("cta.mail")}</label>
-              <input
-                required
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder={t("cta.mail")}
-                type="email"
-                id="email"
-              />
-            </div>
+            
+
+            
+          <div class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300">
+            <label for="email" class="w-fit pl-0.5 text-sm">{t("cta.mail")}</label>
+            <input required id="name" type="email" class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75" name="name" placeholder="example@email.com" autocomplete="name"/>
+        </div>
+        
   
-            <div>
-              <label class="sr-only" for="phone">{t("cta.phone")}</label>
-              <input
-                required
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder={t("cta.phone")}
-                type="tel"
-                id="phone"
-              />
-            </div>
+           
+
+            <div x-data class="flex w-full flex-col gap-1 text-neutral-600">
+              <label for="phone" class="w-fit text-sm">{t("cta.phone")}</label>
+              <input required id="phone" type="tel" class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75" x-mask="(999) 999-9999" name="phone" autocomplete="tel-national" placeholder="(999) 999-9999"/>
+          </div>
+          
+
           </div>
   
           <!-- Opciones de selección -->
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-            <div>
-              <label
-                for="Option1"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
-                tabindex="0"
-              >
-                <input class="sr-only" id="Option1" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> Vans </span>
-              </label>
+            <div class="space-y-2">
+              <label for="phone" class="w-fit flex text-sm">{t("options")}</label>
+              <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                
+                <div>
+                  <label
+                    for="Option1"
+                    class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
+                    tabindex="0"
+                  >
+                    <input class="sr-only" id="Option1" type="radio" tabindex="-1" name="option" />
+                    <span class="text-sm"> Vans </span>
+                  </label>
+                </div>
+      
+                <div>
+                  <label
+                    for="Option2"
+                    class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
+                    tabindex="0"
+                  >
+                    <input class="sr-only" id="Option2" type="radio" tabindex="-1" name="option" />
+                    <span class="text-sm"> SUVs </span>
+                  </label>
+                </div>
+      
+                <div>
+                  <label
+                    for="Option3"
+                    class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
+                    tabindex="0"
+                  >
+                    <input class="sr-only" id="Option3" type="radio" tabindex="-1" name="option" />
+                    <span class="text-sm"> {t("land.car")}  </span>
+                  </label>
+                </div>
+              </div>
             </div>
-  
-            <div>
-              <label
-                for="Option2"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
-                tabindex="0"
-              >
-                <input class="sr-only" id="Option2" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> SUVs </span>
-              </label>
-            </div>
-  
-            <div>
-              <label
-                for="Option3"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
-                tabindex="0"
-              >
-                <input class="sr-only" id="Option3" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> {t("land.car")}  </span>
-              </label>
-            </div>
+
+                    <!-- Component: Rounded basic base sized datepicker -->
+          <div class="relative my-6">
+            <input id="id-date07" type="date" name="id-date07" class="relative bg-neutral-50 w-full h-10 px-4 text-sm text-right placeholder-transparent transition-all border rounded outline-none peer border-slate-200  autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-transparent  disabled:text-slate-400" />
+            <label for="id-date07" class="absolute bg-transparent  -top-2 left-2 z-[1] cursor-text px-2 text-sm  transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"> {t("date")}</label>
           </div>
-  
+          <!-- End Rounded basic base sized datepicker -->
+
           <!-- Mensaje -->
           <div>
             <label class="sr-only" for="message">{t("contact.title")}</label>
             <textarea
-              class="resize-none  w-full rounded-lg border-gray-200 p-3 text-sm"
+              class="resize-none bg-neutral-50 border w-full rounded-lg border-slate-200 p-3 text-sm"
               placeholder={t("cta.msg-label")}
-              rows="4"
+              rows="2"
               id="message"
             ></textarea>
           </div>
@@ -107,10 +196,10 @@ const t = useTranslations(lang);
           <div class="mt-4">
             <button
               type="submit"
-              class="inline-block w-full rounded-lg bg-second hover:bg-second/70 px-5 py-3 font-medium text-white sm:w-auto"
+              class="inline-block uppercase w-full rounded-lg bg-main hover:bg-second p-2 font-medium font-display text-white sm:w-auto"
             >
             <p class="text-white">
-              {t("contact.btn")} 
+              {t("book.now")} 
             </p>
             </button>
           </div>
@@ -119,3 +208,16 @@ const t = useTranslations(lang);
   
   </div>
   
+
+  <script is:inline src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    const swiper = new Swiper(".swiper", {
+          autoplay: {
+          delay: 3000,
+        },
+          direction: "horizontal",
+});
+  })
+
+</script>

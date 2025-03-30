@@ -1,6 +1,9 @@
 ---
 import { getCollection, type CollectionEntry } from "astro:content";
 import BlogPost from "../../../layouts/BlogPost.astro";
+import { useTranslatedPath } from '../../../i18n/utils';
+
+const translatePath = useTranslatedPath("es");
 
 export async function getStaticPaths() {
     const posts = await getCollection("blog", ({id}) => {

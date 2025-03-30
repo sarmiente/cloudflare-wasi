@@ -1,5 +1,4 @@
 ---
-// @ts-nocheck
 import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
 
@@ -22,7 +21,7 @@ const { title, heroImage, pubDate } = Astro.props;
       <div class="space-y-6 text-center">
         <p class="font-pattern font-medium capitalizr">{pubDate.toDateString()}</p>
         <h1 class="text-3xl lg:text-5xl font-heading mb-4 text-gray-900">{title}</h1>
-        <a href="http://devs.sarpin.agency/" target="_blank">
+        <a href="http://sarpin.agency" target="_blank">
           <div class="flex justify-center space-x-2.5 items-center">
             <img alt="Sarpin Agency" title="Sarpin Agency Logo" loading="lazy" width="30" height="30" decoding="async" data-nimg="1" class="rounded-full" src="/logofavicon_.svg">
             <span class="font-pattern text-sm">Sarpin Agency</span></div>

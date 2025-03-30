@@ -155,6 +155,10 @@ string,
         "prop.rent": "Rental price",
         "prop.btn": "View Property",
 
+        "read": 'Read Article',
+        'options':'Select a Service',
+        "date": 'Date',
+
         "team.title": "Our Team",
         "team.desc": "Meet the people who make your experience unique.",
         "team.rep": "Sales Representative",
@@ -172,7 +176,9 @@ string,
         'contact.msg' : 'I agree to the privacy policy.',
         "contact.btn": "Submit",
         "contact.cancel": "Cancel",
-        "contact.book": "Book",
+        "contact.book": "Send Information",
+
+        "book.now" : 'Book Service Now',
 
         "nautical.title": "Nautical Transport Services",
         "nautical.title-1": "Special offers",
@@ -187,6 +193,8 @@ string,
 
         "land.title": "Land Transport Services",
         "land.car":"Automobile",
+        "land.desc": 'Choose excellence on wheels: our premium vans, SUVs, and cars await you.',
+        "land.long": 'Experience mobility excellence with our private special transportation service, exclusively designed to meet your most demanding needs. Our modern Vans, SUVs, and luxury cars, equipped with the finest amenities and driven by professional chauffeurs, guarantee a safe, punctual, and comfortable journey for any occasion.',
 
         'proper.one': 'Professional Marketing',
         'one.desc': 'We use a combination of online distribution channels such as Airbnb, Vrbo, Booking, social media, website, and digital marketing strategies to reach a broad audience of travelers.',
@@ -227,7 +235,7 @@ string,
         'silver': 'Silver Plan',
         'gold': 'Gold Plan',
         'plans.price': 'Prices may vary depending on the season.',
-        'plans.title': 'Discover the Best Tourist Packages in Cartagena',
+        'plans.title': 'Tourist Packages in Cartagena',
         'plans.desc': 'Explore the best tourist packages in Cartagena and enjoy exclusive beaches with boat transportation, welcome cocktails, lunch, and premium facility access. Choose from Éteka Beach, Bora Bora Club, or Islabela for a unique experience with live music, water activities, and total relaxation.',
 
         'feat.transport': 'Maritime transport',
@@ -239,13 +247,33 @@ string,
         'feat.sunbed': 'Sun lounger or beach bed',
         'feat.champ': 'Champagne glass',
 
-        
-        
-        
+        'exp.desc':'Dive into the local culinary scene with our exclusive reservation service. Our experts carefully select the best restaurants and bars, tailoring them to your gastronomic preferences, budget, and personal style. From high-end dining establishments to hidden local culinary gems, we guarantee an unforgettable dining experience.',  
+
+        'exp.andres': 'Enjoy the vibrant and colorful essence of Andrés Cartagena, an extension of the gastronomic paradise.',
+        'exp.celele': 'A cozy restaurant offering local specialties, with seafood and snacks among its highlights.',
+        'exp.unica': 'Experience an authentic and high-quality culinary journey that will surprise you at La Única.',
+        'exp.cande': 'An elegant venue filled with greenery, serving traditional regional cuisine with frequent live entertainment.',
+        'exp.niku': 'A restaurant that blends the best of Japanese, Peruvian, Latin, and Spanish cuisine, along with sushi specialties',
+        'exp.juan': 'A relaxed spot to enjoy tapas, seafood, and meats, complemented by desserts and an extensive wine selection.',
+
+
+        'daily.desc': 'We transform your daily routine into a seamless luxury experience. Our team of specialist assistants handles every detail, from coordinating appointments and complex management to resolving everyday tasks. We use cutting-edge technology and an exclusive network of contacts to ensure that each request is resolved with precision, discretion, and elegance.',     
+
+              
+        'daily.hosp': 'Day-to-Day Assistance',
+        'hops.desc': 'We transform your daily routine into a luxury experience, managing every detail with precision and elegance.',
+        'daily.event' : 'Private Events',
+        'event.desc': 'We design and execute exclusive events that reflect your unique style, from conception to the final note.',
+        'daily.get': 'Getaways & Leisure',
+        'get.desc': 'Creating personalized travel experiences that exceed your expectations, blending luxury, adventure, and well-being.',
+        'daily.ticket':'Ticketing',
+        'ticket.desc': 'Get preferred access to the most exclusive events, with VIP reservations and hard-to-get tickets.',       
 
 
         
     },
+
+
     es: {
         'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto Plazo',
         'layout.description': 'Descubre exclusivos Apartamentos, Casas, Yates y Barcos. Vive experiencias únicas y convierte cada viaje en algo realmente inolvidable.',
@@ -331,6 +359,11 @@ string,
         "prop.rent": 'Precio de alquiler',
         "prop.btn": 'Ver propiedad',      
 
+
+        "read": 'Leer Articulo',
+        'options':'Seleccionar Servicio',
+        "date": 'Fecha',
+
         "team.title": "Nuestro Equipo",
         "team.desc": "Conoce a las personas que hacen posible que tu experiencia sea única.",
         "team.rep": "Representante de ventas",
@@ -348,7 +381,9 @@ string,
         'contact.msg' : 'Estoy de acuerdo con la política de privacidad.',
         "contact.btn": "Enviar",
         "contact.cancel": "Cancelar",
-        "contact.book": "Reservar",
+        "contact.book": "Enviar Informacion",
+
+        "book.now" : 'Reservar Servicio Ahora',
 
         "nautical.title": "Servicios de Transporte Nautico",
         "nautical.title-1": "Ofertas Especiales",
@@ -363,6 +398,10 @@ string,
 
         "land.title": "Servicios de Transporte Terrestre",
         "land.car":"Automóvil",
+        "land.desc": 'Elija excelencia sobre ruedas: nuestras vans, SUVs y automóviles premium le esperan.',
+        "land.long": 'Experimente la excelencia en movilidad con nuestro servicio de transporte especial privado, diseñado exclusivamente para satisfacer sus necesidades más exigentes. Nuestras modernas Vans, SUVs y automóviles de lujo, equipados con las mejores comodidades y conducidos por choferes profesionales, garantizan un viaje seguro, puntual y confortable para cualquier ocasión. ',
+
+
 
         'proper.one': 'Comercialización Profesional',
         'one.desc': 'Utilizamos una combinación de canales de distribución en línea como Airbnb,Vrbo, booking, redes sociales, página web y estrategias de marketing digital para llegar a una amplia audiencia de viajeros.',
@@ -414,13 +453,31 @@ string,
         'feat.lunch': 'Almuerzo',
         'feat.sunbed': 'Asoleadora o beachbed',
         'feat.champ': 'Copa de champaña',
-        
 
+        'exp.desc': 'Sumérgete en la escena culinaria local con nuestro servicio de reservas exclusivas. Nuestros expertos seleccionan cuidadosamente los mejores restaurantes y bares, adaptándolos a tus preferencias gastronómicas, presupuesto y estilo personal. Desde restaurantes de alta cocina hasta joyas culinarias locales ocultas, garantizamos una experiencia gastronómica inolvidable.',
 
-      
        
+        
+        'exp.andres': 'Disfruta de la esencia vibrante y colorida de Andrés Cartagena, una extensión del paraíso gastronómico.',
+        'exp.celele': 'Un acogedor restaurante que ofrece especialidades locales, con mariscos y bocadillos entre sus opciones destacadas.',
+        'exp.unica': 'Vive una experiencia única que resalta la autenticidad y excelencia culinaria en cada plato.',
+        'exp.cande': 'Un elegante espacio lleno de vegetación donde se sirve comida típica de la región, acompañado de espectáculos en vivo con frecuencia.',
+        'exp.niku': 'Un restaurante que fusiona lo mejor de la cocina japonesa, peruana, latina, española y el arte del sushi.',
+        'exp.juan': 'Un espacio relajado para disfrutar de tapas, mariscos y carnes, complementados con postres y una extensa selección de vinos.',
 
-    },
+
+        
+        'daily.desc': 'Transformamos tu día a día en una experiencia de lujo sin complicaciones. Nuestro equipo de asistentes especialistas se encarga de cada detalle, desde la coordinación de citas y gestiones complejas hasta la resolución de tareas cotidianas. Utilizamos tecnología de vanguardia y una red exclusiva de contactos para garantizar que cada solicitud se resuelva con precisión, discreción y elegancia.',
+
+        'daily.hosp': 'Asistencia Diaria',
+        'hops.desc': 'Transformamos tu rutina diaria en una experiencia de lujo, gestionando cada detalle con precisión y elegancia.',
+        'daily.event' : 'Eventos Privados',
+        'event.desc': 'Diseñamos y ejecutamos eventos exclusivos que reflejan tu estilo único, desde la concepción hasta la última nota.',
+        'daily.get': 'Escapadas y Ocio',
+        'get.desc': 'Creamos experiencias de viaje personalizadas que superan tus expectativas, combinando lujo, aventura y bienestar.',
+        'daily.ticket':'Emisión de Entradas/Boletos',
+        'ticket.desc': 'Acceso preferencial a los eventos más exclusivos, con reservaciones VIP y entradas difíciles de conseguir.',
+     },
   } as const;
 
  

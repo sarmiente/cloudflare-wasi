@@ -4,7 +4,7 @@ import CookieIcon from '../../icons/cookie.svg'
 <!-- banner - start -->
 <div
   id="cookie-consent"
-  class="z-10 fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white/90 p-6 rounded-lg shadow-lg border opacity-0 transition-opacity duration-500"
+  class="z-10 fixed bottom-4 left-4 right-4 md:left-8 md:right-auto md:max-w-md bg-white/90 p-6 rounded-lg shadow-lg border opacity-0 transition-opacity duration-500 hidden"
 >
   <div class="flex items-start gap-4">
     <CookieIcon size={100} />
@@ -42,60 +42,82 @@ import CookieIcon from '../../icons/cookie.svg'
     </div>
   </div>
 </div>
+<!-- banner - end -->
 
-  <!-- banner - end -->
-  <script>
+<script is:inline>
+document.addEventListener('astro:page-load', () => {
+  (function() {
     const cookieConsent = document.getElementById('cookie-consent');
-    
-    // Check if cookie consent already exists
-    function checkCookieConsent(): boolean {
-      const cookies = document.cookie.split(';');
-      for (let cookie of cookies) {
-        const [name] = cookie.trim().split('=');
-        if (name === 'cookie-consent') {
-          return true;
-        }
-      }
-      return false;
+
+    function getCookie(name) {
+      return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
     }
-    
-    // Show the consent banner only if consent hasn't been given
-    if (cookieConsent && !checkCookieConsent()) {
+
+    function setCookie(name, value, days) {
+      let expires = "";
+      if (days) {
+        let date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+      }
+      document.cookie = name + "=" + value + "; path=/" + expires;
+    }
+
+    function loadGtag() {
+      if (!window.dataLayer) {
+        window.dataLayer = [];
+      }
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('consent', 'default', {
+          'ad_user_data': 'denied',
+          'ad_personalization': 'denied',
+          'ad_storage': 'denied',
+          'analytics_storage': 'denied',
+          'wait_for_update': 500,
+      });
+      gtag('js', new Date());
+      gtag('config', 'G-ST46D5DPG3');
+
+      let script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ST46D5DPG3';
+      document.head.appendChild(script);
+    }
+
+    function handleAction(action) {
+      if (action === 'accept') {
+        setCookie('cookie-consent', 'accepted', 365);
+        localStorage.setItem("consentGranted", "true");
+        loadGtag();
+        console.log('Cookies accepted');
+      } else {
+        setCookie('cookie-consent', 'declined', 365);
+        console.log('Cookies declined');
+      }
+      cookieConsent.style.opacity = '0';
+      setTimeout(() => {
+        cookieConsent.remove();
+      }, 500);
+    }
+
+    if (!getCookie('cookie-consent')) {
       cookieConsent.classList.remove('hidden');
-      // Small delay to ensure the transition works
       setTimeout(() => {
         cookieConsent.style.opacity = '1';
       }, 100);
     }
-  
-    function handleAction(action: 'accept' | 'decline') {
-      if (cookieConsent) {
-        // Fade out
-        cookieConsent.style.opacity = '0';
-        
-        // Remove element after animation
-        setTimeout(() => {
-          cookieConsent.remove();
-        }, 500);
-  
-        // Handle the action
-        if (action === 'accept') {
-          // Set cookie acceptance with 1 year expiration
-          document.cookie = 'cookie-consent=accepted; path=/; max-age=31536000';
-          console.log('Cookies accepted');
-        } else {
-          // Set cookie rejection with 1 year expiration
-          document.cookie = 'cookie-consent=declined; path=/; max-age=31536000';
-          console.log('Cookies declined');
-        }
-      }
-    }
-  
-    // Add click event listeners
-    cookieConsent?.querySelectorAll('button[data-action]').forEach(button => {
+
+    document.querySelectorAll('button[data-action]').forEach(button => {
       button.addEventListener('click', (e) => {
-        const action = (e.currentTarget as HTMLButtonElement).dataset.action as 'accept' | 'decline';
-        handleAction(action);
+        handleAction(e.target.dataset.action);
       });
     });
-  </script>
+
+    if (getCookie('cookie-consent') === 'accepted') {
+      loadGtag();
+    }
+  })();
+})
+</script>

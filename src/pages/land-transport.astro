@@ -1,39 +1,37 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import LandModalCard from "../components/modals/LandModalCard.astro";
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 
-<Layout title= {t("land.title")}>
-    <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
-      <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
-        
-        <!-- Título y detalles del post -->
-       
-        <div class="text-center">
-          <p
-            class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
-          >
+<Layout title={t("land.title")}>
+  <section class="bg-gray-100 py-20 lg:py-36">
+    <div class="mx-auto max-w-screen-xl px-4 py-20 lg:py-16">
+      <!-- Encabezado de sección -->
+      <div class="text-center mb-6 sm:mb-8">
+        <p
+          class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
+        >
           {t("nav.services")}
-          </p>
-        </div>
-  
-        <div class="text-center">
-          <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900">
-            {t("land.title")}
-          </h1>
-  
-          <p class="text-base text-gray-700 md:text-lg">
-            Discover excellence in Land Transport Services with our exclusive options:
-          </p>
-        </div>
-  
-       
-                <LandModalCard />
+        </p>
       </div>
-    </section>
-  </Layout>
+
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <h1
+          class="text-2xl sm:text-3xl lg:text-4xl font-heading mb-3 sm:mb-4 text-gray-900"
+        >
+          {t("land.title")}
+        </h1>
+
+        <p class="font-pattern text-sm sm:text-base md:text-lg px-2">
+          {t("land.long")}
+        </p>
+      </div>
+
+      <LandModalCard />
+    </div>
+  </section>
+</Layout>
