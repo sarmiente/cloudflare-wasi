@@ -1,40 +1,38 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import NauticalModalCard from "../../components/modals/NauticalModalCard.astro";
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 
-<Layout title={t("nautical.title")}>
-    <section class="dark:bg-slate-800 bg-gray-50 lg:pt-24">
-      <div class="mx-auto max-w-screen-xl px-4 py-32 lg:py-16">
-        
-        <!-- Título y detalles del post -->
-        <div class="text-center">
-          <p
-            class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
-          >
+<Layout title=`${t("nautical.title")} - BR Solutions`>
+  <section class="bg-gray-100 py-20 lg:py-36">
+    <div class="mx-auto max-w-screen-xl px-4 py-20 lg:py-16">
+      <!-- Título y detalles del post -->
+
+      <div class="text-center">
+        <p
+          class="inline-block px-3 py-1 mb-4 text-xs font-medium tracking-wider uppercase font-pattern rounded-full bg-main"
+        >
           {t("nav.services")}
-          </p>
-        </div>
-  
-        <div class="text-center">
-          <h1 class="text-2xl lg:text-4xl font-heading mb-4 text-gray-900">
-            {t("nautical.title")}
-          </h1>
-  
-          <p class="text-base text-gray-700 md:text-lg">
-            Descubra la excelencia en Servicios de Transporte Náutico con nuestras opciones exclusivas
-          </p>
-        </div>
-        
-  
-    
-  
-            <NauticalModalCard />
+        </p>
       </div>
-    </section>
-  </Layout>
+
+      <div class="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
+        <h1
+          class="text-2xl sm:text-3xl lg:text-4xl font-heading mb-3 sm:mb-4 text-gray-900"
+        >
+          {t("nautical.title")}
+        </h1>
+
+        <p class="font-pattern text-sm sm:text-base md:text-lg px-2">
+          {t("nautical.desc")}
+        </p>
+      </div>
+
+      <NauticalModalCard />
+    </div>
+  </section>
+</Layout>

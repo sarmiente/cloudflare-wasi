@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import ExperiencesSection from "../components/sections/ExperiencesSection.astro"
+import ExperiencesSection from "../components/sections/ExperiencesSection.astro";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
@@ -8,6 +8,6 @@ const t = useTranslations(lang);
 
 ---
 
-<Layout title={t("nav.experiences")}>
+<Layout title=`${t("nav.experiences")} - BR Solutions`>
     <ExperiencesSection />
 </Layout>

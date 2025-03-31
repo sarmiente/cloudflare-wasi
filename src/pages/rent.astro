@@ -2,8 +2,17 @@
 import PropertyListRent from "../components/PropertyListRent.astro";
 import Layout from "../layouts/Layout.astro";
 
+
+import {
+  getLangFromUrl,
+  useTranslations,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 ---
-<Layout title="Properties for Rent">
+<Layout title=`${t("rent.title")} - BR Solutions`>
    <section id="property-list-rent" class="md:p-12  py-32 md:pt-48 bg-gray-100">
          <PropertyListRent />
    </section>

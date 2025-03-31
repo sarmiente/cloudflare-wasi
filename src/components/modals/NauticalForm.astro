@@ -1,116 +1,334 @@
 ---
-import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
----
-<div class="p-3">
-    <div class="relative max-w-3xl p-0 h-auto flex flex-wrap gap-4 rounded-tr-3xl border border-gray-100 sm:flex-nowrap"
-    >
-    <div class="w-full p-2 text-center lg:w-1/2 ">
-      
-      <img
-            alt="Fotos de servicios de transporte nautico"
-            src="https://images.unsplash.com/photo-1560976027-3c09ce1c6da5?q=80&w=1895&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            class="relative inset-0 w-full h-96 object-cover rounded-xl hidden sm:flex"
-          />
+const translatePath = useTranslatedPath(lang);
 
+const services = [
+  {
+    image: "/bonavida_2.svg",
+  },
+  {
+    image: "/bonavida_3.svg",
+  },
+  {
+    image: "/bonavida.svg",
+  },
+  {
+    image: "/yates_br.svg",
+  },
+  {
+    image: "/searay_boat.svg",
+  },
+  {
+    image: "/La_morronga_01.svg",
+  },
+  {
+    image: "/La_morronga_02.svg",
+  },
+  {
+    image: "/La_morronga_03.svg",
+  },
+  {
+    image: "/Corck_Trick.svg",
+  },
+  {
+    image: "/br_front_04.svg",
+  },
+  {
+    image: "/botes_br.svg",
+  },
+];
+---
+
+<div class="p-2">
+  <div class="text-center space-y-2 sm:mb-4">
+    <h1 class="text-xl font-heading text-gray-900">
+      {t("book.now")}
+    </h1>
+    <p class="font-pattern">
+      {t("land.desc")}
+    </p>
+  </div>
+  <div class="relative max-w-3xl h-auto flex flex-wrap md:flex-nowrap">
+    <div class="w-full text-center lg:w-1/2 swiper rounded-xl p-4">
+      <div class="swiper-wrapper w-full rounded-xl hidden md:flex">
+        {
+          services.map((item) => (
+            <div class="swiper-slide p-2 md:h-full rounded-xl">
+              <li class="group relative rounded-xl hidden md:flex">
+                <img
+                  decoding="async"
+                  alt="Fotos de servicios de transporte terrestre / Pictures of land transport services"
+                  src={item.image}
+                  class="absolute w-full h-96 object-cover opacity-75  rounded-xl"
+                />
+              </li>
+            </div>
+          ))
+        }
+      </div>
     </div>
-      <!-- Formulario -->
-      <div class="w-full p-4 text-center lg:w-1/2 ">
-        <form id="NauticalForm" class="space-y-4">
-          <!-- Input de Nombre -->
-          <div>
-            <label class="sr-only" for="name">{t("cta.name")}</label>
+
+    <!-- Formulario -->
+
+    <div class="w-full p-4 text-center lg:w-1/2 font-pattern">
+      <form method="POST" id="NauticalForm" class="space-y-4">
+        <input
+        class="hidden"
+        type="hidden"
+        name="access_key"
+        value="a24e69d9-ed88-4638-8287-aaa5f5e9ce9f"
+      />
+       <input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+        <div class="flex w-full flex-col gap-1 text-neutral-600">
+          <label for="name" class="w-fit pl-0.5 text-sm">{t("cta.name")}</label>
+          <input
+            required
+            id="name"
+            type="text"
+            class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75"
+            name="name"
+            placeholder="Jhon Doe"
+            autocomplete="name"
+          />
+        </div>
+
+        <!-- Inputs de Email y Teléfono -->
+
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+          <div
+            class="flex w-full flex-col gap-1 text-neutral-600 dark:text-neutral-300"
+          >
+            <label for="email" class="w-fit pl-0.5 text-sm"
+              >{t("cta.mail")}</label
+            >
             <input
-              class="w-full rounded-lg border-gray-200 p-3 text-sm"
-              placeholder={t("cta.name")}
-              type="text"
-              id="name"
+              required
+              id="email"
+              type="email"
+              class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75"
+              name="email"
+              placeholder="example@email.com"
+              autocomplete="email"
             />
           </div>
-  
-          <!-- Inputs de Email y Teléfono -->
-          <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div>
-              <label class="sr-only" for="email">{t("cta.mail")}</label>
-              <input
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder={t("cta.mail")}
-                type="email"
-                id="email"
-              />
-            </div>
-  
-            <div>
-              <label class="sr-only" for="phone">{t("cta.phone")}</label>
-              <input
-                class="w-full rounded-lg border-gray-200 p-3 text-sm"
-                placeholder={t("cta.phone")}
-                type="tel"
-                id="phone"
-              />
-            </div>
+
+          <div x-data class="flex w-full flex-col gap-1 text-neutral-600">
+            <label for="phone" class="w-fit text-sm">{t("cta.phone")}</label>
+            <input
+              required
+              id="phone"
+              type="tel"
+              class="w-full rounded-sm border border-neutral-300 bg-neutral-50 p-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black disabled:cursor-not-allowed disabled:opacity-75"
+              x-mask="(999) 999-9999"
+              name="phone"
+              autocomplete="tel-national"
+              placeholder="(999) 999-9999"
+            />
           </div>
-  
-          <!-- Opciones de selección -->
+        </div>
+
+        <!-- Opciones de selección -->
+        <div class="space-y-2">
+          <label for="phone" class="w-fit flex text-sm">{t("options")}</label>
           <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
             <div>
               <label
                 for="Option1"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
                 tabindex="0"
               >
-                <input class="sr-only" id="Option1" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> {t("nautical.subtitle-1")} </span>
+                <input
+                  class="sr-only"
+                  id="Option1"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+                <span class="text-sm"> {t("nautical.subtitle-1")}  </span>
               </label>
             </div>
-  
+
             <div>
               <label
                 for="Option2"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
                 tabindex="0"
               >
-                <input class="sr-only" id="Option2" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> {t("nautical.subtitle-2")}  </span>
+                <input
+                  class="sr-only"
+                  id="Option2"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+                <span class="text-sm"> {t("nautical.subtitle-2")} </span>
               </label>
             </div>
-  
+
             <div>
               <label
                 for="Option3"
-                class="block w-full cursor-pointer rounded-lg border border-gray-200 p-3 text-gray-600 hover:border-black has-[:checked]:border-black has-[:checked]:bg-black has-[:checked]:text-white"
+                class="block bg-neutral-50 w-full cursor-pointer rounded-lg border border-gray-200 p-2 text-gray-600 hover:border-second has-[:checked]:border-second has-[:checked]:bg-second has-[:checked]:text-white"
                 tabindex="0"
               >
-                <input class="sr-only" id="Option3" type="radio" tabindex="-1" name="option" />
-                <span class="text-sm"> {t("nautical.subtitle-3")}  </span>
+                <input
+                  class="sr-only"
+                  id="Option3"
+                  type="radio"
+                  tabindex="-1"
+                  name="option"
+                />
+                <span class="text-sm"> {t("nautical.subtitle-3")} </span>
               </label>
             </div>
           </div>
-  
-          <!-- Mensaje -->
-          <div>
-            <label class="sr-only" for="message">{t("contact.title")}</label>
-            <textarea
-              class="resize-none  w-full rounded-lg border-gray-200 p-3 text-sm"
-              placeholder={t("cta.msg-label")}
-              rows="4"
-              id="message"
-            ></textarea>
-          </div>
-  
-          <!-- Botón -->
-          <div class="mt-4">
-            <button
-              type="submit"
-              class="inline-block w-full rounded-lg bg-black px-5 py-3 font-medium text-white sm:w-auto"
-            >
-            {t("contact.btn")} 
-            </button>
-          </div>
-        </form>
-      </div>
-  
+        </div>
+
+        <!-- Component: Rounded basic base sized datepicker -->
+        <div class="relative my-6">
+          <input
+            id="id-date07"
+            type="date"
+            name="id-date07"
+            class="relative bg-neutral-50 w-full h-10 px-4 text-sm text-right placeholder-transparent transition-all border rounded outline-none peer border-slate-200 autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-emerald-500 focus:outline-none invalid:focus:border-pink-500 focus-visible:outline-none disabled:cursor-not-allowed disabled:bg-transparent disabled:text-slate-400"
+          />
+          <label
+            for="id-date07"
+            class="absolute bg-transparent -top-2 left-2 z-[1] cursor-text px-2 text-sm transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-white before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-autofill:-top-2 peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-2 peer-focus:cursor-default peer-focus:text-xs peer-focus:text-emerald-500 peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+          >
+            {t("date")}</label
+          >
+        </div>
+        <!-- End Rounded basic base sized datepicker -->
+
+        <!-- Mensaje -->
+        <div>
+          <label class="sr-only" for="message">{t("contact.title")}</label>
+          <textarea
+            class="resize-none bg-neutral-50 border w-full rounded-lg border-slate-200 p-3 text-sm"
+            placeholder={t("cta.msg-label")}
+            rows="2"
+            id="message"></textarea>
+        </div>
+
+        
+        <div class="text-center py-2">
+          <label class="text-sm">
+            <input required type="checkbox" name="terms" class="accent-oxford-blue" />
+            {t("contact.msg")}
+          </label>
+        </div>
+
+        <!-- Botón -->
+        <div class="mt-4">
+          <button
+            type="submit"
+            class="inline-block uppercase w-full rounded-lg bg-main hover:bg-second p-2 font-medium font-display text-white sm:w-auto"
+          >
+            <p class="text-white">
+              {t("book.now")}
+            </p>
+          </button>
+        </div>
+
+        
+        
+        <div id="resultNautical" class="mt-3 text-center font-body"></div>
+      </form>
+    </div>
   </div>
+
+  <style>
+ 
+
+    .was-validated :placeholder-shown:invalid ~ .empty-feedback {
+      display: block;
+    }
   
+    .was-validated :not(:placeholder-shown):invalid ~ .invalid-feedback {
+      display: block;
+    }
+  
+    .is-invalid,
+    .was-validated :invalid {
+      border-color: #dc3545;
+    }
+  </style>
+
+  <script
+    is:inline
+    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script is:inline>
+    document.addEventListener("astro:page-load", () => {
+      const swiper = new Swiper(".swiper", {
+        autoplay: {
+          delay: 3000,
+        },
+        direction: "horizontal",
+      });
+    });
+  </script>
+</div>
+
+
+<script is:inline>
+
+  // use astro:page-load event if you are using View Transitions
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      const NauticalForm = document.getElementById("NauticalForm");
+      const resultNautical = document.getElementById("resultNautical");
+
+      NauticalForm.addEventListener("submit", function (e) {
+        e.preventDefault();
+        NauticalForm.classList.add("validated");
+        if (!NauticalForm.checkValidity()) {
+          NauticalForm.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(NauticalForm);
+        const object = Object.fromEntries(formData);
+        const json = JSON.stringify(object);
+        
+        resultNautical.innerHTML = "Sending...";
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+
+            let json = await response.json();
+            if (response.status == 200) {
+              resultNautical.classList.add("text-oxford-blue");
+              resultNautical.innerHTML = "¡Correo enviado con éxito! Nos comunicaremos en menos de 24 horas."
+            } else {
+              console.log(response);
+              resultNautical.classList.add("text-red-500");
+              resultNautical.innerHTML = json.message;
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            resultNautical.innerHTML = "Something went wrong!";
+          })
+          .then(function () {
+            NauticalForm.reset();
+            NauticalForm.classList.remove("validated");
+            setTimeout(() => {
+              resultNautical.style.display = "none";
+            }, 10000);
+          });
+      });
+    },
+    { once: true }
+  );
+</script>
