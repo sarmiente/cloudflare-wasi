@@ -11,9 +11,11 @@ const translatePath = useTranslatedPath(lang);
   is:inline
   src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
 ></script>
-<script is:inline type="module" astro:page-load>
+<script is:inline>
   // @ts-nocheck
-  const swiper = new Swiper(".swiper", {
+  document.addEventListener(
+    "astro:page-load", () => {
+        const swiper = new Swiper(".swiper", {
     
     autoplay: {
     delay: 5000,
@@ -39,6 +41,9 @@ const translatePath = useTranslatedPath(lang);
       draggable: true,
     },
   });
+    }
+  )
+
 </script>
 
 
@@ -74,7 +79,7 @@ const translatePath = useTranslatedPath(lang);
         <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
           <div class="max-w-4xl mx-auto space-y-6">
             <h1 class="text-4xl sm:text-7xl uppercase font-heading font-medium">
-              {t("nav.manage")}
+              {t("sale.title")}
             </h1>
             <p class="text-md font-light font-pattern leading-relaxed max-w-2xl mx-auto">
               {t("nav.manage-desc")}
@@ -87,23 +92,7 @@ const translatePath = useTranslatedPath(lang);
         </div>
       </div>
 
-      <div class="swiper-slide relative bg-[url('/br_front_3.jpg')] bg-cover bg-center">
-        <div class="absolute inset-0 bg-black opacity-70"></div>
-        <div class="absolute inset-0 flex flex-col items-center justify-center text-white p-4">
-          <div class="max-w-4xl mx-auto space-y-6">
-            <h1 class="text-4xl sm:text-7xl uppercase font-heading font-medium">
-              {t("nav.concierge")}
-            </h1>
-            <p class="text-md font-light font-pattern leading-relaxed max-w-2xl mx-auto">
-              {t("nav.concierge-desc")}
-            </p>
-            <a href={translatePath("/daily-assistance/")}  
-               class="inline-block bg-main hover:bg-second font-pattern hover:text-white transition-colors uppercase px-8 py-3 text-sm rounded-md">
-              {t("nav.more")}
-            </a>
-          </div>
-        </div>
-      </div>
+    
     </div>
 
     <!-- Pagination -->

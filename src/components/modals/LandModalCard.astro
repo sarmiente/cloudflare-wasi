@@ -40,7 +40,6 @@ const services = [
       services.map((service) => (
         <li class="group relative block bg-black rounded-xl overflow-hidden">
           <img
-            
             decoding="async"
             alt="Fotos de servicios de transporte terrestre / Pictures of land transport services"
             src={service.image}
@@ -126,7 +125,7 @@ const services = [
 
       <!-- Dialog Footer -->
       <div
-        class="flex flex-col-reverse justify-between gap-2 border-t border-neutral-300 bg-neutral-50/60 p-4 dark:border-neutral-700 sm:flex-row sm:items-center md:justify-end"
+        class="flex flex-col-reverse justify-between gap-2 border-t border-neutral-300 bg-neutral-50/60 p-4 sm:flex-row sm:items-center md:justify-end"
       >
         <button
           @click="modalIsOpen = false"

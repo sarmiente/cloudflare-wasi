@@ -188,18 +188,18 @@ const transportation = navItems.dropmenu[3].dropdown;
           <!-- Botón principal con el título del dropdown -->
           <button
             type="button"
-            class="dark:text-white hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
+            class="hover:text-main px-3 py-2 rounded-md text-sm font-pattern font-light uppercase focus:outline-none inline-flex items-center transition-transform ease-out duration-150 transform hover:scale-105 hover:opacity-100 opacity-90"
           >
             {navItems.dropmenu[1].title}
             <Icon name="arrow" />
           </button>
         
           <!-- Menú desplegable -->
-          <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-slate-800 shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transition-all duration-300 ease-in-out">
+          <div class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-md py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-hover:translate-y-1 transition-all duration-300 ease-in-out">
             {dropabout.map((item) => (
               <a
                 href={item.href}
-                class="block px-4 py-2 dark:text-white hover:text-main text-sm font-pattern font-light uppercase"
+                class="block px-4 py-2 hover:text-main text-sm font-pattern font-light uppercase"
               >
                 {item.text}
               </a>
