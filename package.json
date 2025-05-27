@@ -21,6 +21,7 @@
     "axios": "^1.7.9",
     "blendy": "^0.0.1",
     "nouislider": "^15.8.1",
+    "photoswipe": "^5.4.4",
     "tailwindcss": "^4.0.0",
     "tailwindcss-animated": "^2.0.0",
     "tailwindcss-intersect": "^2.1.0",

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../i18n/utils';
 import Plans from "../components/sections/Plans.astro";
 
+
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
