@@ -66,8 +66,8 @@ string,
   
   export const ui = {
     en: {
-        'layout.title': 'Short and Long Term Rental Apartments, Houses, Yachts & Boats',
-        'layout.description' : 'Discover Exclusive Short and Long Term Rental Apartments, Houses and Yachts. Turn every trip into something truly unforgettable.',
+        'layout.title': 'Real Estate in Cartagena | Property Sales & Management - BR Property Solutions',
+        'layout.description' : 'Buy, sell or manage apartments and houses in Cartagena. Professional real estate services for property owners and investors.',
         
         'nav.home': 'Home',
         'nav.about': 'About',
@@ -113,7 +113,7 @@ string,
      
         
         'about.sub': 'Building a visionary legacy in the future of property excellence.',
-        'about.side' : 'At BR Solutions, we believe that every journey is a unique experience and that where you stay can make that journey truly unforgettable. As providers of tourist accommodations, property sales, and boat rentals, we take pride in offering homes away from home and exceptional experiences.',
+        'about.side' : 'At BR Property Solutions, we believe that every journey is a unique experience and that where you stay can make that journey truly unforgettable. As providers of tourist accommodations, property sales, and boat rentals, we take pride in offering homes away from home and exceptional experiences.',
         'mission' : 'Our mission',
         'mission.title' : 'Excellence in quality, safety and service.',
         'mission.sub' : ' We are committed to providing properties and boats of the highest quality, ensuring the safety and well-being of our clients at all times. Excellence is service is our standard.',
@@ -224,13 +224,22 @@ string,
         'filter.bed' : 'Bedrooms',
         'filter.bath' : 'Bathrooms',
         'filter.any' : 'Any',
+        'filter.tags-placeholder': 'Tags',
 
-        'sale.title': 'Properties for sale',
-        'sale.desc': 'Explore our stunning array of homes, ranging from charming apartments to luxurious estates, and find the perfect place to create your own story.',
+        'hero.title': 'Short & Long Term Rentals in Cartagena Apartments and Houses',
+        'hero.desc': 'Short and long term rental apartments and houses in Cartagena. Professionally managed properties with personalized local service.',
+        'hero.btn': 'View Properties for Rent',
+
+        'hero2.title': 'Apartments and Houses for Sale in Cartagena',
+        'hero2.desc': 'Buy or sell apartments and houses in Cartagena with professional real estate guidance and local market expertise.',
+        'hero2.btn': 'View Properties for Sale',
+
+        'sale.title': 'Properties for sale in Cartagena',
+        'sale.desc': 'Browse apartments and houses for sale in Cartagena and find your ideal property',
         'sale.btn' : 'See all properties for sale',
 
-        'rent.title': 'Available properties for rent',
-        'rent.desc': 'Dive into our global collection of rental properties, scattered across every corner of the world, and uncover a home that feels just right—even if it’s temporary.',
+        'rent.title': 'Available properties for rent in Cartagena',
+        'rent.desc': 'Discover apartments and houses for rent in Cartagena, ideal for short or long term stays with trusted local management.',
         'rent.btn': 'See all properties for rent',
 
         'silver': 'Silver Plan',
@@ -276,8 +285,8 @@ string,
 
 
     es: {
-        'layout.title' : 'Apartamentos, Casas, Yates y Barcos de Alquiler a Corto y Largo Plazo',
-        'layout.description': 'Descubre exclusivos Apartamentos, Casas, Yates y Barcos para alquiler o venta. Vive experiencias únicas y convierte cada viaje en algo realmente inolvidable.',
+        'layout.title' : 'Inmobiliaria en Cartagena | Venta y Administración de Propiedades - BR Property Solutions',
+        'layout.description': 'Compra, vende o administra apartamentos y casas en Cartagena. Asesoría inmobiliaria profesional para propietarios e inversionistas.',
 
         'nav.home': 'Inicio',
         'nav.about': 'Nosotros',
@@ -321,7 +330,7 @@ string,
         'manage.side': 'Nuestro equipo experto se encarga de todo, desde la comercialización hasta la gestión operativa, para que puedas maximizar tus ingresos sin preocupaciones.',
 
         'about.sub': 'Construyendo un legado visionario en el futuro de la excelencia en propiedad.',
-        'about.side' : 'En BR Solutions, creemos que cada viaje es una experiencia única y que el lugar donde te hospedas puede convertir ese viaje en algo verdaderamente inolvidable. Como proveedores de alojamientos turísticos, ventas de propiedades y renta de botes, nos enorgullece ofrecer hogares lejos de casa y experiencias excepcionales.',
+        'about.side' : 'En BR Property Solutions, creemos que cada viaje es una experiencia única y que el lugar donde te hospedas puede convertir ese viaje en algo verdaderamente inolvidable. Como proveedores de alojamientos turísticos, ventas de propiedades y renta de botes, nos enorgullece ofrecer hogares lejos de casa y experiencias excepcionales.',
         'mission' : 'Nuestra Misión',
         'mission.title' : 'Excelencia en calidad, seguridad y servicio.',
         'mission.sub' : 'Nos comprometemos a ofrecer propiedades y botes de la más alta calidad, asegurando la seguridad y el bienestar de nuestros clientes en todo momento. La excelencia en el servicio es nuestro estándar.',
@@ -403,8 +412,6 @@ string,
         "land.desc": 'Elija excelencia sobre ruedas: nuestras vans, SUVs y automóviles premium le esperan.',
         "land.long": 'Experimente la excelencia en movilidad con nuestro servicio de transporte especial privado, diseñado exclusivamente para satisfacer sus necesidades más exigentes. Nuestras modernas Vans, SUVs y automóviles de lujo, equipados con las mejores comodidades y conducidos por choferes profesionales, garantizan un viaje seguro, puntual y confortable para cualquier ocasión. ',
 
-
-
         'proper.one': 'Comercialización Profesional',
         'one.desc': 'Utilizamos una combinación de canales de distribución en línea como Airbnb,Vrbo, booking, redes sociales, página web y estrategias de marketing digital para llegar a una amplia audiencia de viajeros.',
         'proper.two': 'Gestión de reserva',
@@ -432,13 +439,23 @@ string,
         'filter.bed' : 'Habitaciones',
         'filter.bath' : 'Baños',
         'filter.any' : 'Cualquier',
+        'filter.tags-placeholder': 'Etiquetas',
 
-        'sale.title': 'Propiedades en venta',
-        'sale.desc': 'Explora nuestra impresionante variedad de hogares, desde acogedores apartamentos hasta lujosas mansiones, y encuentra el lugar perfecto para escribir tu propia historia.',
-        'sale.btn' : 'Ver todas las propiedades en venta',
+        'hero.title': 'Alquiler de Apartamentos y Casas en Cartagena Corto y Largo Plazo',
+        'hero.desc': 'Apartamentos y casas en alquiler en Cartagena para estancias cortas o largas. Propiedades seleccionadas con gestión profesional y atención personalizada.',
+        'hero.btn': 'Explorar Propiedades en renta',
 
-        'rent.title': 'Propiedades en renta disponibles',
-        'rent.desc': 'Sumérgete en nuestra colección global de propiedades en alquiler, esparcidas por cada rincón del mundo, y descubre un hogar que se sienta perfecto, aunque sea temporal.',
+        
+        'hero2.title': 'Venta de Apartamentos y Casas en Cartagena',
+        'hero2.desc': 'Compra o vende propiedades en Cartagena con asesoría inmobiliaria profesional. Acompañamiento completo para propietarios e inversionistas.',
+        'hero2.btn': 'Explorar Propiedades en Venta',
+
+        'sale.title': 'Propiedades en venta disponibles en Cartagena',
+        'sale.desc': 'Descubre apartamentos y casas en venta en Cartagena y encuentra la propiedad ideal para ti.',
+        'sale.btn' : 'Ver propiedades en venta',
+
+        'rent.title': 'Propiedades en renta disponibles en Cartagena',
+        'rent.desc': 'Descubre apartamentos y casas en alquiler en Cartagena para estancias cortas o largas, con gestión profesional y atención local.',
         'rent.btn': 'Ver todas las propiedades en alquiler',
 
         'silver': 'Plan Plata',
@@ -457,18 +474,13 @@ string,
         'feat.champ': 'Copa de champaña',
 
         'exp.desc': 'Sumérgete en la escena culinaria local con nuestro servicio de reservas exclusivas. Nuestros expertos seleccionan cuidadosamente los mejores restaurantes y bares, adaptándolos a tus preferencias gastronómicas, presupuesto y estilo personal. Desde restaurantes de alta cocina hasta joyas culinarias locales ocultas, garantizamos una experiencia gastronómica inolvidable.',
-
-       
-        
         'exp.andres': 'Disfruta de la esencia vibrante y colorida de Andrés Cartagena, una extensión del paraíso gastronómico.',
         'exp.celele': 'Un acogedor restaurante que ofrece especialidades locales, con mariscos y bocadillos entre sus opciones destacadas.',
         'exp.unica': 'Vive una experiencia única que resalta la autenticidad y excelencia culinaria en cada plato.',
         'exp.cande': 'Un elegante espacio lleno de vegetación donde se sirve comida típica de la región, acompañado de espectáculos en vivo con frecuencia.',
         'exp.niku': 'Un restaurante que fusiona lo mejor de la cocina japonesa, peruana, latina, española y el arte del sushi.',
         'exp.juan': 'Un espacio relajado para disfrutar de tapas, mariscos y carnes, complementados con postres y una extensa selección de vinos.',
-
-
-        
+     
         'daily.desc': 'Transformamos tu día a día en una experiencia de lujo sin complicaciones. Nuestro equipo de asistentes especialistas se encarga de cada detalle, desde la coordinación de citas y gestiones complejas hasta la resolución de tareas cotidianas. Utilizamos tecnología de vanguardia y una red exclusiva de contactos para garantizar que cada solicitud se resuelva con precisión, discreción y elegancia.',
 
         'daily.hosp': 'Asistencia Diaria',

@@ -7,9 +7,6 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
-
-
-
 <!-- Google tag (gtag.js) -->
 <script is:inline>
   (function (w, d, s, l, i) {
@@ -25,14 +22,22 @@ const t = useTranslations(lang);
 </script>
 
 
-
 <meta charset="UTF-8" />
-<meta name="description" content={t("layout.description")} />
 <meta name="viewport" content="width=device-width" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href="/logo_br_property.svg" />
 <meta name="generator" content={Astro.generator} />
 
 <title>{title}</title>
+<meta name="description" content={t("layout.description")} />
+
+<!-- SEO básico adicional -->
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href={Astro.url} />
+
+<!-- SEO local -->
+<meta name="geo.region" content="CO" />
+<meta name="geo.placename" content="Cartagena" />
+<meta name="language" content="es-CO" />
 
 <!-- Open Graph tags -->
 <meta property="og:title" content={title} />
@@ -44,6 +49,12 @@ const t = useTranslations(lang);
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={t("layout.description")} />
+<meta name="twitter:image" content="/br_front_1.jpg" />
 
 
 <!-- Google Analytics-->
@@ -68,8 +79,6 @@ const t = useTranslations(lang);
 
   gtag("config", "G-ST46D5DPG3");
 </script>
-
-
 
 <!-- Transition View -->
 <ClientRouter />
