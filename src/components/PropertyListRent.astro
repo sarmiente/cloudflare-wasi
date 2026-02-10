@@ -18,9 +18,8 @@ const translatePath = useTranslatedPath(lang);
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
 const options = {
-  method: "POST",
+  method: "GET",
   headers: {
-    "Content-Type": "application/json; charset=UTF-8",
     Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
   },
 };

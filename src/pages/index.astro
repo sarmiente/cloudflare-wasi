@@ -10,6 +10,7 @@ import { getLangFromUrl, useTranslations } from '../i18n/utils';
 import Hero from "../components/sections/Hero.astro";
 import ForSale from "../components/sections/ForSale.astro";
 import ForRent from "../components/sections/ForRent.astro";
+import PromoBanner from "../components/sections/PromoBanner.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,5 +23,6 @@ const t = useTranslations(lang);
     <ForRent />
     <CenteredHero />
     <CTA />
+    <PromoBanner title="Nuevo Proyecto Inmobiliario en Cartagena" description="Descubre apartamentos y casas en venta con asesoría inmobiliaria profesional." image="/br_front_04.svg" />
     
 </Layout>

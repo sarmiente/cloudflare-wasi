@@ -1,7 +1,7 @@
 ---
 import WhatsappSVG from "../../icons/whatsapp.svg";
 import LocationIcon from "../../icons/location.svg";
-import Logo from "../../icons/br_logo.svg";
+import Logo from "../../icons/br_property_logo.svg";
 
 import { Icon } from "astro-icon/components";
 import EnvelopSVG from "../../icons/envelop_vector.svg"
@@ -227,8 +227,10 @@ const footerData = [
 
     <div class="mt-12 border-t border-gray-100 pt-6">
       <div class="text-center sm:flex sm:justify-between sm:text-left">
-        <a href="http://sarpin.agency/" target="_blank">
-          <span class="font-pattern block sm:inline text-sm text-gray-400 hover:text-main pb-5 md:p-0">sarpin.agency</span>
+        <a href="http://sarpinagency.com" target="_blank">
+          <div class="font-pattern uppercase block sm:inline text-xs pb-5 md:p-0">
+            <span class="text-black">sarpin</span> <span class="text-sky-700 uppercase">agency</span>
+          </div>
         </a>
         <p class="text-sm text-gray-500">
           
@@ -248,7 +250,7 @@ const footerData = [
         </p>
         
         <p class="mt-4 text-sm font-pattern text-gray-500 sm:order-first sm:mt-0">
-          BR SOLUTIONS &copy; {date.getFullYear()}. {t("nav.rights")} </p>
+          BR PROPERTY SOLUTIONS &copy; {date.getFullYear()}. {t("nav.rights")} </p>
       </div>
     </div>
   </div>

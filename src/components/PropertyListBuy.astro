@@ -17,9 +17,8 @@ const translatePath = useTranslatedPath(lang);
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 100;
 const options = {
-  method: "POST",
+  method: "GET",
   headers: {
-    "Content-Type": "application/json; charset=UTF-8",
     Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
   },
 };
@@ -30,7 +29,7 @@ try {
   data = await (async () => {
     const response = await fetch(
       `${urlSearch}id_company=${import.meta.env.PUBLIC_ID_COMPANY}&wasi_token=${import.meta.env.PUBLIC_WASI_TOKEN}&take=${take}&for_sale=true`,
-      options
+      options,
     );
 
     if (!response.ok) {
@@ -46,6 +45,20 @@ try {
 const properties = Object.keys(data || {})
   .filter((key) => key !== "total" && key !== "status")
   .map((key) => data[key]);
+
+
+  function normalizeLabels(labels) {
+  if (!Array.isArray(labels)) return '';
+
+  return labels
+    .map(l => {
+      if (typeof l === 'string') return l.toLowerCase();
+      if (typeof l === 'object' && l.name) return l.name.toLowerCase();
+      return '';
+    })
+    .filter(Boolean)
+    .join(',');
+}
 ---
 
 <main class="container mx-auto px-4">
@@ -69,6 +82,7 @@ const properties = Object.keys(data || {})
             data-price={property.sale_price || property.rent_price}
             data-bedrooms={property.bedrooms || "0"}
             data-bathrooms={property.bathrooms || "0"}
+            data-labels={property.label ? property.label.toLowerCase() : ''}      
           >
             <a
               href={translatePath(`/property/${property.id_property}`)}
@@ -92,7 +106,9 @@ const properties = Object.keys(data || {})
                       <div class="font-pattern">
                         <dt class="text-black">Area</dt>
                         <dd class="text-gray-500">
-                          {property.built_area ? `${property.built_area} m²` : ''}
+                          {property.built_area
+                            ? `${property.built_area} m²`
+                            : ""}
                         </dd>
                       </div>
                       <div class="font-pattern">
@@ -122,7 +138,20 @@ const properties = Object.keys(data || {})
                           </span>
                         ) : null}
                       </dd>
+                      <dd class="text-gray-500">
+                        {property.labels && property.labels.length > 0
+                          ? property.labels.map((label) => (
+                              <span
+                                key={label}
+                                class="inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded mr-1"
+                              >
+                                {label}
+                              </span>
+                            ))
+                          : null}
+                      </dd>
                     </div>
+                    
                   </dl>
                 </div>
               </div>

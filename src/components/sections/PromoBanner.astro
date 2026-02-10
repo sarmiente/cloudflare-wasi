@@ -1,0 +1,76 @@
+---
+/**
+ * Props opcionales para reutilizar el banner
+ */
+const {
+  title = "Nuevo Proyecto Inmobiliario en Cartagena",
+  description = "Descubre apartamentos y casas en venta con asesoría inmobiliaria profesional.",
+  image = "/images/promo-cartagena.jpg",
+} = Astro.props;
+---
+
+<div
+  id="promo-backdrop"
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4"
+>
+  <div
+    id="promo-modal"
+    class="relative w-full max-w-lg rounded-2xl bg-white shadow-xl"
+  >
+    <!-- Botón cerrar -->
+    <button
+      id="close-btn"
+      aria-label="Cerrar anuncio"
+      class="absolute right-3 top-3 text-gray-400 hover:text-gray-700"
+    >
+      ✕
+    </button>
+
+    <!-- Imagen -->
+    <img
+      src={image}
+      alt={title}
+      class="h-56 w-full rounded-t-2xl object-cover"
+      loading="eager"
+    />
+
+    <!-- Contenido -->
+    <div class="p-6 text-center">
+      <h2 class="mb-3 text-2xl font-semibold text-gray-900">
+        {title}
+      </h2>
+      <p class="mb-6 text-gray-600">
+        {description}
+      </p>
+
+      <a
+        href="/venta-propiedades-cartagena"
+        class="inline-block rounded-lg bg-primary px-6 py-3 text-white font-medium hover:bg-primary/90 transition"
+      >
+        Ver Proyecto
+      </a>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+document.addEventListener('astro:page-load', () => {
+      const backdrop = document.getElementById("promo-backdrop");
+  const modal = document.getElementById("promo-modal");
+  const closeBtn = document.getElementById("close-btn");
+
+  function closeModal() {
+    backdrop.classList.add("hidden");
+  }
+
+  // Cerrar con la X
+  closeBtn?.addEventListener("click", closeModal);
+
+  // Cerrar al hacer clic fuera
+  backdrop?.addEventListener("click", (e) => {
+    if (!modal.contains(e.target)) {
+      closeModal();
+    }
+  });
+})
+</script>

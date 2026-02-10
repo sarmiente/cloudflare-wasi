@@ -14,10 +14,9 @@ const translatePath = useTranslatedPath(lang);
 
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 const options = {
-    method: "POST",
+    method: "GET",
     headers: {
-        "Content-Type": "application/json; charset=UTF-8",
-        Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
+      Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
     }
 };
 let property = null;
@@ -54,7 +53,7 @@ await fetchProperty(Astro.params);
                       </div>
                   
                       {/*
-                      <p class="mt-8 text-sm text-zinc-600 text-zinc-200 sm:w-2/3 xl:w-1/2 capitalize font-pattern">{property.address}</p>
+                      <p class="mt-8 text-sm text-zinc-600 sm:w-2/3 xl:w-1/2 capitalize font-pattern">{property.address}</p>
                       */}
                   </div>
                  

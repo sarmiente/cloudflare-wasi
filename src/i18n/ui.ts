@@ -39,6 +39,7 @@ string,
       'nautical-transport': 'transporte-nautico',
       '404': '404',
       '500':'500',
+   
 
       
     },
@@ -59,7 +60,7 @@ string,
       'nautical-transport': 'nautical-transport',
       '404': '404',
       '500':'500',
-     
+      
     }
   }
 
@@ -68,7 +69,11 @@ string,
     en: {
         'layout.title': 'Real Estate in Cartagena | Property Sales & Management - BR Property Solutions',
         'layout.description' : 'Buy, sell or manage apartments and houses in Cartagena. Professional real estate services for property owners and investors.',
+        'layout.tag': 'Tag',
+        'layout.price': 'Price',
         
+
+
         'nav.home': 'Home',
         'nav.about': 'About',
         'nav.buy': 'Buy',
@@ -224,7 +229,11 @@ string,
         'filter.bed' : 'Bedrooms',
         'filter.bath' : 'Bathrooms',
         'filter.any' : 'Any',
-        'filter.tags-placeholder': 'Tags',
+        'filter.label-comercial': 'Commercial',
+        'filter.label-residential': 'Residential',
+        'filter.label-project': 'Project',
+        'filter.label-mix': 'Mix use',
+
 
         'hero.title': 'Short & Long Term Rentals in Cartagena Apartments and Houses',
         'hero.desc': 'Short and long term rental apartments and houses in Cartagena. Professionally managed properties with personalized local service.',
@@ -287,6 +296,8 @@ string,
     es: {
         'layout.title' : 'Inmobiliaria en Cartagena | Venta y Administración de Propiedades - BR Property Solutions',
         'layout.description': 'Compra, vende o administra apartamentos y casas en Cartagena. Asesoría inmobiliaria profesional para propietarios e inversionistas.',
+        'layout.tag': 'Etiqueta',
+        'layout.price': 'Precio',
 
         'nav.home': 'Inicio',
         'nav.about': 'Nosotros',
@@ -439,7 +450,11 @@ string,
         'filter.bed' : 'Habitaciones',
         'filter.bath' : 'Baños',
         'filter.any' : 'Cualquier',
-        'filter.tags-placeholder': 'Etiquetas',
+         'filter.label-comercial': 'Comercial',
+        'filter.label-residential': 'Residencial',
+        'filter.label-project': 'Proyecto',
+        'filter.label-mix': 'Mixto',
+        
 
         'hero.title': 'Alquiler de Apartamentos y Casas en Cartagena Corto y Largo Plazo',
         'hero.desc': 'Apartamentos y casas en alquiler en Cartagena para estancias cortas o largas. Propiedades seleccionadas con gestión profesional y atención personalizada.',

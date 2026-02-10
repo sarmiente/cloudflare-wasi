@@ -3,7 +3,7 @@
 const urlGetProperty = "https://api.wasi.co/v1/property/get/";
 
 const options = {
-  method: "POST",
+  method: "GET",
   headers: {
     "Content-Type": "application/json; charset=UTF-8",
     Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
@@ -30,7 +30,10 @@ async function fetchProperty(params: Record<string, string | undefined>) {
 await fetchProperty(Astro.params);
 
 // Convertir el objeto de galerías en un arreglo
-const images = Object.values(property?.galleries?.[0] || {});
+const images =
+  property?.galleries && property.galleries.length > 0
+    ? Object.values(property.galleries[0])
+    : [];
 
 ---
 
@@ -62,19 +65,26 @@ const images = Object.values(property?.galleries?.[0] || {});
 
 
 <section class="relative py-10">
-  <div class="swiper mySwiper2 mx-auto max-w-screen-xl md:rounded-xl  py-8 sm:px-6 ">
+  <div class="pswp-gallery swiper mySwiper2 mx-auto max-w-screen-xl md:rounded-xl  py-8 sm:px-6 " id="my-gallery">
     <div class="swiper-wrapper rounded-xl">
-      <!-- Slider principal dinámico -->
-      {images.filter(image => image.url_original).map((image, index) => (
-        <div class="swiper-slide" key={index}>
-          <img
-            class="flex items-center justify-center text-white text-4xl font-bold w-full h-[60vh] object-cover"
-            src={image.url_original}
-            alt={`Project Cover ${index}`}
-          />
-        </div>
-      ))}
+  {images.map((image, index) => (
+    <div class="swiper-slide" key={index}>
+      <a
+        href={image.url_original}
+        data-pswp-width="1669"
+        data-pswp-height="2500"
+        target="_blank"
+      >
+        <img
+          class="w-full h-[60vh] object-cover"
+          src={image.url_original}
+          alt={`Project Cover ${index}`}
+        />
+      </a>
     </div>
+  ))}
+</div>
+
   </div>
 <br>
   <!-- Miniaturas dinámicas -->
@@ -93,4 +103,16 @@ const images = Object.values(property?.galleries?.[0] || {});
   </div>
 </section>
 
+<script type="module" is:inline>
+  import PhotoSwipeLightbox from "https://unpkg.com/photoswipe/dist/photoswipe-lightbox.esm.js";
 
+  document.addEventListener("astro:page-load", () => {
+    const lightbox = new PhotoSwipeLightbox({
+      gallery: "#my-gallery",
+      children: "a",
+      pswpModule: () => import("https://unpkg.com/photoswipe"),
+    });
+
+    lightbox.init();
+  });
+</script>

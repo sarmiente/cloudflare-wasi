@@ -16,9 +16,8 @@ const translatePath = useTranslatedPath(lang);
 const urlSearch = "https://api.wasi.co/v1/property/search?";
 const take = 3;
 const options = {
-  method: "POST",
+  method: "GET",
   headers: {
-    "Content-Type": "application/json; charset=UTF-8",
     Authentication: `Bearer ${import.meta.env.PUBLIC_ID_COMPANY}`,
   },
 };
@@ -111,8 +110,8 @@ const properties = Object.keys(data || {})
                 <div class="p-4">
                   <dl class="w-full divide-y border-b border-gray-200 divide-gray-200">
                     <div class="gap-2 py-2">
-                      <dt class="text-black font-pattern font-medium uppercase">
-                        {property.title}
+                      <dt>
+                         <p class="text-black text-lg font-pattern font-medium uppercase">{property.title}</p>
                       </dt>
                     </div>
                     <div class="gap-2 py-2 grid grid-cols-2 md:grid-cols-3 justify-between">
@@ -134,7 +133,7 @@ const properties = Object.keys(data || {})
                       </div>
                     </div>
                     <div class="gap-2 py-2 font-pattern">
-                      <dt class="text-black">Price</dt>
+                      <dt class="text-black">{t("layout.price")}</dt>
                       <dd class="text-gray-500">
                         {property.for_sale === "true" &&
                         property.sale_price &&
@@ -146,12 +145,13 @@ const properties = Object.keys(data || {})
                         {property.for_rent === "true" &&
                         property.rent_price &&
                         property.rent_price !== 0 ? (
-                          <span class="text-second">
+                          <span class="text-second ">
                             {t("list.rent-price")} {property.rent_price_label}
                           </span>
                         ) : null}
                       </dd>
                     </div>
+                     
                   </dl>
                 </div>
               </div>
