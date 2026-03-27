@@ -2,8 +2,10 @@
 // Images
 import { Image } from 'astro:assets';
 
-import PicTwo from "../../assets/beny.png"
-import PicThree from "../../assets/grace.png"
+import PicOne from "../../assets/benilda.svg"
+import PicTwo from "../../assets/fernanda.svg"
+import PicThree from "../../assets/jalil.svg"
+import PicFour from "../../assets/ana.svg"
 
 import FrontOne from "../../assets/br_front_1.jpg"
 import FrontTwo from "../../assets/br_front_2.jpg"
@@ -13,6 +15,24 @@ import FrontThree from "../../assets/br_front_3.jpg"
 import { getLangFromUrl, useTranslations } from '../../i18n/utils';
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+const teamMembers = [
+  {
+    name: "Benilda Prada",
+    image: PicOne,
+  },
+  {
+    name: "Maria Fernanda Vuelvas",
+    image: PicTwo,
+  },
+  {
+    name: "Jalil Janna",
+    image: PicThree,
+  },
+  
+  // Agrega más miembros del equipo aquí
+];
+
 
 ---
 
@@ -29,29 +49,24 @@ const t = useTranslations(lang);
   
     <!-- Cards de los miembros del equipo -->
     <div class="container mx-auto p-4">
-      <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-2 ">
+      <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-16 md:grid-cols-3 ">
         <!-- Card individual -->
        
-  
-        <!-- Card individual -->
-        <div class="group flex flex-col items-center p-6 border border-gray-200 rounded-xl  hover:shadow-lg transition-shadow duration-300">
-          <div class="overflow-hidden rounded-xl aspect-square">
-            <Image alt="" src={PicTwo} />
-            
+        {teamMembers.map((member) => (
+          <div class="group flex flex-col items-center p-6 border border-gray-200 rounded-xl  hover:shadow-lg transition-shadow duration-300">
+            <div class="overflow-hidden rounded-xl">
+              <Image
+                alt={member.name}
+                src={member.image}
+                class="h-full w-full object-cover group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <h1 class="mt-4 text-2xl font-heading text-gray-700 capitalize">{member.name}</h1>
           </div>
-          <h1 class="mt-4 text-2xl font-heading text-gray-700 capitalize ">Beny Prada</h1>
-          <p class="mt-2 font-pattern text-gray-500 capitalize ">CEO</p>
-        </div>
+        ))}
+      
   
-        <!-- Card individual -->
-        <div class="group flex flex-col items-center p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-shadow duration-300">
-          <div class="overflow-hidden rounded-xl aspect-square">
-            <Image alt="" src={PicThree} />
-            
-          </div>
-          <h1 class="mt-4 text-2xl font-heading text-gray-700 capitalize ">Grace Garcia</h1>
-          <p class="mt-2 text-gray-500 font-pattern capitalize ">{t("team.rep")}</p>
-        </div>
+        
       </div>
     </div>
   </section>

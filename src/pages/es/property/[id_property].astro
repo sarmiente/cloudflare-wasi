@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 import PropertySwiper from "../../../components/sections/PropertySwiper.astro";
 import FeaturesList from "../../../components/sections/FeaturesList.astro"
+import ShareThis from "../../../components/buttons/ShareThis.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -127,6 +128,7 @@ await fetchProperty(Astro.params);
          
       <FeaturesList />
 
+      <ShareThis />
 
       
       

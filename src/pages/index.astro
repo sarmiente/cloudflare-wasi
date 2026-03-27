@@ -18,11 +18,11 @@ const t = useTranslations(lang);
 ---
 
 <Layout title=`${t("layout.title")}`>
-    <Hero />
+    <Hero title={t("hero.title")} description={t("hero.desc")} />
     <ForSale />
     <ForRent />
     <CenteredHero />
-    <CTA />
-    <PromoBanner title="Nuevo Proyecto Inmobiliario en Cartagena" description="Descubre apartamentos y casas en venta con asesoría inmobiliaria profesional." image="/br_front_04.svg" />
+    <CTA  />
+    <PromoBanner  description="Descubre apartamentos y casas en venta con asesoría inmobiliaria profesional." image="/br_front_04.svg" />
     
 </Layout>

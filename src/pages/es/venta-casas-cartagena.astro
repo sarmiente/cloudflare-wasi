@@ -1,0 +1,163 @@
+---
+import ForSale from "../../components/sections/ForSale.astro";
+import Layout from "../../layouts/Layout.astro";
+import CTA from "../../components/sections/CTA.astro";
+import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
+
+---
+<Layout
+  title="Venta de Casas en Cartagena | BR Property Solutions"
+>
+<div class="pt-32">
+    
+  <!-- HERO -->
+  <section class="h-[50vh] bg-center bg-cover bg-[url('/aposentos_pic.svg')]     relative py-20 sm:py-32">
+    <div class="bg-black opacity-70 absolute inset-0 "></div>
+   <div class="absolute inset-0 flex items-center justify-center ">
+     <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-white mb-4 sm:mb-6 leading-tight">
+        Venta de Casas en Cartagena
+      </h1>
+
+      <p class="text-base sm:text-lg text-white max-w-2xl mx-auto mb-6 sm:mb-8 font-pattern">
+        Descubre casas en venta en Cartagena con acompañamiento inmobiliario profesional y asesoría experta en cada etapa del proceso.
+      </p>
+
+      <a 
+        href="https://api.whatsapp.com/send/?phone=573012291567&text=Hola%2C%20estoy%20interesado%20en%20sus%20servicios"
+        class="inline-block w-full sm:w-auto bg-main text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-medium hover:bg-main/90 transition font-pattern uppercase"
+      >
+        Ver Casas Disponibles
+      </a>
+    </div>
+   </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="py-12 sm:py-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        
+        <div class="p-4">
+          <h2 class="text-lg font-display sm:text-xl font-semibold mb-2 sm:mb-3">
+            Asesoría Profesional
+          </h2>
+          <p class="text-gray-600 font-pattern text-sm sm:text-base">
+            Acompañamiento legal y financiero durante todo el proceso de compra.
+          </p>
+        </div>
+
+        <div class="p-4">
+          <h2 class="text-lg font-display sm:text-xl font-semibold mb-2 sm:mb-3">
+            Propiedades Verificadas
+          </h2>
+          <p class="text-gray-600 font-pattern text-sm sm:text-base">
+            Casas en zonas estratégicas con alta valorización.
+          </p>
+        </div>
+
+        <div class="p-4">
+          <h2 class="text-lg font-display sm:text-xl font-semibold mb-2 sm:mb-3">
+            Oportunidades de Inversión
+          </h2>
+          <p class="text-gray-600 font-pattern text-sm sm:text-base">
+            Opciones ideales para renta corta, larga o vivienda propia.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LISTADO PROPIEDADES -->
+  <section id="propiedades" class="bg-gray-50 py-14 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-8 sm:mb-10 text-center font-pattern">
+        Apartamentos en Venta en Cartagena
+      </h2>
+
+      <div class=" gap-6 lg:gap-8">
+        <ForSale />
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONAS DESTACADAS -->
+  <section class="py-14 sm:py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center font-pattern">
+        Zonas Exclusivas para Comprar Casa en Cartagena
+      </h2>
+
+      <p class="text-gray-700 font-pattern text-sm sm:text-base mb-4 leading-relaxed">
+        Cartagena ofrece oportunidades inmobiliarias en sectores como Bocagrande, Castillogrande, El Laguito y Serena del Mar. Estas zonas destacan por su valorización, ubicación estratégica y atractivo turístico.
+      </p>
+
+      <p class="text-gray-700 font-pattern text-sm sm:text-base leading-relaxed">
+        Invertir en casas en Cartagena permite generar rentabilidad mediante alquileres turísticos o renta tradicional.
+      </p>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="bg-gray-100 py-14 sm:py-32">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-10 sm:mb-12 font-display uppercase">
+        Proceso de Compra
+      </h2>
+
+      <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <div>
+          <span class="text-main text-2xl sm:text-3xl font-bold">1</span>
+          <p class="mt-2 font-pattern sm:mt-3 text-sm sm:text-base">Selección de propiedad</p>
+        </div>
+
+        <div>
+          <span class="text-second text-2xl sm:text-3xl font-bold">2</span>
+          <p class="mt-2 font-pattern sm:mt-3 text-sm sm:text-base">Negociación y oferta</p>
+        </div>
+
+        <div>
+          <span class="text-main text-2xl sm:text-3xl font-bold">3</span>
+          <p class="mt-2 font-pattern sm:mt-3 text-sm sm:text-base">Estudio legal y financiero</p>
+        </div>
+
+        <div>
+          <span class="text-second text-2xl sm:text-3xl font-bold">4</span>
+          <p class="mt-2 font-pattern sm:mt-3 text-sm sm:text-base">Firma y entrega</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <CTA 
+    title="¿Listo para Comprar tu Casa en Cartagena?" 
+    description="Contáctanos hoy mismo y encuentra la propiedad ideal con asesoría profesional."
+  /> 
+
+  <!-- BLOQUE SEO -->
+  <section class="bg-gray-50 py-14 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <h2 class="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 font-display uppercase">
+        Inmobiliaria en Cartagena Especializada en Casas
+      </h2>
+
+      <p class="text-gray-700 text-sm sm:text-base mb-4 leading-relaxed font-pattern">
+        BR Property Solutions es una inmobiliaria en Cartagena especializada en la venta de casas en zonas de alta valorización. Ofrecemos asesoría integral para compradores nacionales e internacionales interesados en invertir en propiedad raíz.
+      </p>
+
+      <p class="text-gray-700 text-sm sm:text-base leading-relaxed font-pattern">
+        Nuestro equipo analiza el mercado local para ofrecer oportunidades con potencial de rentabilidad y crecimiento patrimonial.
+      </p>
+    </div>
+  </section>
+
+</div>
+</Layout>

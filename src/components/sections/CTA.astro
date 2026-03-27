@@ -1,29 +1,42 @@
 ---
-import Shape from "../../assets/shape.svg"
-import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
+import Shape from "../../assets/shape.svg";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-
 ---
 
-
 <div class="relative">
-   <img src="https://images.unsplash.com/photo-1651421479936-e24edc3e3143?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="absolute inset-0 object-cover w-full h-full rounded-t-3xl " alt="" />
-    <div class="absolute inset-0 bg-second opacity-50 rounded-t-3xl "></div>
-    <div class="relative rounded-t-3xl">
-     <Shape />
-      <div class="relative  px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-        <div class="flex flex-col items-center justify-between xl:flex-row">
-          <div class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
-            <h2 class="max-w-lg mb-6 font-heading text-3xl text-white sm:text-5xl sm:leading-none intersect:animate-fade-right animate-delay-100">
-              {t("cta.title")} <br class="hidden md:block" />
-              {t("cta.title-01")}
-            </h2>
-            <p class="max-w-xl mb-4 font-pattern text-base text-gray-200 md:text-lg">
-              {t("cta.desc")}
-            </p>
-           <!--
+  <img
+    src="https://images.unsplash.com/photo-1651421479936-e24edc3e3143?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    class="absolute inset-0 object-cover w-full h-full rounded-t-3xl"
+    alt=""
+  />
+  <div class="absolute inset-0 bg-second opacity-50 rounded-t-3xl"></div>
+  <div class="relative rounded-t-3xl">
+    <Shape />
+    <div
+      class="relative px-4 py-16 mx-auto overflow-hidden sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20"
+    >
+      <div class="flex flex-col items-center justify-between xl:flex-row">
+        <div class="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
+          <h2
+            class="max-w-lg mb-6 font-heading text-3xl text-white sm:text-5xl sm:leading-none intersect:animate-fade-right animate-delay-100"
+          >
+            {t("cta.title")}
+            <br class="hidden md:block" />
+            {t("cta.title-01")}
+          </h2>
+          <p
+            class="max-w-xl mb-4 font-pattern text-base text-gray-200 md:text-lg"
+          >
+            {t("cta.desc")}
+          </p>
+          <!--
             <a href="/" aria-label="" class="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-white hover:text-[#60C11C]">
               Learn more
               <svg class="inline-block w-3 ml-2" fill="currentColor" viewBox="0 0 12 12">
@@ -32,69 +45,164 @@ const t = useTranslations(lang);
             </a> 
            
            -->
-          </div>
-          <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
-            <div class="bg-white rounded shadow-2xl p-7 sm:p-10 intersect:animate-fade-left animate-delay-100">
-              <h3 class="mb-4 text-xl font-heading sm:text-center sm:mb-6 sm:text-2xl">
-                {t("cta.desc-01")}
-              </h3>
-              <form id="CTAform">
-                <div class="mb-1 sm:mb-2">
-                  <label for="firstName" class="inline-block mb-1 font-medium font-display">{t("cta.name")}</label>
-                  <input
-                    placeholder={t("cta.name")}
-                    required
-                    type="text"
-                    class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="firstName"
-                    name="firstName"
-                  />
-                </div>
-                <div class="mb-1 sm:mb-2">
-                  <label for="lastName" class="inline-block mb-1 font-medium font-display">{t("cta.lastname")}</label>
-                  <input
-                    placeholder={t("cta.lastname")}
-                    required
-                    type="text"
-                    class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="lastName"
-                    name="lastName"
-                  />
-                </div>
-                <div class="mb-1 sm:mb-2">
-                  <label for="email" class="inline-block mb-1 font-medium font-display">{t("cta.mail")}</label>
-                  <input
-                    placeholder="tucorreo@ejemplo.org"
-                    required
-                    type="text"
-                    class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
-                    id="email"
-                    name="email"
-                  />
-                </div>
-                <div class="mt-4 mb-2 sm:mb-4">
-                  <button
-                    type="submit"
-                    class="font-pattern inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-second hover:bg-[#38384f] focus:shadow-outline focus:outline-none"
-                  >
-                 <a href=""> {t("cta.btn")}</a>
-                  </button>
-                </div>
-               <div class="items-center py-2">
-                <label for="" class="flex gap-2">
-                    <input type="checkbox" name="policy" id="policy" required>
-                    <p class="text-xs font-pattern text-gray-600 sm:text-sm">
-                        {t("cta.privacy")}
-                      </p>
-                </label>
-               </div>
-                <p class="text-xs font-pattern text-gray-600 sm:text-sm">
-                  {t("cta.msg")}
-                </p>
-              </form>
-            </div>
-          </div>
         </div>
+        <div class="w-full max-w-xl xl:px-8 xl:w-5/12">
+          <div
+            class="bg-white rounded shadow-2xl p-7 sm:p-10 intersect:animate-fade-left animate-delay-100"
+          >
+            <form id="CTAform" method="POST" data-astro-reload>
+              <input
+                type="hidden"
+                name="access_key"
+                value="5bad6874-35dd-4f0e-9ca1-575ce834592c"
+              />
+              <div class="mb-1 sm:mb-2">
+                <label
+                  for="firstName"
+                  class="inline-block mb-1 font-medium font-display"
+                  >{t("cta.name")}</label
+                >
+                <input
+                  placeholder={t("cta.name")}
+                  required
+                  type="text"
+                  class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                  id="firstName"
+                  name="firstName"
+                />
+              </div>
+              <div class="mb-1 sm:mb-2">
+                <label
+                  for="lastName"
+                  class="inline-block mb-1 font-medium font-display"
+                  >{t("cta.lastname")}</label
+                >
+                <input
+                  placeholder={t("cta.lastname")}
+                  required
+                  type="text"
+                  class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                  id="lastName"
+                  name="lastName"
+                />
+              </div>
+              <div class="mb-1 sm:mb-2">
+                <label
+                  for="email"
+                  class="inline-block mb-1 font-medium font-display"
+                  >{t("cta.mail")}</label
+                >
+                <input
+                  placeholder="tucorreo@ejemplo.org"
+                  required
+                  type="text"
+                  class="font-pattern text-xs flex-grow w-full h-12 px-4 mb-2 transition duration-200 bg-white border border-gray-300 rounded shadow-sm appearance-none focus:border-deep-purple-accent-400 focus:outline-none focus:shadow-outline"
+                  id="email"
+                  name="email"
+                />
+              </div>
+              <div class="mt-4 mb-2 sm:mb-4">
+                <button
+                  type="submit"
+                  class="font-pattern inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-second hover:bg-[#38384f] focus:shadow-outline focus:outline-none"
+                >
+                  <a href=""> {t("cta.btn")}</a>
+                </button>
+              </div>
+              <div class="items-center py-2">
+                <label for="" class="flex gap-2">
+                  <input type="checkbox" name="policy" id="policy" required />
+                  <p class="text-xs font-pattern text-gray-600 sm:text-sm">
+                    {t("cta.privacy")}
+                  </p>
+                </label>
+              </div>
+              <p class="text-xs font-pattern text-gray-600 sm:text-sm">
+                {t("cta.msg")}
+              </p>
+
+            </form>
+
+          </div>
+
+        </div>
+        
       </div>
+
+      
+      <dialog id="resultCTA" class="mx-auto rounded-xl p-6 shadow-lg my-auto">
+            <form method="dialog">
+    <button class="mt-4 px-4 py-2 rounded-lg bg-blue-600 text-white"
+      >Cerrar</button
+    >
+  </form>
+
+      </dialog>
+  
     </div>
   </div>
+</div>
+
+<script is:inline>
+  // use astro:page-load event if you are using View Transitions
+  document.addEventListener(
+    "astro:page-load",
+    () => {
+      const formCTA = document.getElementById("CTAform");
+      const resultCTA = document.getElementById("resultCTA");
+      const dialog = document.getElementById("resultCTA");
+
+      formCTA.addEventListener("submit", function (e) {
+        e.preventDefault();
+        formCTA.classList.add("validated");
+        if (!formCTA.checkValidity()) {
+          formCTA.querySelectorAll(":invalid")[0].focus();
+          return;
+        }
+        const formData = new FormData(formCTA);
+        const object = Object.fromEntries(formData);
+
+        const json = JSON.stringify(object);
+
+          resultCTA.innerHTML = "Sending...";
+          dialog.showModal();
+
+        fetch("https://api.web3forms.com/submit", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: json,
+        })
+          .then(async (response) => {
+            let json = await response.json();
+            if (response.status == 200) {
+              resultCTA.classList.add("text-oxford-blue");
+              resultCTA.innerHTML =
+                "¡Correo enviado con éxito! Nos comunicaremos en menos de 24 horas.";
+                dialog.showModal();
+            } else {
+              console.log(response);
+              resultCTA.classList.add("text-red-500");
+              resultCTA.innerHTML = json.message;
+              dialog.showModal();
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+            resultCTA.innerHTML = "Something went wrong!";
+            dialog.showModal();
+          })
+          .then(function () {
+            formCTA.reset();
+            formCTA.classList.remove("validated");
+            setTimeout(() => {
+              resultCTA.style.display = "none";
+            }, 5000);
+          });
+      });
+    },
+    { once: true },
+  );
+</script>

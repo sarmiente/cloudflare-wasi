@@ -1,11 +1,11 @@
 ---
 // @ts-nocheck
-
 import Layout from "../../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from '../../i18n/utils';
 import PropertySwiper from "../../components/sections/PropertySwiper.astro";
 import FeaturesListEng from "../../components/sections/FeaturesListEng.astro"
+import ShareThis from "../../components/buttons/ShareThis.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -33,16 +33,25 @@ async function fetchProperty(params: Record<string, string | undefined>) {
 // Llamar a la función con los parámetros disponibles
 await fetchProperty(Astro.params);
 
+// Convertir el objeto de galerías en un arreglo
+const images =
+  property?.galleries && property.galleries.length > 0
+    ? Object.values(property.galleries[0])
+    : [];
+
+
 ---
-<Layout title={property.title}>
+<Layout title={property.title} image={images.length > 1 ? images[0].url : '/br_front_1.jpg'}>
+
    <section class="pt-32 pb-16">
-      {/*                
-        <div class="mx-auto px-6 md:px-12">
-                  <button  onclick="window.history.back()">
+                 
+       {/*
+         <div class="mx-auto max-w-6xl px-6 md:px-4 flex justify-start py-4">
+                  <button class="bg-main text-white px-4 py-2 rounded-lg hover:bg-gray-800 transition-colors duration-300" onclick="window.history.back()">
                     Back
                   </button>
         </div>
-      */}
+       */} 
   
     {property ? (
                   <div class="mx-auto max-w-6xl px-6 md:px-4">
@@ -126,6 +135,10 @@ await fetchProperty(Astro.params);
       
          
       <FeaturesListEng />
+
+      <div class="py-12">
+        <ShareThis />
+      </div>
 
 
       
