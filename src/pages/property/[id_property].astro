@@ -40,8 +40,13 @@ const images =
     : [];
 
 
+
 ---
-<Layout title={property.title} image={images.length > 1 ? images[0].url : '/br_front_1.jpg'}>
+<Layout
+  title={property.title}
+  image={property.main_image?.url_original}
+  description={property.comment || property.observations}
+>
 
    <section class="pt-32 pb-16">
                  

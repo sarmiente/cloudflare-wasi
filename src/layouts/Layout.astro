@@ -1,8 +1,10 @@
 ---
 interface Props {
   title: string;
+  image?: string;
+  description?: string;
 }
-const { title } = Astro.props;
+const { title, image, description } = Astro.props;
 
 import "../../src/styles/global.css";
 import Basehead from "../components/layout/BaseHead.astro";
@@ -20,7 +22,7 @@ const lang = getLangFromUrl(Astro.url);
 <!doctype html>
 <html lang={lang}>
   <head>
-    <Basehead title={title} />
+    <Basehead title={title} image={image} description={description} />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

@@ -35,7 +35,11 @@ async function fetchProperty(params: Record<string, string | undefined>) {
 await fetchProperty(Astro.params);
 
 ---
-<Layout title={property.title}>
+<Layout
+  title={property.title}
+  image={property.main_image?.url_original}
+  description={property.comment || property.observations}
+>
    <section class="pt-32 pb-16">
       {/*                
         <div class="mx-auto px-6 md:px-12">
